@@ -225,7 +225,6 @@ public class Quiz implements ActionListener{
 			}
 		}
 		
-		System.out.println( "hhh" );
 		//delay - after the delay, the action is performed
 		Timer pause =  new Timer( TIME, new ActionListener() {
 			
