@@ -1,4 +1,6 @@
 import java.awt.event.*;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.awt.*;
 import javax.swing.*;
 
@@ -44,16 +46,15 @@ public class Quiz implements ActionListener{
 									'C',
 									'C'
 					 			  };
-	
-	char guess;
-	char answer;
-	int index;
-	int correct_guesses = 0;
-	int result;
-	int seconds = 10;
-	
+		
+	private static final int SECONDS = 10; //how much time the user have to answer
 	private static final int SIZE = questions.length; //in Java there is no #define
-	private static final int TIME = 2000;
+	private static final int TIME = 2000; //how much time the solusion is displayed
+	
+	int counter = SECONDS;
+	int index = 0;
+	int correct_guesses = 0;
+	BigDecimal result; //so the percentage dan be rounded
 	
 	JFrame frame = new JFrame();
 	JTextField txtF = new JTextField();
@@ -63,8 +64,19 @@ public class Quiz implements ActionListener{
 	JLabel secondsL = new JLabel();
 	JTextField numberF = new JTextField();
 	JTextField percentageF = new JTextField();
-	String s = "00:" + String.valueOf( seconds );
+	String s = "00:";
 	
+	Timer timer =  new Timer( 1000, new ActionListener() { //every one second
+		
+		@Override
+		public void actionPerformed( ActionEvent e ) {
+			counter--;
+			if( counter >= 10 ) s = "00:" + String.valueOf( counter );
+			else s = "00:0" + String.valueOf( counter );
+			secondsL.setText( s );
+			if( counter <= 0 ) displayAnswer();
+		}
+	});
 	
 	
 	
@@ -123,7 +135,6 @@ public class Quiz implements ActionListener{
 		secondsL.setForeground( Color.white );
 		secondsL.setFont( new Font( "Trebuchet MS", Font.BOLD, 25 ) );
 		secondsL.setHorizontalAlignment( JLabel.CENTER );
-		secondsL.setText( s );
 		secondsL.setVisible( false );
 		
 		numberF.setBounds( 20, 230, 400, 80 );
@@ -166,13 +177,17 @@ public class Quiz implements ActionListener{
 			return;
 		}
 		
-		txtF.setText( "question" + ( index + 1 ) );
+		txtF.setText( "question " + ( index + 1 ) );
 		txtP.setText( questions[index] );
 		for( int i = 0; i < SIZE; i++ ) {
 			buttonsB[i].setVisible( true );
 			answerL[i].setText( options[index][i] );
 		}
+		if( SECONDS >= 10 ) s = "00:" + String.valueOf( SECONDS );
+		else s = "00:0" + String.valueOf( SECONDS );
+		secondsL.setText( s );
 		secondsL.setVisible( true );
+		timer.start();
 	}
 
 	@Override
@@ -193,6 +208,9 @@ public class Quiz implements ActionListener{
 	}
 	
 	public void displayAnswer() {
+		timer.stop();
+		secondsL.setVisible( false );
+
 		UIManager.put( "Button.disabledText", Color.white ); //to control the color of disabled JButtons
 		UIManager.put( "Button.disabledText", UIManager.getDefaults().getColor("Button.disabledText") );
 		
@@ -217,8 +235,7 @@ public class Quiz implements ActionListener{
 					buttonsB[i].setEnabled( true );
 					buttonsB[i].setBorder( BorderFactory.createLineBorder( Color.white, 5) );
 				}
-				answer = ' ';
-				seconds = 10;
+				counter = SECONDS;
 				secondsL.setText( s );
 				index++;
 				nextQuestion();
@@ -233,10 +250,39 @@ public class Quiz implements ActionListener{
 	}
 	
 	public void results() {
+		timer.stop();
+		secondsL.setVisible( false );
+		
 		for( int i = 0; i < SIZE; i++ ) {
 			buttonsB[i].setEnabled( false );
 			buttonsB[i].setVisible( false );
+			answerL[i].setVisible( false );
 		}
+		result = BigDecimal.valueOf( ( correct_guesses / ( double ) SIZE ) * 100 ).setScale(2, RoundingMode.HALF_UP);		
+	
+		txtF.setFont( new Font( "Trebuchet MS", Font.BOLD, 60 ) );
+		txtF.setBounds( 20, 160, 400, 70 );
+		txtP.setVisible( false );
+		numberF.setText( correct_guesses + "/" + SIZE );
+		percentageF.setText( result.toString() + "%" );
+		if( result.doubleValue() > 75 ) txtF.setText( "Congrats!" );
+		else if( result.doubleValue() > 50 ) txtF.setText( "Well done!" );
+		else if( result.doubleValue() > 25 ) txtF.setText( "Good effort!" );
+		else txtF.setText( "Keep going!" );
+	
+		frame.add( numberF );
+		frame.add( percentageF );
 		
+		//here add some button to close the quiz window or go to main menu? (if it should become a game with several quizes...)
 	}
 }
+
+/* Some ideas:
+ * - hearts you can use to eliminate one wrong answer during the game
+ * - quizes info loaded from file
+ * - main menu with play (some quizes you can choose from) and exit button
+ * - from 5 to for example 20 questions per game (user can choose how many, and different number of hearts in different quiz option)
+ * - questions are randomly picked from the list (maybe a HashMap to store if an answer is good or not? it will be easier to go through the questions)
+ * - nice logo and name for the app
+ * - different difficulty lvl's depends on how much time do you have to answer the question
+ */
