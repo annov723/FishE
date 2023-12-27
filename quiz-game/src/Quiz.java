@@ -49,9 +49,11 @@ public class Quiz implements ActionListener{
 	char answer;
 	int index;
 	int correct_guesses = 0;
-	private static final int SIZE = questions.length; //in Java there is no #define
 	int result;
 	int seconds = 10;
+	
+	private static final int SIZE = questions.length; //in Java there is no #define
+	private static final int TIME = 2000;
 	
 	JFrame frame = new JFrame();
 	JTextField txtF = new JTextField();
@@ -61,6 +63,7 @@ public class Quiz implements ActionListener{
 	JLabel secondsL = new JLabel();
 	JTextField numberF = new JTextField();
 	JTextField percentageF = new JTextField();
+	String s = "00:" + String.valueOf( seconds );
 	
 	
 	
@@ -120,7 +123,6 @@ public class Quiz implements ActionListener{
 		secondsL.setForeground( Color.white );
 		secondsL.setFont( new Font( "Trebuchet MS", Font.BOLD, 25 ) );
 		secondsL.setHorizontalAlignment( JLabel.CENTER );
-		String s = "00:" + String.valueOf( seconds );
 		secondsL.setText( s );
 		secondsL.setVisible( false );
 		
@@ -182,22 +184,59 @@ public class Quiz implements ActionListener{
 		
 		for( int i = 0; i < SIZE; i++ ) {
 			if( e.getSource()==buttonsB[i] ) {
-				answer = buttonsB[i].getText().charAt( 0 );
-				if( answer == answers[index] ) {
+				if( buttonsB[i].getText().charAt( 0 ) == answers[index] ) {
 					correct_guesses++;
 				}
 			}
 		}
-		
-		
-		
+		displayAnswer();
 	}
 	
 	public void displayAnswer() {
+		UIManager.put( "Button.disabledText", Color.white ); //to control the color of disabled JButtons
+		UIManager.put( "Button.disabledText", UIManager.getDefaults().getColor("Button.disabledText") );
+		
+		for( int i = 0; i < SIZE; i++ ) {
+			buttonsB[i].setEnabled( false );
+			if( answers[index] != buttonsB[i].getText().charAt( 0 ) ) {
+				buttonsB[i].setBorder( BorderFactory.createLineBorder( Color.red, 5) ); //border color can be changed, no matter if the button is enabled or not
+				
+			}
+			else {
+				buttonsB[i].setBorder( BorderFactory.createLineBorder( Color.green, 5) );
+			}
+		}
+		
+		System.out.println( "hhh" );
+		//delay - after the delay, the action is performed
+		Timer pause =  new Timer( TIME, new ActionListener() {
+			
+			@Override
+			public void actionPerformed( ActionEvent e ) {
+				for( int i = 0; i < SIZE; i++ ) {
+					buttonsB[i].setEnabled( true );
+					buttonsB[i].setBorder( BorderFactory.createLineBorder( Color.white, 5) );
+				}
+				answer = ' ';
+				seconds = 10;
+				secondsL.setText( s );
+				index++;
+				nextQuestion();
+			}
+		});
+		
+		pause.setRepeats( false ); //timer ActionPerformed executed once
+		pause.start();
+		
+		
 		
 	}
 	
 	public void results() {
+		for( int i = 0; i < SIZE; i++ ) {
+			buttonsB[i].setEnabled( false );
+			buttonsB[i].setVisible( false );
+		}
 		
 	}
 }
