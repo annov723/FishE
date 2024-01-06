@@ -275,13 +275,3 @@ public class Quiz implements ActionListener{
 		//here add some button to close the quiz window or go to main menu? (if it should become a game with several quizes...)
 	}
 }
-
-/* Some ideas:
- * - hearts you can use to eliminate one wrong answer during the game
- * - quizes info loaded from file
- * - main menu with play (some quizes you can choose from) and exit button
- * - from 5 to for example 20 questions per game (user can choose how many, and different number of hearts in different quiz option)
- * - questions are randomly picked from the list (maybe a HashMap to store if an answer is good or not? it will be easier to go through the questions)
- * - nice logo and name for the app
- * - different difficulty lvl's depends on how much time do you have to answer the question
- */
