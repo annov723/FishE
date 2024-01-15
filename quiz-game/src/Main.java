@@ -1,3 +1,19 @@
+//class for storing all the quizes data
+class DataStruct {
+	int amount;
+	String title;
+    String[] questions;
+    String[] options;
+    String[] answers;
+
+    public DataStruct( int amount, String title, String[] questions, String[] options, String[] answers ) {
+        this.amount = amount;
+        this.title = title;
+        this.questions = questions;
+        this.options = options;
+        this.answers = answers;
+    }
+}
 
 public class Main {
 
@@ -15,7 +31,7 @@ public class Main {
  * there is a some kind of sturcture which holds a stucture elements, each with 5 elements: int number of questions, string title of the quiz, string[] questions, string[][] answers, string[] good answer
  * when the file is open, the info is sent to the Menu class
  * one structure element in one line, all new strings seperated with ";"
-*/
+ */
 
 /**
  * ### MENU DESCRIPTION ###
@@ -39,15 +55,16 @@ public class Main {
  * 					amount of questions (5, 10, 15, ..., 30), not more than possible in the chosen category - the same appearance as the amount of time
  * 			this data is send to the Quiz.java
  * 			also the structure with chosen categeory elements is sent
-*/
+ * 			questions and options order is shuffled every time the quiz is run
+ */
 
 /**
  * ### QUIZ DESCRIPTION ###
  * 3 hearts in the left upper corner (wrong answer or time is up = lost 1 heart -> without hearts the quiz ends)
- * back button to go back to the main menu with pop-up info if the user is sure about ending the quiz
- * window appears at the center of the screen
- * window cannot be closed with the close button!
-*/
+ * DONE: back button to go back to the main menu with pop-up info if the user is sure about ending the quiz
+ * DONE: window appears at the center of the screen
+ * DONE: window cannot be closed with the close button!
+ */
 
 /* Some ideas:
  * - hearts you lose when you make wrong choice
@@ -56,5 +73,11 @@ public class Main {
  * - from 5 to for example 20 questions per game (user can choose how many, and different number of hearts in different quiz option)
  * - questions are randomly picked from the list (maybe a HashMap to store if an answer is good or not? it will be easier to go through the questions)
  * - nice logo and name for the app
- * - different difficulty lvl's depends on how much time do you have to answer the question
+ * - different difficulty lvl's depend on how much time do you have to answer the question
+ * - easter egg: if you tap the logo the new window appear where the herd of wild fishes is chasing (following) the mouse ^^
+ */
+
+/* Ideas for further upgrades:
+ * - when back button in quiz is clicked the time stops? (it is something like a game pause)
+ * 
  */
