@@ -75,6 +75,7 @@ public class Quiz implements ActionListener, MouseListener{
 	String s = "00:";
 	
 	JButton backB = new JButton();
+	ImageIcon heart = new ImageIcon( "heart.png" );
 	
 	Timer timer =  new Timer( 1000, new ActionListener() { //every one second
 		@Override

@@ -60,7 +60,7 @@ public class Main {
 
 /**
  * ### QUIZ DESCRIPTION ###
- * 3 hearts in the left upper corner (wrong answer or time is up = lost 1 heart -> without hearts the quiz ends)
+ * 3 hearts in the left upper corner (wrong answer or time is up = lost 1 heart -> without hearts the quiz ends) -> array of hearts?
  * DONE: back button to go back to the main menu with pop-up info if the user is sure about ending the quiz
  * DONE: window appears at the center of the screen
  * DONE: window cannot be closed with the close button!
