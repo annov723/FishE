@@ -64,6 +64,7 @@ public class Main {
  * DONE: back button to go back to the main menu with pop-up info if the user is sure about ending the quiz
  * DONE: window appears at the center of the screen
  * DONE: window cannot be closed with the close button!
+ * uses the list list of questions passed by the Menu
  */
 
 /* Some ideas:

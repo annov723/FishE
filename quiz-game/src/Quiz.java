@@ -96,8 +96,7 @@ public class Quiz implements ActionListener, MouseListener{
 		frame.setLayout( null );
 		frame.setResizable( false ); //people cannot resize the window
 		frame.setLocationRelativeTo( null ); //appears in the center
-		//frame.setDefaultCloseOperation( JFrame.DO_NOTHING_ON_CLOSE );
-		frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+		frame.setDefaultCloseOperation( JFrame.DO_NOTHING_ON_CLOSE );
 		
 		txtF.setBounds( 20, 80, 400, 50 );
 		txtF.setBackground( new Color ( 104, 105, 191 ) );
@@ -264,12 +263,14 @@ public class Quiz implements ActionListener, MouseListener{
 		for( int i = 0; i < SIZE; i++ ) {
 			buttonsB[i].setEnabled( false );
 			answerB[i].setEnabled( false );
+			answerB[i].setForeground( Color.white );
+			buttonsB[i].setForeground( Color.white );
 			if( answers[index] != buttonsB[i].getText().charAt( 0 ) ) {
-				buttonsB[i].setBorder( BorderFactory.createLineBorder( Color.red, 5) ); //border color can be changed, no matter if the button is enabled or not
+				buttonsB[i].setBorder( BorderFactory.createLineBorder( new Color( 255, 92, 92 ), 5) ); //border color can be changed, no matter if the button is enabled or not
 				
 			}
 			else {
-				buttonsB[i].setBorder( BorderFactory.createLineBorder( Color.green, 5) );
+				buttonsB[i].setBorder( BorderFactory.createLineBorder( new Color( 131, 252, 139 ), 5) );
 			}
 		}
 		
