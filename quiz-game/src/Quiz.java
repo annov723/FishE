@@ -81,10 +81,11 @@ public class Quiz implements ActionListener, MouseListener{
 	ImageIcon heart1 = new ImageIcon( "heart2.png" );
 	ImageIcon heart2 = new ImageIcon( "heart2.png" );
 	ImageIcon heart3 = new ImageIcon( "heart2.png" );
-	JLabel heart1J;
-	JLabel heart2J;
-	JLabel heart3J;
+	JLabel heart1L;
+	JLabel heart2L;
+	JLabel heart3L;
 	JPanel hearts = new JPanel();
+	int heart_count = 3;
 	
 	Timer timer =  new Timer( 1000, new ActionListener() { //every one second
 		@Override
@@ -93,7 +94,10 @@ public class Quiz implements ActionListener, MouseListener{
 			if( counter >= 10 ) s = "00:" + String.valueOf( counter );
 			else s = "00:0" + String.valueOf( counter );
 			secondsL.setText( s );
-			if( counter <= 0 ) displayAnswer();
+			if( counter <= 0 ) {
+				heart_count--;
+				displayAnswer();
+			}
 		}
 	});
 	
@@ -194,21 +198,22 @@ public class Quiz implements ActionListener, MouseListener{
 		Image logoBefore = heart1.getImage();
 		Image logoAfter = logoBefore.getScaledInstance( 40, 40, java.awt.Image.SCALE_SMOOTH );
 		heart1 = new ImageIcon( logoAfter );
-		heart1J = new JLabel( heart1 );
+		heart1L = new JLabel( heart1 );
 		logoBefore = heart2.getImage();
 		logoAfter = logoBefore.getScaledInstance( 40, 40, java.awt.Image.SCALE_SMOOTH );
 		heart2 = new ImageIcon( logoAfter );
-		heart2J = new JLabel( heart2 );
+		heart2L = new JLabel( heart2 );
 		logoBefore = heart3.getImage();
 		logoAfter = logoBefore.getScaledInstance( 40, 40, java.awt.Image.SCALE_SMOOTH );
 		heart3 = new ImageIcon( logoAfter );
-		heart3J = new JLabel( heart3 );
+		heart3L = new JLabel( heart3 );
 		
 		hearts.setLayout( new GridLayout( 1, 3 ) );
 		hearts.setBounds( 20, 20, 120, 40 );
-		hearts.add( heart1J );
-		hearts.add( heart2J );
-		hearts.add( heart3J );
+		hearts.setOpaque(false);
+		hearts.add( heart1L );
+		hearts.add( heart2L );
+		hearts.add( heart3L );
 		
 		
 		
@@ -228,7 +233,7 @@ public class Quiz implements ActionListener, MouseListener{
 	}
 	
 	public void nextQuestion() {
-		if( index >= SIZE ) {
+		if( index >= SIZE || heart_count == 0 ) {
 			results();
 			return;
 		}
@@ -269,6 +274,11 @@ public class Quiz implements ActionListener, MouseListener{
 					if( buttonsB[i].getText().charAt( 0 ) == answers[index] ) {
 						correct_guesses++;
 					}
+					else {
+						heart_count--;
+						if( heart_count == 2 ) heart3L.setVisible( false );
+						else if( heart_count == 1 ) heart2L.setVisible( false );
+					}
 				}
 			}
 			
@@ -277,11 +287,19 @@ public class Quiz implements ActionListener, MouseListener{
 					if( buttonsB[i].getText().charAt( 0 ) == answers[index] ) {
 						correct_guesses++;
 					}
+					else {
+						heart_count--;
+						if( heart_count == 2 ) heart3L.setVisible( false );
+						else if( heart_count == 1 ) heart2L.setVisible( false );						
+					}
 				}
 			}
 			
 			displayAnswer();
 		}
+		
+		
+		
 	}
 	
 	
@@ -331,6 +349,7 @@ public class Quiz implements ActionListener, MouseListener{
 	public void results() {
 		timer.stop();
 		secondsL.setVisible( false );
+		hearts.setVisible( false );
 		
 		for( int i = 0; i < SIZE; i++ ) {
 			buttonsB[i].setEnabled( false );
@@ -344,7 +363,11 @@ public class Quiz implements ActionListener, MouseListener{
 		txtP.setVisible( false );
 		numberF.setText( correct_guesses + "/" + SIZE );
 		percentageF.setText( result.toString() + "%" );
-		if( result.doubleValue() > 75 ) txtF.setText( "Congrats!" );
+		if( heart_count == 0 && index < SIZE ) {
+			txtF.setFont( new Font( "Trebuchet MS", Font.BOLD, 35 ) );
+			txtF.setText( "Oops! No hearts left." );
+		}
+		else if( result.doubleValue() > 75 ) txtF.setText( "Congrats!" );
 		else if( result.doubleValue() > 50 ) txtF.setText( "Well done!" );
 		else if( result.doubleValue() > 25 ) txtF.setText( "Good effort!" );
 		else txtF.setText( "Keep going!" );
