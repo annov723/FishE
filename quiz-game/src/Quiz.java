@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -74,8 +75,16 @@ public class Quiz implements ActionListener, MouseListener{
 	JTextField percentageF = new JTextField();
 	String s = "00:";
 	
+	ImageIcon icon = new ImageIcon( "mini.png" ); //an icon for menu display
+	
 	JButton backB = new JButton();
-	ImageIcon heart = new ImageIcon( "heart.png" );
+	ImageIcon heart1 = new ImageIcon( "heart2.png" );
+	ImageIcon heart2 = new ImageIcon( "heart2.png" );
+	ImageIcon heart3 = new ImageIcon( "heart2.png" );
+	JLabel heart1J;
+	JLabel heart2J;
+	JLabel heart3J;
+	JPanel hearts = new JPanel();
 	
 	Timer timer =  new Timer( 1000, new ActionListener() { //every one second
 		@Override
@@ -98,6 +107,8 @@ public class Quiz implements ActionListener, MouseListener{
 		frame.setResizable( false ); //people cannot resize the window
 		frame.setLocationRelativeTo( null ); //appears in the center
 		frame.setDefaultCloseOperation( JFrame.DO_NOTHING_ON_CLOSE );
+		frame.setIconImage( icon.getImage() );
+		frame.setTitle( "quiz" );
 		
 		txtF.setBounds( 20, 80, 400, 50 );
 		txtF.setBackground( new Color ( 104, 105, 191 ) );
@@ -179,11 +190,32 @@ public class Quiz implements ActionListener, MouseListener{
 		backB.setText( "back" );
 		backB.setVisible( true );
 		
+		//hearts
+		Image logoBefore = heart1.getImage();
+		Image logoAfter = logoBefore.getScaledInstance( 40, 40, java.awt.Image.SCALE_SMOOTH );
+		heart1 = new ImageIcon( logoAfter );
+		heart1J = new JLabel( heart1 );
+		logoBefore = heart2.getImage();
+		logoAfter = logoBefore.getScaledInstance( 40, 40, java.awt.Image.SCALE_SMOOTH );
+		heart2 = new ImageIcon( logoAfter );
+		heart2J = new JLabel( heart2 );
+		logoBefore = heart3.getImage();
+		logoAfter = logoBefore.getScaledInstance( 40, 40, java.awt.Image.SCALE_SMOOTH );
+		heart3 = new ImageIcon( logoAfter );
+		heart3J = new JLabel( heart3 );
+		
+		hearts.setLayout( new GridLayout( 1, 3 ) );
+		hearts.setBounds( 20, 20, 120, 40 );
+		hearts.add( heart1J );
+		hearts.add( heart2J );
+		hearts.add( heart3J );
+		
 		
 		
 		frame.add( txtF );
 		frame.add( txtP );
 		frame.add( secondsL );
+		frame.add( hearts );
 		
 		for( int i = 0; i < SIZE; i++ ) {
 			frame.add( buttonsB[i] );
