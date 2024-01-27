@@ -103,7 +103,9 @@ public class Quiz implements ActionListener, MouseListener{
 	
 	
 	
-	public Quiz() {
+	public Quiz( String title ) {
+		
+		//get quiz data from file!
 		
 		frame.setSize( 450, 800 );
 		frame.getContentPane().setBackground( new Color( 104, 105, 191 ) );
@@ -211,7 +213,7 @@ public class Quiz implements ActionListener, MouseListener{
 		
 		hearts.setLayout( new GridLayout( 1, 3 ) );
 		hearts.setBounds( 20, 20, 120, 40 );
-		hearts.setOpaque(false);
+		hearts.setOpaque( false );
 		hearts.add( heart1L );
 		hearts.add( heart2L );
 		hearts.add( heart3L );
@@ -446,24 +448,5 @@ public class Quiz implements ActionListener, MouseListener{
 		}
 		
 	}
-
-
-
-	/*public void showQuiz() {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                frame.setVisible( true );
-            }
-        });
-    }*/
-
-
-
-
-
-
-
-	
 	
 }

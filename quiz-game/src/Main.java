@@ -19,11 +19,16 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		Quiz quiz = new Quiz();
+		Quiz quiz = new Quiz( "bob" );
 		
 	}
 
 }
+
+/** ### OVERALL STRUCTURE DESCRIPTION ###
+ * Quiz class has it's own JFrame, independent from the Menu's JFrame
+ * I'll try to make Fishes and topic pickers in the other class too but this time use the same JFrame (this from Menu class)
+ */
 
 /**
  * ### DATA DESCRIPTION ###
@@ -36,7 +41,7 @@ public class Main {
 /**
  * ### MENU DESCRIPTION ###
  * game logo and title (animated?)
- * 3 buttons - quiz, FishE, quit
+ * DONE: 3 buttons - quiz, FishE, quit
  * window appears at the center of the screen, blocked for size changes, can be closed only with quit button
  * all the buttons should be animated when enetered!
  * when quiz or FishE clicked:
@@ -56,6 +61,8 @@ public class Main {
  * 			this data is send to the Quiz.java
  * 			also the structure with chosen categeory elements is sent
  * 			questions and options order is shuffled every time the quiz is run
+ * Easter Egg when the logo is clicked
+ * background with something like a coral reef shape at the bottom and water bubbles and fishes are coming from it (place the exit button there)
  */
 
 /**
@@ -65,20 +72,27 @@ public class Main {
  * DONE: window appears at the center of the screen
  * DONE: window cannot be closed with the close button!
  * uses the list list of questions passed by the Menu
+ * window title is set as "Quiz - quiz_name"
+ */
+
+/**
+ * ### DATA DESCRIPTION ###
+ * class with functions responsible from file handling
+ * for Menu: function is returning all quizes' titles
+ * for Quiz: function is returning data for the choosen quiz
  */
 
 /* Some ideas:
- * - hearts you lose when you make wrong choice
- * - quizes info loaded from file
- * - main menu with play (some quizes you can choose from), FishE and exit button
- * - from 5 to for example 20 questions per game (user can choose how many, and different number of hearts in different quiz option)
- * - questions are randomly picked from the list (maybe a HashMap to store if an answer is good or not? it will be easier to go through the questions)
- * - nice logo and name for the app
- * - different difficulty lvl's depend on how much time do you have to answer the question
- * - easter egg: if you tap the logo the new window appear where the herd of wild fishes is chasing (following) the mouse ^^
+ * DONE: hearts you lose when you make wrong choice
+ * quizes info loaded from file
+ * DONE: main menu with play (some quizes you can choose from), FishE and exit button
+ * from 5 to for example 20 questions per game (user can choose how many, and different number of hearts in different quiz option)
+ * questions are randomly picked from the list (maybe a HashMap to store if an answer is good or not? it will be easier to go through the questions)
+ * nice logo and name for the app
+ * different difficulty lvl's depend on how much time do you have to answer the question
+ * easter egg: if you tap the logo the new window appear where the herd of wild fishes is chasing (following) the mouse ^^
  */
 
 /* Ideas for further upgrades:
- * - when back button in quiz is clicked the time stops? (it is something like a game pause)
  * 
  */
