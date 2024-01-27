@@ -182,6 +182,7 @@ public class Quiz implements ActionListener, MouseListener{
 		percentageF.setEditable( false );
 		percentageF.setBorder( javax.swing.BorderFactory.createEmptyBorder() );
 		percentageF.setHorizontalAlignment( JTextField.CENTER );
+		percentageF.setVisible( false );
 		
 		backB.setBounds( 250, 665, 150, 65 );
 		backB.setForeground( Color.white );
@@ -253,7 +254,7 @@ public class Quiz implements ActionListener, MouseListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		if( e.getSource()==backB ) {
+		if( e.getSource()==backB && !percentageF.isVisible() ) {
 			int result = JOptionPane.showConfirmDialog( frame, "Are you sure you want to go back to menu?\nYour progress will be lost.", "", JOptionPane.YES_NO_OPTION );
             if ( result == JOptionPane.YES_OPTION ) {
             	frame.dispose();
@@ -262,6 +263,11 @@ public class Quiz implements ActionListener, MouseListener{
             if ( result == JOptionPane.NO_OPTION ) {
             	
             }
+		}
+		else if( e.getSource()==backB && percentageF.isVisible() ) {
+            frame.dispose();
+            Menu menu = new Menu();
+     
 		}
 		else {
 			for( int i = 0; i < SIZE; i++ ) {
@@ -356,13 +362,14 @@ public class Quiz implements ActionListener, MouseListener{
 			buttonsB[i].setVisible( false );
 			answerB[i].setVisible( false );
 		}
-		result = BigDecimal.valueOf( ( correct_guesses / ( double ) SIZE ) * 100 ).setScale(2, RoundingMode.HALF_UP);		
+		result = BigDecimal.valueOf( ( correct_guesses / ( double ) SIZE ) * 100 ).setScale(1, RoundingMode.HALF_UP);		
 	
 		txtF.setFont( new Font( "Trebuchet MS", Font.BOLD, 60 ) );
 		txtF.setBounds( 20, 160, 400, 70 );
 		txtP.setVisible( false );
 		numberF.setText( correct_guesses + "/" + SIZE );
 		percentageF.setText( result.toString() + "%" );
+		percentageF.setVisible( true );
 		if( heart_count == 0 && index < SIZE ) {
 			txtF.setFont( new Font( "Trebuchet MS", Font.BOLD, 35 ) );
 			txtF.setText( "Oops! No hearts left." );
@@ -371,11 +378,11 @@ public class Quiz implements ActionListener, MouseListener{
 		else if( result.doubleValue() > 50 ) txtF.setText( "Well done!" );
 		else if( result.doubleValue() > 25 ) txtF.setText( "Good effort!" );
 		else txtF.setText( "Keep going!" );
+		
+		backB.setBounds( 142, 450, 150, 65 );
 	
 		frame.add( numberF );
 		frame.add( percentageF );
-		
-		//here add some button to close the quiz window or go to main menu? (if it should become a game with several quizes...)
 	}
 
 	@Override
@@ -442,14 +449,14 @@ public class Quiz implements ActionListener, MouseListener{
 
 
 
-	public void showQuiz() {
+	/*public void showQuiz() {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
                 frame.setVisible( true );
             }
         });
-    }
+    }*/
 
 
 
