@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -11,16 +12,24 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class Menu implements ActionListener, MouseListener{
 	
 	JFrame frame = new JFrame( "FishE" ); //a title for menu display
 	ImageIcon icon = new ImageIcon( "mini.png" ); //an icon for menu display
+	ImageIcon logo = new ImageIcon( "logo.png" );
+	JLabel logoL;
+	JLabel  backgroundL = new JLabel( new ImageIcon( "background.png" ) );
+	JLabel backL = new JLabel();
+	
+	
 	JButton exitB = new JButton();
 	JButton quizB = new JButton();
 	JButton fisheB = new JButton();
 	JPanel menuP = new JPanel();
+	
 	
 	
 	public Menu() {
@@ -33,6 +42,13 @@ public class Menu implements ActionListener, MouseListener{
 		frame.setDefaultCloseOperation( JFrame.DO_NOTHING_ON_CLOSE );
 		frame.setIconImage( icon.getImage() );
 		
+		Image logoBefore = logo.getImage();
+		Image logoAfter = logoBefore.getScaledInstance( 332, 249, java.awt.Image.SCALE_SMOOTH );
+		logo = new ImageIcon( logoAfter );
+		logoL = new JLabel( logo );
+		logoL.setBounds( 55, 25, 332, 249 );
+		logoL.setVisible( true );
+		
 		exitB.setBounds( 142, 495, 150, 65 );
 		exitB.setForeground( Color.white );
 		exitB.setFont( new Font( "Trebuchet MS", Font.PLAIN, 25 ) );
@@ -44,7 +60,7 @@ public class Menu implements ActionListener, MouseListener{
 		exitB.setText( "exit" );
 		exitB.setVisible( true );
 		
-		quizB.setBounds( 142, 405, 150, 65 );
+		quizB.setBounds( 142, 315, 150, 65 );
 		quizB.setForeground( Color.white );
 		quizB.setFont( new Font( "Trebuchet MS", Font.PLAIN, 25 ) );
 		quizB.setContentAreaFilled( false );
@@ -55,7 +71,7 @@ public class Menu implements ActionListener, MouseListener{
 		quizB.setText( "quiz" );
 		quizB.setVisible( true );
 		
-		fisheB.setBounds( 142, 315, 150, 65 );
+		fisheB.setBounds( 142, 405, 150, 65 );
 		fisheB.setForeground( Color.white );
 		fisheB.setFont( new Font( "Trebuchet MS", Font.PLAIN, 25 ) );
 		fisheB.setContentAreaFilled( false );
@@ -66,13 +82,18 @@ public class Menu implements ActionListener, MouseListener{
 		fisheB.setText( "FishE" );
 		fisheB.setVisible( true );
 		
-		menuP.setSize( 450, 800 );
-		menuP.setOpaque( false );
-		menuP.add( exitB );
-		menuP.add( quizB );
-		menuP.add( fisheB );
+		backgroundL.setBounds( -10, 0, 450, 800 );
+		backgroundL.setVisible( true );
 		
-		frame.add( menuP );
+		backL.setBounds( 0, 0, 450, 800 );
+		backL.setVisible( true );
+		backL.add( exitB );
+		backL.add( quizB );
+		backL.add( fisheB );
+		backL.add( logoL );
+		backL.add( backgroundL );
+		
+		frame.add( backL );
 		frame.setVisible( true );
 		
 	}
