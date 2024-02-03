@@ -235,24 +235,6 @@ public class Quiz implements ActionListener, MouseListener{
 		nextQuestion();
 	}
 	
-	public void nextQuestion() {
-		if( index >= SIZE || heart_count == 0 ) {
-			results();
-			return;
-		}
-		
-		txtF.setText( "question " + ( index + 1 ) );
-		txtP.setText( questions[index] );
-		for( int i = 0; i < SIZE; i++ ) answerB[i].setText( options[index][i] );
-		if( SECONDS >= 10 ) s = "00:" + String.valueOf( SECONDS );
-		else s = "00:0" + String.valueOf( SECONDS );
-		secondsL.setText( s );
-		secondsL.setVisible( true );
-		timer.start();
-	}
-
-	
-	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
@@ -311,6 +293,22 @@ public class Quiz implements ActionListener, MouseListener{
 	}
 	
 	
+	
+	public void nextQuestion() {
+		if( index >= SIZE || heart_count == 0 ) {
+			results();
+			return;
+		}
+		
+		txtF.setText( "question " + ( index + 1 ) );
+		txtP.setText( questions[index] );
+		for( int i = 0; i < SIZE; i++ ) answerB[i].setText( options[index][i] );
+		if( SECONDS >= 10 ) s = "00:" + String.valueOf( SECONDS );
+		else s = "00:0" + String.valueOf( SECONDS );
+		secondsL.setText( s );
+		secondsL.setVisible( true );
+		timer.start();
+	}
 	
 	public void displayAnswer() {
 		timer.stop();
@@ -387,6 +385,8 @@ public class Quiz implements ActionListener, MouseListener{
 		frame.add( percentageF );
 	}
 
+	
+	
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
@@ -448,5 +448,7 @@ public class Quiz implements ActionListener, MouseListener{
 		}
 		
 	}
+
+	
 	
 }

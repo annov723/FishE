@@ -24,11 +24,13 @@ public class Menu implements ActionListener, MouseListener{
 	JLabel  backgroundL = new JLabel( new ImageIcon( "background.png" ) );
 	JLabel backL = new JLabel();
 	
-	
 	JButton exitB = new JButton();
 	JButton quizB = new JButton();
 	JButton fisheB = new JButton();
 	JPanel menuP = new JPanel();
+	
+	Quiz_pick pick = new Quiz_pick( frame );
+	Fishe_pick fishe = new Fishe_pick( frame );
 	
 	
 	
@@ -95,7 +97,6 @@ public class Menu implements ActionListener, MouseListener{
 		
 		frame.add( backL );
 		frame.setVisible( true );
-		
 	}
 
 	@Override
@@ -157,6 +158,16 @@ public class Menu implements ActionListener, MouseListener{
             System.exit( 0 );
         }
 		
+		if( e.getSource() == quizB ) {
+            pick.visible();
+        }
+		
+		if( e.getSource() == fisheB ) {
+			fishe.visible();
+        }
+		
 	}
-
+	
+	
+	
 }
