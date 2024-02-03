@@ -109,7 +109,7 @@ public class Quiz_pick implements ActionListener, MouseListener{
 		quiz_pickL.setBounds( 0, 0, 450, 800 );
 		quiz_pickL.add( scrollP );
 		quiz_pickL.add( backB );
-		quiz_pickL.add( backgroundL );
+		quiz_pickL.add( backgroundL ); 
 		quiz_pickL.setVisible( false );
 		
 		frame.add( quiz_pickL );
