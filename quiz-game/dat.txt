@@ -1,0 +1,14 @@
+__FishE__
+2
+elektromagnetyzm|biologia
+
+W przewodnikach:|Układ sąsiadujących ze sobą punktów o tej samej wartości potencjału to:|Czy pole elektryczne jest zachowawcze?
+ładunki przepływają swobodnie|ładunki nie przepływają|.|.
+powierzchnia ekwipartyczna|powierchnia ekwipotencjalna|pole elektryczne|pole magnetyczne
+nie|w zależności od stężenia ładunków|tak|.
+A|B|C
+
+Jak nazywa się gametofit paproci?|Poprawny zestaw chromosomów człowieka to:
+splątek|przedrośle|kłącze|bulwa
+23|44|48|46
+B|D

@@ -1,23 +1,57 @@
+import java.awt.BasicStroke;
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.GridLayout;
+import java.awt.Insets;
+import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
+import java.awt.image.ConvolveOp;
+import java.awt.image.Kernel;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Objects;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
+import javax.swing.JViewport;
+import javax.swing.ListCellRenderer;
+import javax.swing.border.AbstractBorder;
 
 public class Quiz_pick implements ActionListener, MouseListener{
 
-	JLabel quiz_pickL = new JLabel();
-	JLabel  backgroundL = new JLabel( new ImageIcon( "background.png" ) );
-	JButton backB = new JButton();
+	private JLabel quiz_pickL = new JLabel();
+	private JLabel  backgroundL = new JLabel( new ImageIcon( "background.png" ) );
+	private JButton backB = new JButton();
 	
-	Quiz_pick( JFrame frame ){
+	private JButton[] titlesB;
+	private JPanel titlesP;
+	private JScrollPane scrollP;
+	private HashMap<String, Integer> titles = new HashMap<String, Integer>();
+	int size;
+	
+	Quiz_pick( JFrame frame ) {
+		
+		//we need all the quizes titles
+		size = Data.get_size();
+		titles = Data.get_titles();
 		
 		backB.setBounds( 250, 665, 150, 65 );
 		backB.setForeground( Color.white );
@@ -33,7 +67,47 @@ public class Quiz_pick implements ActionListener, MouseListener{
 		backgroundL.setBounds( -10, 0, 450, 800 );
 		backgroundL.setVisible( true );
 		
+		//create buttons
+		titlesB = new JButton[size];
+		for( int i = 0; i < size; i++ ) {
+			titlesB[i] = new JButton();
+			titlesB[i].setBounds( 0, 0, 600, 70 );
+			titlesB[i].setForeground( Color.white );
+			titlesB[i].setFont( new Font( "Trebuchet MS", Font.PLAIN, 35 ) );
+			titlesB[i].setHorizontalAlignment( JLabel.LEFT );
+			titlesB[i].setContentAreaFilled( false );
+			titlesB[i].setFocusable( false );
+			titlesB[i].addActionListener( this );
+			titlesB[i].addMouseListener( this );
+			titlesB[i].setBorder( null );
+			titlesB[i].setText( "animals" );
+			titlesB[i].setVisible( true );
+		}
+		
+		titlesP = new JPanel( new GridLayout( size, 1 ) );
+		for (JButton button : titlesB ) {
+            titlesP.add(button);
+        }
+		titlesP.setOpaque( false );
+		
+		
+		scrollP = new JScrollPane( titlesP );
+	    scrollP.setBounds( 40, 40, 360, 590 );
+	    scrollP.getViewport().setOpaque( false );
+        scrollP.setOpaque( false );
+        scrollP.setBorder(BorderFactory.createEmptyBorder());
+        scrollP.getVerticalScrollBar().setUnitIncrement(16);
+        scrollP.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
+        scrollP.addMouseWheelListener(e -> {
+            JScrollBar verticalScrollBar = scrollP.getVerticalScrollBar();
+            int scrollAmount = verticalScrollBar.getUnitIncrement();
+            int notches = e.getWheelRotation();
+            verticalScrollBar.setValue(verticalScrollBar.getValue() + (scrollAmount * notches));
+        });
+
+	    
 		quiz_pickL.setBounds( 0, 0, 450, 800 );
+		quiz_pickL.add( scrollP );
 		quiz_pickL.add( backB );
 		quiz_pickL.add( backgroundL );
 		quiz_pickL.setVisible( false );
@@ -41,9 +115,12 @@ public class Quiz_pick implements ActionListener, MouseListener{
 		frame.add( quiz_pickL );
 	}
 	
+	
+	
 	void visible() {
 		quiz_pickL.setVisible( true );
 	}
+	
 	
 	
 	@Override
@@ -70,6 +147,11 @@ public class Quiz_pick implements ActionListener, MouseListener{
 			backB.setBorder( BorderFactory.createLineBorder( new Color(  171, 171, 171 ), 7 ) );
 			backB.setForeground( new Color(  171, 171, 171 ) );
 		}
+		for( JButton button : titlesB ) {
+			if( e.getSource() == button ) {
+				button.setForeground( new Color(  171, 171, 171 ) );
+			}
+		}
 		
 	}
 
@@ -78,6 +160,11 @@ public class Quiz_pick implements ActionListener, MouseListener{
 		if( e.getSource() == backB ) {
 			backB.setBorder( BorderFactory.createLineBorder( Color.white, 7 ) );
 			backB.setForeground( Color.white );
+		}
+		for( JButton button : titlesB ) {
+			if( e.getSource() == button ) {
+				button.setForeground( Color.white );
+			}
 		}
 		
 	}

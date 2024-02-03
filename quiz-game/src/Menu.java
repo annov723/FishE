@@ -17,24 +17,24 @@ import javax.swing.JPanel;
 
 public class Menu implements ActionListener, MouseListener{
 	
-	JFrame frame = new JFrame( "FishE" ); //a title for menu display
-	ImageIcon icon = new ImageIcon( "mini.png" ); //an icon for menu display
-	ImageIcon logo = new ImageIcon( "logo.png" );
-	JLabel logoL;
-	JLabel  backgroundL = new JLabel( new ImageIcon( "background.png" ) );
-	JLabel backL = new JLabel();
+	private JFrame frame = new JFrame( "FishE" ); //a title for menu display
+	private ImageIcon icon = new ImageIcon( "mini.png" ); //an icon for menu display
+	private ImageIcon logo = new ImageIcon( "logo.png" );
+	private JLabel logoL;
+	private JLabel  backgroundL = new JLabel( new ImageIcon( "background.png" ) );
+	private JLabel backL = new JLabel();
 	
-	JButton exitB = new JButton();
-	JButton quizB = new JButton();
-	JButton fisheB = new JButton();
-	JPanel menuP = new JPanel();
+	private JButton exitB = new JButton();
+	private JButton quizB = new JButton();
+	private JButton fisheB = new JButton();
+	private JPanel menuP = new JPanel();
 	
-	Quiz_pick pick = new Quiz_pick( frame );
-	Fishe_pick fishe = new Fishe_pick( frame );
+	private Quiz_pick pick = new Quiz_pick( frame );
+	private Fishe_pick fishe = new Fishe_pick( frame );
 	
 	
 	
-	public Menu() {
+	Menu() {
 		
 		frame.setSize( 450, 800 );
 		frame.getContentPane().setBackground( new Color( 104, 105, 191 ) );

@@ -6,9 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
@@ -60,31 +57,31 @@ public class Quiz implements ActionListener, MouseListener{
 	private static final int SIZE = questions.length; //in Java there is no #define
 	private static final int TIME = 2000; //how much time the solusion is displayed
 	
-	int counter = SECONDS;
-	int index = 0;
-	int correct_guesses = 0;
-	BigDecimal result; //so the percentage dan be rounded
+	private int counter = SECONDS;
+	private int index = 0;
+	private int correct_guesses = 0;
+	private BigDecimal result; //so the percentage dan be rounded
 	
 	private JFrame frame = new JFrame();
-	JTextField txtF = new JTextField();
-	JTextField txtP = new JTextField();
-	JButton buttonsB[] = new JButton[SIZE];
-	JButton answerB[] = new JButton[SIZE];
-	JLabel secondsL = new JLabel();
-	JTextField numberF = new JTextField();
-	JTextField percentageF = new JTextField();
-	String s = "00:";
+	private JTextField txtF = new JTextField();
+	private JTextField txtP = new JTextField();
+	private JButton buttonsB[] = new JButton[SIZE];
+	private JButton answerB[] = new JButton[SIZE];
+	private JLabel secondsL = new JLabel();
+	private JTextField numberF = new JTextField();
+	private JTextField percentageF = new JTextField();
+	private String s = "00:";
 	
-	ImageIcon icon = new ImageIcon( "mini.png" ); //an icon for menu display
+	private ImageIcon icon = new ImageIcon( "mini.png" ); //an icon for menu display
 	
-	JButton backB = new JButton();
-	ImageIcon heart1 = new ImageIcon( "heart2.png" );
-	ImageIcon heart2 = new ImageIcon( "heart2.png" );
-	ImageIcon heart3 = new ImageIcon( "heart2.png" );
-	JLabel heart1L;
-	JLabel heart2L;
-	JLabel heart3L;
-	JPanel hearts = new JPanel();
+	private JButton backB = new JButton();
+	private ImageIcon heart1 = new ImageIcon( "heart2.png" );
+	private ImageIcon heart2 = new ImageIcon( "heart2.png" );
+	private ImageIcon heart3 = new ImageIcon( "heart2.png" );
+	private JLabel heart1L;
+	private JLabel heart2L;
+	private JLabel heart3L;
+	private JPanel hearts = new JPanel();
 	int heart_count = 3;
 	
 	Timer timer =  new Timer( 1000, new ActionListener() { //every one second

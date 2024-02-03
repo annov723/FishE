@@ -13,9 +13,9 @@ import javax.swing.JLabel;
 
 public class Fishe_pick implements ActionListener, MouseListener{
 
-	JLabel fishe_pickL = new JLabel();
-	JLabel  backgroundL = new JLabel( new ImageIcon( "background.png" ) );
-	JButton backB = new JButton();
+	private JLabel fishe_pickL = new JLabel();
+	private JLabel  backgroundL = new JLabel( new ImageIcon( "background.png" ) );
+	private JButton backB = new JButton();
 	
 	Fishe_pick( JFrame frame ){
 		
