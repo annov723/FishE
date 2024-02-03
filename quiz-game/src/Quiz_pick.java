@@ -1,39 +1,23 @@
-import java.awt.BasicStroke;
-import java.awt.BorderLayout;
+
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.GridLayout;
-import java.awt.Insets;
-import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.image.BufferedImage;
-import java.awt.image.ConvolveOp;
-import java.awt.image.Kernel;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Objects;
 
 import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
-import javax.swing.JViewport;
-import javax.swing.ListCellRenderer;
-import javax.swing.border.AbstractBorder;
 
 public class Quiz_pick implements ActionListener, MouseListener{
 
@@ -73,21 +57,23 @@ public class Quiz_pick implements ActionListener, MouseListener{
 			titlesB[i] = new JButton();
 			titlesB[i].setBounds( 0, 0, 600, 70 );
 			titlesB[i].setForeground( Color.white );
-			titlesB[i].setFont( new Font( "Trebuchet MS", Font.PLAIN, 35 ) );
+			titlesB[i].setFont( new Font( "Trebuchet MS", Font.PLAIN, 50 ) );
 			titlesB[i].setHorizontalAlignment( JLabel.LEFT );
 			titlesB[i].setContentAreaFilled( false );
 			titlesB[i].setFocusable( false );
 			titlesB[i].addActionListener( this );
 			titlesB[i].addMouseListener( this );
 			titlesB[i].setBorder( null );
-			titlesB[i].setText( "animals" );
+			titlesB[i].setText( "animals" ); //show titles from titles HashMap!
 			titlesB[i].setVisible( true );
 		}
 		
-		titlesP = new JPanel( new GridLayout( size, 1 ) );
+		titlesP = new JPanel();
+		titlesP.setLayout( new BoxLayout( titlesP, BoxLayout.Y_AXIS) );
 		for (JButton button : titlesB ) {
             titlesP.add(button);
-        }
+            titlesP.add( Box.createVerticalStrut( 30 ) );
+        } 
 		titlesP.setOpaque( false );
 		
 		
