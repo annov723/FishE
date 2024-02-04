@@ -103,6 +103,7 @@ public class Quiz implements ActionListener, MouseListener{
 	public Quiz( String title ) {
 		
 		//get quiz data from file!
+		//questions has to be in a random order!
 		
 		frame.setSize( 450, 800 );
 		frame.getContentPane().setBackground( new Color( 104, 105, 191 ) );

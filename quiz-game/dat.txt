@@ -1,6 +1,6 @@
 __FishE__
-2
-elektromagnetyzm|biologia
+10
+physics|biology|equestrian|sport|geography|film|animals|architecture|history|art
 
 W przewodnikach:|Układ sąsiadujących ze sobą punktów o tej samej wartości potencjału to:|Czy pole elektryczne jest zachowawcze?
 ładunki przepływają swobodnie|ładunki nie przepływają|.|.

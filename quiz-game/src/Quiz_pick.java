@@ -34,6 +34,8 @@ public class Quiz_pick implements ActionListener, MouseListener{
 	
 	Data data = new Data();
 	
+	
+	
 	Quiz_pick( JFrame frame ) {
 		
 		//we need all the quizes titles
@@ -61,19 +63,19 @@ public class Quiz_pick implements ActionListener, MouseListener{
 			titlesB[i] = new JButton();
 			titlesB[i].setBounds( 0, 0, 600, 70 );
 			titlesB[i].setForeground( Color.white );
-			titlesB[i].setFont( new Font( "Trebuchet MS", Font.PLAIN, 50 ) );
+			titlesB[i].setFont( new Font( "Trebuchet MS", Font.PLAIN, 35 ) );
 			titlesB[i].setHorizontalAlignment( JLabel.LEFT );
 			titlesB[i].setContentAreaFilled( false );
 			titlesB[i].setFocusable( false );
 			titlesB[i].addActionListener( this );
 			titlesB[i].addMouseListener( this );
 			titlesB[i].setBorder( null );
-			titlesB[i].setText( "animals" ); //show titles from titles HashMap!
+			titlesB[i].setText( titles.get(i) ); //show titles from titles HashMap!
 			titlesB[i].setVisible( true );
 		}
 		
 		titlesP = new JPanel();
-		titlesP.setLayout( new BoxLayout( titlesP, BoxLayout.Y_AXIS) );
+		titlesP.setLayout( new BoxLayout( titlesP, BoxLayout.Y_AXIS ) );
 		for (JButton button : titlesB ) {
             titlesP.add(button);
             titlesP.add( Box.createVerticalStrut( 30 ) );
@@ -85,14 +87,16 @@ public class Quiz_pick implements ActionListener, MouseListener{
 	    scrollP.setBounds( 40, 40, 360, 590 );
 	    scrollP.getViewport().setOpaque( false );
         scrollP.setOpaque( false );
-        scrollP.setBorder(BorderFactory.createEmptyBorder());
-        scrollP.getVerticalScrollBar().setUnitIncrement(16);
-        scrollP.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
-        scrollP.addMouseWheelListener(e -> {
+        scrollP.setBorder( BorderFactory.createEmptyBorder() );
+        scrollP.getVerticalScrollBar().setUnitIncrement( 16 );
+        scrollP.setHorizontalScrollBarPolicy( JScrollPane.HORIZONTAL_SCROLLBAR_NEVER );
+        scrollP.setHorizontalScrollBar( null );
+        scrollP.setVerticalScrollBarPolicy( JScrollPane.VERTICAL_SCROLLBAR_NEVER );
+        scrollP.addMouseWheelListener( e -> {
             JScrollBar verticalScrollBar = scrollP.getVerticalScrollBar();
             int scrollAmount = verticalScrollBar.getUnitIncrement();
             int notches = e.getWheelRotation();
-            verticalScrollBar.setValue(verticalScrollBar.getValue() + (scrollAmount * notches));
+            verticalScrollBar.setValue( verticalScrollBar.getValue() + ( scrollAmount * notches ) );
         });
 
 	    
@@ -110,6 +114,10 @@ public class Quiz_pick implements ActionListener, MouseListener{
 	void visible() {
 		quiz_pickL.setVisible( true );
 	}
+	
+	//the next window to create should be something like - two rows:
+	//	first with number of questions (depends on the whole amount...) and the second one with time limits (maybe horizontal scrollbar?) 
+	//	a start button and unless the two options are set the user cannot click the start button
 	
 	
 	
