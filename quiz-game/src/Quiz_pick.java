@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.swing.BorderFactory;
@@ -28,14 +29,17 @@ public class Quiz_pick implements ActionListener, MouseListener{
 	private JButton[] titlesB;
 	private JPanel titlesP;
 	private JScrollPane scrollP;
-	private HashMap<String, Integer> titles = new HashMap<String, Integer>();
+	private ArrayList<String> titles = new ArrayList<String>();
 	int size;
+	
+	Data data = new Data();
 	
 	Quiz_pick( JFrame frame ) {
 		
 		//we need all the quizes titles
-		size = Data.get_size();
-		titles = Data.get_titles();
+		data.start();
+		size = data.get_size();
+		titles = data.get_titles();
 		
 		backB.setBounds( 250, 665, 150, 65 );
 		backB.setForeground( Color.white );
