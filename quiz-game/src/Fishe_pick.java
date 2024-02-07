@@ -27,7 +27,7 @@ public class Fishe_pick implements ActionListener, MouseListener{
 	private JPanel titlesP;
 	private JScrollPane scrollP;
 	private ArrayList<String> titles = new ArrayList<String>();
-	int size;
+	private int size;
 	
 	Data data = new Data();
 	
@@ -72,7 +72,7 @@ public class Fishe_pick implements ActionListener, MouseListener{
 		
 		titlesP = new JPanel();
 		titlesP.setLayout( new BoxLayout( titlesP, BoxLayout.Y_AXIS ) );
-		for (JButton button : titlesB ) {
+		for ( JButton button : titlesB ) {
             titlesP.add(button);
             titlesP.add( Box.createVerticalStrut( 30 ) );
         } 
@@ -161,6 +161,18 @@ public class Fishe_pick implements ActionListener, MouseListener{
 		if( e.getSource() == backB ) {
             fishe_pickL.setVisible( false );
         }
+		
+		for( JButton button : titlesB ) {
+			if( e.getSource() == button ) {
+				String choice = button.getText();
+				
+				Menu.frame.dispose();
+				
+				//here I need to collect all the necessary data from dat.txt
+				
+				//Fishe fishe = new Fishe( questions, answers );
+			}
+		}
 		
 	}
 	

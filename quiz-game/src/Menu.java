@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 
 public class Menu implements ActionListener, MouseListener{
 	
-	private JFrame frame = new JFrame( "FishE" ); //a title for menu display
+	public static JFrame frame = new JFrame( "FishE" ); //a title for menu display
 	private ImageIcon icon = new ImageIcon( "mini.png" ); //an icon for menu display
 	private ImageIcon logo = new ImageIcon( "logo.png" );
 	private JLabel logoL;
@@ -27,15 +27,13 @@ public class Menu implements ActionListener, MouseListener{
 	private JButton exitB = new JButton();
 	private JButton quizB = new JButton();
 	private JButton fisheB = new JButton();
-	private JPanel menuP = new JPanel();
 	
 	private Quiz_pick pick = new Quiz_pick( frame );
 	private Fishe_pick fishe = new Fishe_pick( frame );
 	
 	
 	
-	Menu() {
-		
+	Menu() {		
 		frame.setSize( 450, 800 );
 		frame.getContentPane().setBackground( new Color( 104, 105, 191 ) );
 		frame.setLayout( null );
