@@ -177,8 +177,11 @@ public class Quiz_pick implements ActionListener, MouseListener{
 				Menu.frame.dispose();
 				
 				//here I need to collect all the necessary data from dat.txt
+				ArrayList<String> questions = new ArrayList<String>();
+				ArrayList<String> answers = new ArrayList<String>();
+				ArrayList<Character> correct = new ArrayList<Character>();
 				
-				//Fishe fishe = new Fishe( questions, answers );
+				Quiz quiz = new Quiz( choice, questions, answers, correct );
 			}
 		}
 		

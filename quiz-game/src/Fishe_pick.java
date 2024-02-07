@@ -172,9 +172,9 @@ public class Fishe_pick implements ActionListener, MouseListener{
 				
 				//here I need to collect all the necessary data from dat.txt
 				ArrayList<String> questions = new ArrayList<String>();
-				ArrayList<String> answers = new ArrayList<String>();
+				ArrayList<String> corr_answers = new ArrayList<String>();
 				
-				Fishe fishe = new Fishe( choice, questions, answers );
+				Fishe fishe = new Fishe( choice, questions, corr_answers );
 			}
 		}
 		

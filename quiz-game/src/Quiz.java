@@ -8,6 +8,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.ArrayList;
 
 import javax.swing.*;
 
@@ -100,7 +101,7 @@ public class Quiz implements ActionListener, MouseListener{
 	
 	
 	
-	public Quiz( String title ) {
+	public Quiz( String title, ArrayList<String> q, ArrayList<String> a, ArrayList<Character> ch ) {
 		
 		//get quiz data from file!
 		//questions has to be in a random order!
