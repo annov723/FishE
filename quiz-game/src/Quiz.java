@@ -292,7 +292,7 @@ public class Quiz implements ActionListener, MouseListener{
 	
 	
 	
-	public void nextQuestion() {
+	private void nextQuestion() {
 		if( index >= SIZE || heart_count == 0 ) {
 			results();
 			return;
@@ -308,7 +308,7 @@ public class Quiz implements ActionListener, MouseListener{
 		timer.start();
 	}
 	
-	public void displayAnswer() {
+	private void displayAnswer() {
 		timer.stop();
 		secondsL.setVisible( false );
 
@@ -350,7 +350,7 @@ public class Quiz implements ActionListener, MouseListener{
 		pause.start();
 	}
 	
-	public void results() {
+	private void results() {
 		timer.stop();
 		secondsL.setVisible( false );
 		hearts.setVisible( false );

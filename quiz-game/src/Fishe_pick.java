@@ -33,7 +33,7 @@ public class Fishe_pick implements ActionListener, MouseListener{
 	
 	
 	
-	Fishe_pick( JFrame frame ){
+	Fishe_pick( JFrame frame ) {
 		
 		data.start();
 		size = data.get_size();
@@ -166,11 +166,15 @@ public class Fishe_pick implements ActionListener, MouseListener{
 			if( e.getSource() == button ) {
 				String choice = button.getText();
 				
+				Menu.fishes = null;
+				Menu.pick = null;
 				Menu.frame.dispose();
 				
 				//here I need to collect all the necessary data from dat.txt
+				ArrayList<String> questions = new ArrayList<String>();
+				ArrayList<String> answers = new ArrayList<String>();
 				
-				//Fishe fishe = new Fishe( questions, answers );
+				Fishe fishe = new Fishe( choice, questions, answers );
 			}
 		}
 		

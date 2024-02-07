@@ -5,15 +5,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 public class Menu implements ActionListener, MouseListener{
 	
@@ -28,8 +25,10 @@ public class Menu implements ActionListener, MouseListener{
 	private JButton quizB = new JButton();
 	private JButton fisheB = new JButton();
 	
-	private Quiz_pick pick = new Quiz_pick( frame );
-	private Fishe_pick fishe = new Fishe_pick( frame );
+	public static Quiz_pick pick = new Quiz_pick( frame );
+	public static Fishe_pick fishes = new Fishe_pick( frame );
+	
+	Data data = new Data();
 	
 	
 	
@@ -161,7 +160,7 @@ public class Menu implements ActionListener, MouseListener{
         }
 		
 		if( e.getSource() == fisheB ) {
-			fishe.visible();
+			fishes.visible();
         }
 		
 	}

@@ -9,7 +9,12 @@ public class Data {
 	File file;
 	int size;
 	ArrayList<String> titles;
+	ArrayList<String> questions;
+	ArrayList<String> answers;
+	ArrayList<Character> correct;
 
+	
+	
 	Data() {
 		exist();
 	}
@@ -58,6 +63,30 @@ public class Data {
 	
 	int get_size() {
 		return size;
+	}
+	
+	void find_questions() {
+		
+	}
+	
+	void find_answers() {
+		
+	}
+	
+	void find_correct() {
+		
+	}
+	
+	ArrayList<String> get_questions(){
+		return questions;
+	}
+	
+	ArrayList<String> get_answers(){
+		return answers;
+	}
+	
+	ArrayList<Character> get_correct(){
+		return correct;
 	}
 	
 	
