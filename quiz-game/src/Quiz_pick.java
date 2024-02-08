@@ -16,6 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
+import javax.swing.JTextField;
 
 public class Quiz_pick implements ActionListener, MouseListener{
 
@@ -28,6 +29,13 @@ public class Quiz_pick implements ActionListener, MouseListener{
 	private JScrollPane scrollP;
 	private ArrayList<String> titles = new ArrayList<String>();
 	private int size;
+	private String choice;
+	
+	private JTextField timeF = new JTextField( "Time per question:" );
+	private JTextField countF = new JTextField( "Number of questions:" );
+	private JButton[] timeB = new JButton[3];
+	private JButton[] countB = new JButton[3];
+	
 	
 	Data data = new Data();
 	
@@ -67,7 +75,7 @@ public class Quiz_pick implements ActionListener, MouseListener{
 			titlesB[i].addActionListener( this );
 			titlesB[i].addMouseListener( this );
 			titlesB[i].setBorder( null );
-			titlesB[i].setText( titles.get(i) ); //show titles from titles HashMap!
+			titlesB[i].setText( titles.get(i) ); //show titles from titles ArrayList!
 			titlesB[i].setVisible( true );
 		}
 		
@@ -115,6 +123,70 @@ public class Quiz_pick implements ActionListener, MouseListener{
 	//the next window to create should be something like - two rows:
 	//	first with number of questions (depends on the whole amount...) and the second one with time limits (maybe horizontal scrollbar?) 
 	//	a start button and unless the two options are set the user cannot click the start button
+	void time_n_count() {
+		scrollP.setVisible( false );
+		
+		timeF.setBounds( 40, 90, 360, 50 );
+		timeF.setBackground( new Color ( 104, 105, 191 ) );
+		timeF.setFocusable( false );
+		timeF.setForeground( new Color ( 255, 255, 255 ) );
+		timeF.setFont( new Font( "Trebuchet MS", Font.BOLD, 35 ) );
+		timeF.setBorder( javax.swing.BorderFactory.createEmptyBorder() );
+		timeF.setEditable( false );
+		timeF.setHorizontalAlignment( JTextField.CENTER );
+		timeF.setVisible( true );
+		
+		countF.setBounds( 40, 285, 360, 50 );
+		countF.setBackground( new Color ( 104, 105, 191 ) );
+		countF.setFocusable( false );
+		countF.setForeground( new Color ( 255, 255, 255 ) );
+		countF.setFont( new Font( "Trebuchet MS", Font.BOLD, 35 ) );
+		countF.setBorder( javax.swing.BorderFactory.createEmptyBorder() );
+		countF.setEditable( false );
+		countF.setHorizontalAlignment( JTextField.CENTER );
+		countF.setVisible( true );
+		
+		for( int i = 0; i < 3; i++ ) {
+			timeB[i] = new JButton();
+			timeB[i].setBounds( 40 + ( i * 130 ), 165, 110, 65 );
+			timeB[i].setFont( new Font( "Trebuchet MS", Font.BOLD, 25 ) );
+			timeB[i].setForeground( Color.white );
+			timeB[i].setContentAreaFilled( false );
+			timeB[i].setFocusable( false );
+			timeB[i].setBorder( BorderFactory.createLineBorder( Color.white, 7 ) );
+			timeB[i].addActionListener( this );
+			timeB[i].addMouseListener( this );
+			timeB[i].setVisible( true );
+		}
+		
+		for( int i = 0; i < 3; i++ ) {
+			countB[i] = new JButton();
+			countB[i].setBounds( 40 + ( i * 130 ), 350, 110, 65 );
+			countB[i].setFont( new Font( "Trebuchet MS", Font.BOLD, 25 ) );
+			countB[i].setForeground( Color.white );
+			countB[i].setContentAreaFilled( false );
+			countB[i].setFocusable( false );
+			countB[i].setBorder( BorderFactory.createLineBorder( Color.white, 7 ) );
+			countB[i].addActionListener( this );
+			countB[i].addMouseListener( this );
+			countB[i].setVisible( true );
+		}
+		
+		quiz_pickL.add( timeF );
+		quiz_pickL.add( countF );
+		for( int i = 0; i < 3; i++ ) {
+			quiz_pickL.add( countB[i] );
+			quiz_pickL.add( timeB[i] );
+		}
+		quiz_pickL.add( backgroundL );
+	}
+	
+	void scroll() {
+		timeF.setVisible( false );
+		countF.setVisible( false );
+		
+		scrollP.setVisible( true );
+	}
 	
 	
 	
@@ -167,21 +239,25 @@ public class Quiz_pick implements ActionListener, MouseListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if( e.getSource() == backB ) {
+			scroll();
             quiz_pickL.setVisible( false );
         }
 		
 		for( JButton button : titlesB ) {
 			if( e.getSource() == button ) {
-				String choice = button.getText();
+				choice = button.getText();
+				time_n_count();
 				
-				Menu.frame.dispose();
+				//quiz_pickL.setVisible( false );
+				//button.setForeground( Color.white );
+				//Menu.frame.dispose();
 				
 				//here I need to collect all the necessary data from dat.txt
 				ArrayList<String> questions = new ArrayList<String>();
 				ArrayList<String> answers = new ArrayList<String>();
 				ArrayList<Character> correct = new ArrayList<Character>();
 				
-				Quiz quiz = new Quiz( choice, questions, answers, correct );
+				//Quiz quiz = new Quiz( choice, questions, answers, correct );
 			}
 		}
 		

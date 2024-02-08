@@ -165,7 +165,9 @@ public class Fishe_pick implements ActionListener, MouseListener{
 		for( JButton button : titlesB ) {
 			if( e.getSource() == button ) {
 				String choice = button.getText();
-
+				
+				fishe_pickL.setVisible( false );
+				button.setForeground( Color.white );
 				Menu.frame.dispose();
 				
 				//here I need to collect all the necessary data from dat.txt

@@ -140,7 +140,7 @@ public class Quiz implements ActionListener, MouseListener{
 			buttonsB[i].setForeground( Color.white );
 			buttonsB[i].setContentAreaFilled( false );
 			buttonsB[i].setFocusable( false );
-			buttonsB[i].setBorder( BorderFactory.createLineBorder( Color.white, 5) );
+			buttonsB[i].setBorder( BorderFactory.createLineBorder( Color.white, 5 ) );
 			buttonsB[i].addActionListener( this );
 			buttonsB[i].addMouseListener( this );
 			char c = ( char )( 65 + i );
