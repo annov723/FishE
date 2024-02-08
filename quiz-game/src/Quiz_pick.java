@@ -35,7 +35,11 @@ public class Quiz_pick implements ActionListener, MouseListener{
 	private JTextField countF = new JTextField( "Number of questions:" );
 	private JButton[] timeB = new JButton[3];
 	private JButton[] countB = new JButton[3];
+	private JButton playB = new JButton( "play" );
 	
+	private Color grayC = new Color( 171, 171, 171 );
+	private boolean flagT;
+	private boolean flagC;
 	
 	Data data = new Data();
 	
@@ -121,7 +125,7 @@ public class Quiz_pick implements ActionListener, MouseListener{
 	}
 	
 	//the next window to create should be something like - two rows:
-	//	first with number of questions (depends on the whole amount...) and the second one with time limits (maybe horizontal scrollbar?) 
+	//	first with number of questions and the second one with time limits (maybe horizontal scrollbar?) 
 	//	a start button and unless the two options are set the user cannot click the start button
 	void time_n_count() {
 		scrollP.setVisible( false );
@@ -148,7 +152,7 @@ public class Quiz_pick implements ActionListener, MouseListener{
 		
 		for( int i = 0; i < 3; i++ ) {
 			timeB[i] = new JButton();
-			timeB[i].setBounds( 40 + ( i * 130 ), 165, 110, 65 );
+			timeB[i].setBounds( 40 + ( i * 125 ), 165, 110, 65 );
 			timeB[i].setFont( new Font( "Trebuchet MS", Font.BOLD, 25 ) );
 			timeB[i].setForeground( Color.white );
 			timeB[i].setContentAreaFilled( false );
@@ -158,10 +162,13 @@ public class Quiz_pick implements ActionListener, MouseListener{
 			timeB[i].addMouseListener( this );
 			timeB[i].setVisible( true );
 		}
+		timeB[0].setText( "5" );
+		timeB[1].setText( "10" );
+		timeB[2].setText( "15" );
 		
 		for( int i = 0; i < 3; i++ ) {
 			countB[i] = new JButton();
-			countB[i].setBounds( 40 + ( i * 130 ), 350, 110, 65 );
+			countB[i].setBounds( 40 + ( i * 125 ), 350, 110, 65 );
 			countB[i].setFont( new Font( "Trebuchet MS", Font.BOLD, 25 ) );
 			countB[i].setForeground( Color.white );
 			countB[i].setContentAreaFilled( false );
@@ -171,6 +178,19 @@ public class Quiz_pick implements ActionListener, MouseListener{
 			countB[i].addMouseListener( this );
 			countB[i].setVisible( true );
 		}
+		countB[0].setText( "5" );
+		countB[1].setText( "10" );
+		countB[2].setText( "20" );
+		
+		playB.setBounds( 142, 475, 150, 65 );
+		playB.setForeground( new Color ( 104, 105, 191 ) );
+		playB.setFont( new Font( "Trebuchet MS", Font.BOLD, 25 ) );
+		playB.setBackground( Color.WHITE );
+		playB.setBorderPainted( false ); //nie podœwietla siê krawêdŸ jak na niego najedziemy
+		playB.setFocusable( false );
+		playB.addActionListener( this );
+		playB.addMouseListener( this );
+		playB.setVisible( true );
 		
 		quiz_pickL.add( timeF );
 		quiz_pickL.add( countF );
@@ -178,12 +198,21 @@ public class Quiz_pick implements ActionListener, MouseListener{
 			quiz_pickL.add( countB[i] );
 			quiz_pickL.add( timeB[i] );
 		}
+		quiz_pickL.add( playB );
 		quiz_pickL.add( backgroundL );
+		
+		flagT = false;
+		flagC = false;
 	}
 	
 	void scroll() {
 		timeF.setVisible( false );
 		countF.setVisible( false );
+		for( int i = 0; i < 3; i++ ) {
+			countB[i].setVisible( false );
+			timeB[i].setVisible( false );
+		}
+		playB.setVisible( false );
 		
 		scrollP.setVisible( true );
 	}
@@ -192,7 +221,20 @@ public class Quiz_pick implements ActionListener, MouseListener{
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
+		for( JButton button : timeB ) {
+			if( e.getSource() == button && flagT == false ) {
+				button.setBorder( BorderFactory.createLineBorder( grayC, 7 ) );
+				button.setForeground( grayC );
+				flagT = true;
+			}
+		}
+		for( JButton button : countB ) {
+			if( e.getSource() == button && flagC == false ) {
+				button.setBorder( BorderFactory.createLineBorder( grayC, 7 ) );
+				button.setForeground( grayC );
+				flagC = true;
+			}
+		}
 		
 	}
 
@@ -211,12 +253,27 @@ public class Quiz_pick implements ActionListener, MouseListener{
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		if( e.getSource() == backB ) {
-			backB.setBorder( BorderFactory.createLineBorder( new Color(  171, 171, 171 ), 7 ) );
-			backB.setForeground( new Color(  171, 171, 171 ) );
+			backB.setBorder( BorderFactory.createLineBorder( grayC, 7 ) );
+			backB.setForeground( grayC );
 		}
 		for( JButton button : titlesB ) {
 			if( e.getSource() == button ) {
-				button.setForeground( new Color(  171, 171, 171 ) );
+				button.setForeground( grayC );
+			}
+		}
+		if( e.getSource() == playB ) {
+			playB.setBackground( grayC );
+		}
+		for( JButton button : timeB ) {
+			if( e.getSource() == button && flagT == false ) {
+				button.setBorder( BorderFactory.createLineBorder( grayC, 7 ) );
+				button.setForeground( grayC );
+			}
+		}
+		for( JButton button : countB ) {
+			if( e.getSource() == button && flagC == false ) {
+				button.setBorder( BorderFactory.createLineBorder( grayC, 7 ) );
+				button.setForeground( grayC );
 			}
 		}
 		
@@ -233,31 +290,49 @@ public class Quiz_pick implements ActionListener, MouseListener{
 				button.setForeground( Color.white );
 			}
 		}
+		if( e.getSource() == playB ) {
+			playB.setBackground( Color.white );
+		}
+		for( JButton button : timeB ) {
+			if( e.getSource() == button && flagT == false ) {
+				button.setBorder( BorderFactory.createLineBorder( Color.white, 7 ) );
+				button.setForeground( Color.white );
+			}
+		}
+		for( JButton button : countB ) {
+			if( e.getSource() == button && flagC == false ) {
+				button.setBorder( BorderFactory.createLineBorder( Color.white, 7 ) );
+				button.setForeground( Color.white );
+			}
+		}
 		
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if( e.getSource() == backB ) {
-			scroll();
             quiz_pickL.setVisible( false );
+            scroll();
+        }
+		
+		if( e.getSource() == playB && flagC == true && flagT == true ) {
+			quiz_pickL.setVisible( false );
+			scroll();
+			playB.setBackground( Color.white );
+			Menu.frame.dispose();
+			
+			//here I need to collect all the necessary data from dat.txt
+			ArrayList<String> questions = new ArrayList<String>();
+			ArrayList<String> answers = new ArrayList<String>();
+			ArrayList<Character> correct = new ArrayList<Character>();
+			
+			Quiz quiz = new Quiz( choice, questions, answers, correct );
         }
 		
 		for( JButton button : titlesB ) {
 			if( e.getSource() == button ) {
 				choice = button.getText();
 				time_n_count();
-				
-				//quiz_pickL.setVisible( false );
-				//button.setForeground( Color.white );
-				//Menu.frame.dispose();
-				
-				//here I need to collect all the necessary data from dat.txt
-				ArrayList<String> questions = new ArrayList<String>();
-				ArrayList<String> answers = new ArrayList<String>();
-				ArrayList<Character> correct = new ArrayList<Character>();
-				
-				//Quiz quiz = new Quiz( choice, questions, answers, correct );
 			}
 		}
 		
