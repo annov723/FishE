@@ -38,15 +38,15 @@ public class Quiz_pick implements ActionListener, MouseListener{
 	private JButton playB = new JButton( "play" );
 	
 	private Color grayC = new Color( 171, 171, 171 );
-	private boolean flagT;
-	private boolean flagC;
+	private int flagT;
+	private int flagC;
 	
 	Data data = new Data();
 	
 	
 	
 	Quiz_pick( JFrame frame ) {
-		
+		System.out.println( "konstruktor quiz_pick" );
 		//we need all the quizes titles
 		data.start();
 		size = data.get_size();
@@ -201,8 +201,8 @@ public class Quiz_pick implements ActionListener, MouseListener{
 		quiz_pickL.add( playB );
 		quiz_pickL.add( backgroundL );
 		
-		flagT = false;
-		flagC = false;
+		flagT = 0;
+		flagC = 0;
 	}
 	
 	void scroll() {
@@ -221,21 +221,38 @@ public class Quiz_pick implements ActionListener, MouseListener{
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		for( JButton button : timeB ) {
-			if( e.getSource() == button && flagT == false ) {
-				button.setBorder( BorderFactory.createLineBorder( grayC, 7 ) );
-				button.setForeground( grayC );
-				flagT = true;
+		for( int i = 0; i < timeB.length; i++ ) {
+			if( e.getSource() == timeB[i] && flagT == i + 1 ) {
+				timeB[i].setBorder( BorderFactory.createLineBorder( Color.white, 7 ) );
+				timeB[i].setForeground( Color.white );
+				flagT = 0;
+			}
+			else if( e.getSource() == timeB[i] && flagT != 1 + i ) {
+				for( JButton butt : timeB ) {
+					butt.setBorder( BorderFactory.createLineBorder( Color.white, 7 ) );
+					butt.setForeground( Color.white );
+				}
+				timeB[i].setBorder( BorderFactory.createLineBorder( grayC, 7 ) );
+				timeB[i].setForeground( grayC );
+				flagT = i + 1;
 			}
 		}
-		for( JButton button : countB ) {
-			if( e.getSource() == button && flagC == false ) {
-				button.setBorder( BorderFactory.createLineBorder( grayC, 7 ) );
-				button.setForeground( grayC );
-				flagC = true;
+		for( int i = 0; i < countB.length; i++ ) {
+			if( e.getSource() == countB[i] && flagC == i + 1 ) {
+				countB[i].setBorder( BorderFactory.createLineBorder( Color.white, 7 ) );
+				countB[i].setForeground( Color.white );
+				flagC = 0;
 			}
-		}
-		
+			else if( e.getSource() == countB[i] && flagC != 1 + i ) {
+				for( JButton butt : countB ) {
+					butt.setBorder( BorderFactory.createLineBorder( Color.white, 7 ) );
+					butt.setForeground( Color.white );
+				}
+				countB[i].setBorder( BorderFactory.createLineBorder( grayC, 7 ) );
+				countB[i].setForeground( grayC );
+				flagC = i + 1;
+			}
+		}		
 	}
 
 	@Override
@@ -264,16 +281,28 @@ public class Quiz_pick implements ActionListener, MouseListener{
 		if( e.getSource() == playB ) {
 			playB.setBackground( grayC );
 		}
-		for( JButton button : timeB ) {
-			if( e.getSource() == button && flagT == false ) {
-				button.setBorder( BorderFactory.createLineBorder( grayC, 7 ) );
-				button.setForeground( grayC );
+		for( int i = 0; i < timeB.length; i++ ) {
+			if( e.getSource() == timeB[i] && flagT != i + 1 ) {
+				timeB[i].setBorder( BorderFactory.createLineBorder( grayC, 7 ) );
+				timeB[i].setForeground( grayC );
 			}
 		}
-		for( JButton button : countB ) {
-			if( e.getSource() == button && flagC == false ) {
-				button.setBorder( BorderFactory.createLineBorder( grayC, 7 ) );
-				button.setForeground( grayC );
+		for( int i = 0; i < countB.length; i++ ) {
+			if( e.getSource() == countB[i] && flagC != 1 + i ) {
+				countB[i].setBorder( BorderFactory.createLineBorder( grayC, 7 ) );
+				countB[i].setForeground( grayC );
+			}
+		}
+		for( int i = 0; i < timeB.length; i++ ) {
+			if( e.getSource() == timeB[i] && flagT == i + 1 ) {
+				timeB[i].setBorder( BorderFactory.createLineBorder( Color.white, 7 ) );
+				timeB[i].setForeground( Color.white );
+			}
+		}
+		for( int i = 0; i < countB.length; i++ ) {
+			if( e.getSource() == countB[i] && flagC == i + 1 ) {
+				countB[i].setBorder( BorderFactory.createLineBorder( Color.white, 7 ) );
+				countB[i].setForeground( Color.white );
 			}
 		}
 		
@@ -293,16 +322,28 @@ public class Quiz_pick implements ActionListener, MouseListener{
 		if( e.getSource() == playB ) {
 			playB.setBackground( Color.white );
 		}
-		for( JButton button : timeB ) {
-			if( e.getSource() == button && flagT == false ) {
-				button.setBorder( BorderFactory.createLineBorder( Color.white, 7 ) );
-				button.setForeground( Color.white );
+		for( int i = 0; i < timeB.length; i++ ) {
+			if( e.getSource() == timeB[i] && flagT != i + 1 ) {
+				timeB[i].setBorder( BorderFactory.createLineBorder( Color.white, 7 ) );
+				timeB[i].setForeground( Color.white );
 			}
 		}
-		for( JButton button : countB ) {
-			if( e.getSource() == button && flagC == false ) {
-				button.setBorder( BorderFactory.createLineBorder( Color.white, 7 ) );
-				button.setForeground( Color.white );
+		for( int i = 0; i < countB.length; i++ ) {
+			if( e.getSource() == countB[i] && flagC != i + 1 ) {
+				countB[i].setBorder( BorderFactory.createLineBorder( Color.white, 7 ) );
+				countB[i].setForeground( Color.white );
+			}
+		}
+		for( int i = 0; i < timeB.length; i++ ) {
+			if( e.getSource() == timeB[i] && flagT == i + 1 ) {
+				timeB[i].setBorder( BorderFactory.createLineBorder( grayC, 7 ) );
+				timeB[i].setForeground( grayC );
+			}
+		}
+		for( int i = 0; i < countB.length; i++ ) {
+			if( e.getSource() == countB[i] && flagC == i + 1 ) {
+				countB[i].setBorder( BorderFactory.createLineBorder( grayC, 7 ) );
+				countB[i].setForeground( grayC );
 			}
 		}
 		
@@ -312,13 +353,25 @@ public class Quiz_pick implements ActionListener, MouseListener{
 	public void actionPerformed(ActionEvent e) {
 		if( e.getSource() == backB ) {
             quiz_pickL.setVisible( false );
+            flagT = 0;
+    		flagC = 0;
             scroll();
         }
 		
-		if( e.getSource() == playB && flagC == true && flagT == true ) {
+		if( e.getSource() == playB && flagC != 0 && flagT != 0 ) {
 			quiz_pickL.setVisible( false );
-			scroll();
+			for( int i = 0; i < timeB.length; i++ ) {
+				timeB[i].setBorder( BorderFactory.createLineBorder( Color.white, 7 ) );
+				timeB[i].setForeground( Color.white );
+			}
+			for( int i = 0; i < countB.length; i++ ) {
+				countB[i].setBorder( BorderFactory.createLineBorder( Color.white, 7 ) );
+				countB[i].setForeground( Color.white );
+			}
 			playB.setBackground( Color.white );
+			flagT = 0;
+    		flagC = 0;
+			scroll();
 			Menu.frame.dispose();
 			
 			//here I need to collect all the necessary data from dat.txt
@@ -326,7 +379,7 @@ public class Quiz_pick implements ActionListener, MouseListener{
 			ArrayList<String> answers = new ArrayList<String>();
 			ArrayList<Character> correct = new ArrayList<Character>();
 			
-			Quiz quiz = new Quiz( choice, questions, answers, correct );
+			Quiz quiz = new Quiz( questions, answers, correct );
         }
 		
 		for( JButton button : titlesB ) {

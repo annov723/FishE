@@ -19,8 +19,8 @@ public class Fishe implements ActionListener, MouseListener {
 	
 	private JButton backB = new JButton();
 	
-	Fishe( String t, ArrayList<String> q, ArrayList<String> a ) {
-		
+	Fishe( ArrayList<String> q, ArrayList<String> a ) {
+		System.out.println( "konstruktor fishe" );
 		frame.setSize( 450, 800 );
 		frame.getContentPane().setBackground( new Color( 104, 105, 191 ) );
 		frame.setLayout( null );

@@ -16,6 +16,7 @@ public class Data {
 	
 	
 	Data() {
+		System.out.println( "konstruktor data" );
 		exist();
 	}
 	

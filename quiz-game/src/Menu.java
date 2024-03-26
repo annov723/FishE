@@ -28,11 +28,10 @@ public class Menu implements ActionListener, MouseListener{
 	public static Quiz_pick pick = new Quiz_pick( frame );
 	public static Fishe_pick fishes = new Fishe_pick( frame );
 	
-	Data data = new Data();
 	
 	
-	
-	Menu() {		
+	Menu() {
+		System.out.println( "konstruktor menu" );
 		frame.setSize( 450, 800 );
 		frame.getContentPane().setBackground( new Color( 104, 105, 191 ) );
 		frame.setLayout( null );

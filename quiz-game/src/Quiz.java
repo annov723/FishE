@@ -101,8 +101,8 @@ public class Quiz implements ActionListener, MouseListener{
 	
 	
 	
-	public Quiz( String title, ArrayList<String> q, ArrayList<String> a, ArrayList<Character> ch ) {
-		
+	public Quiz( ArrayList<String> q, ArrayList<String> a, ArrayList<Character> ch ) {
+		System.out.println( "konstruktor quiz" );
 		//get quiz data from file!
 		//questions has to be in a random order!
 		
@@ -369,7 +369,7 @@ public class Quiz implements ActionListener, MouseListener{
 		numberF.setText( correct_guesses + "/" + SIZE );
 		percentageF.setText( result.toString() + "%" );
 		percentageF.setVisible( true );
-		if( heart_count == 0 && index < SIZE ) {
+		if( heart_count == 0 ) {
 			txtF.setFont( new Font( "Trebuchet MS", Font.BOLD, 35 ) );
 			txtF.setText( "Oops! No hearts left." );
 		}
