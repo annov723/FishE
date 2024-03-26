@@ -375,11 +375,13 @@ public class Quiz_pick implements ActionListener, MouseListener{
 			Menu.frame.dispose();
 			
 			//here I need to collect all the necessary data from dat.txt
-			ArrayList<String> questions = new ArrayList<String>();
-			ArrayList<String> answers = new ArrayList<String>();
-			ArrayList<Character> correct = new ArrayList<Character>();
+			data.generate_quiz( flagC, choice );
 			
-			Quiz quiz = new Quiz( questions, answers, correct );
+			ArrayList<String> questions = data.get_questions();
+			ArrayList<String> answers = data.get_answers();
+			ArrayList<Character> correct = data.get_correct();
+			
+			Quiz quiz = new Quiz( flagT, questions, answers, correct );
         }
 		
 		for( JButton button : titlesB ) {

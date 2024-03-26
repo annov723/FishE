@@ -2,4 +2,232 @@ __FishE__
 10
 physics|biology|equestrian|sport|geography|film|animals|architecture|history|art
 
-SI unit of force?|Formula for gravitational potential energy?
+SI unit of force?|Gravitational potential energy:|SI unit of power?|SI unit of electric current?|SI unit of electric charge?|Newton's second law?|Formula for momentum?|Speed of light in a vacuum:|What is the SI unit of energy?|Formula for kinetic energy:|Ohm's Law:|SI unit of frequency:|SI unit of capacitance:|SI unit of magnetic field strength:|Formula for density:|SI unit of temperature:|Two types of lenses are NOT:|Force exerted by a spring:|Electric power in a circuit:|Work equation:
+Newton|Watt|Farad|Ampere
+mgh|mFg|hI/m|mg/h
+Tesla|Ampere|Newton|Watt
+Ampere|Coulomb|Watt|Volt
+Watt|Coulomb|Kelvin|Volt
+F = mh|F = ma|g/m = Fa|Fv = ma
+h = mgp|pm = ha|p = mv|p = ma
+c = 3 x 10^8 m/s|c = 3 x 10^8 m/h|c = 3 x 10^4 km/s|c = 3 x 10^4 m/s
+Volt|Joule|Ampere|Watt
+E = (1/2)*m*(g^2)|E = (1/4)*m*(v^2)|E = (1/2)*m*(v^3)|E = (1/2)*m*(v^2)
+V = IR|I = RV|V = JR|VJ = I
+Joule|Volt|Hertz|Coulomb
+Volt|Farad|Tesla|Newton
+Tesla|Rad|Watt|Ampere
+d = m/V|d = V/m|d = Vg/m|V = mgh
+Ampere|Kelvin|Rad|Watt
+cylindrical and convex|convex and annex|concave and cylindrical|convex and concave
+F = mgh|F = pv|F = -kx|F = xm
+P = VI|P =WJ|W = PI|W = P/V
+W = Ed|W = mgV|W = Fd|W = Fm
+A|A|D|A|B|B|C|A|B|D|A|C|B|A|A|B|B|C|A|C
+
+SI unit of force?|Gravitational potential energy:|SI unit of power?|SI unit of electric current?|SI unit of electric charge?|Newton's second law?|Formula for momentum?|Speed of light in a vacuum:|What is the SI unit of energy?|Formula for kinetic energy:|Ohm's Law:|SI unit of frequency:|SI unit of capacitance:|SI unit of magnetic field strength:|Formula for density:|SI unit of temperature:|Two types of lenses are NOT:|Force exerted by a spring:|Electric power in a circuit:|Work equation:
+Newton|Watt|Farad|Ampere
+mgh|mFg|hI/m|mg/h
+Tesla|Ampere|Newton|Watt
+Ampere|Coulomb|Watt|Volt
+Watt|Coulomb|Kelvin|Volt
+F = mh|F = ma|g/m = Fa|Fv = ma
+h = mgp|pm = ha|p = mv|p = ma
+c = 3 x 10^8 m/s|c = 3 x 10^8 m/h|c = 3 x 10^4 km/s|c = 3 x 10^4 m/s
+Volt|Joule|Ampere|Watt
+E = (1/2)*m*(g^2)|E = (1/4)*m*(v^2)|E = (1/2)*m*(v^3)|E = (1/2)*m*(v^2)
+V = IR|I = RV|V = JR|VJ = I
+Joule|Volt|Hertz|Coulomb
+Volt|Farad|Tesla|Newton
+Tesla|Rad|Watt|Ampere
+d = m/V|d = V/m|d = Vg/m|V = mgh
+Ampere|Kelvin|Rad|Watt
+cylindrical and convex|convex and annex|concave and cylindrical|convex and concave
+F = mgh|F = pv|F = -kx|F = xm
+P = VI|P =WJ|W = PI|W = P/V
+W = Ed|W = mgV|W = Fd|W = Fm
+A|A|D|A|B|B|C|A|B|D|A|C|B|A|A|B|B|C|A|C
+
+SI unit of force?|Gravitational potential energy:|SI unit of power?|SI unit of electric current?|SI unit of electric charge?|Newton's second law?|Formula for momentum?|Speed of light in a vacuum:|What is the SI unit of energy?|Formula for kinetic energy:|Ohm's Law:|SI unit of frequency:|SI unit of capacitance:|SI unit of magnetic field strength:|Formula for density:|SI unit of temperature:|Two types of lenses are NOT:|Force exerted by a spring:|Electric power in a circuit:|Work equation:
+Newton|Watt|Farad|Ampere
+mgh|mFg|hI/m|mg/h
+Tesla|Ampere|Newton|Watt
+Ampere|Coulomb|Watt|Volt
+Watt|Coulomb|Kelvin|Volt
+F = mh|F = ma|g/m = Fa|Fv = ma
+h = mgp|pm = ha|p = mv|p = ma
+c = 3 x 10^8 m/s|c = 3 x 10^8 m/h|c = 3 x 10^4 km/s|c = 3 x 10^4 m/s
+Volt|Joule|Ampere|Watt
+E = (1/2)*m*(g^2)|E = (1/4)*m*(v^2)|E = (1/2)*m*(v^3)|E = (1/2)*m*(v^2)
+V = IR|I = RV|V = JR|VJ = I
+Joule|Volt|Hertz|Coulomb
+Volt|Farad|Tesla|Newton
+Tesla|Rad|Watt|Ampere
+d = m/V|d = V/m|d = Vg/m|V = mgh
+Ampere|Kelvin|Rad|Watt
+cylindrical and convex|convex and annex|concave and cylindrical|convex and concave
+F = mgh|F = pv|F = -kx|F = xm
+P = VI|P =WJ|W = PI|W = P/V
+W = Ed|W = mgV|W = Fd|W = Fm
+A|A|D|A|B|B|C|A|B|D|A|C|B|A|A|B|B|C|A|C
+
+SI unit of force?|Gravitational potential energy:|SI unit of power?|SI unit of electric current?|SI unit of electric charge?|Newton's second law?|Formula for momentum?|Speed of light in a vacuum:|What is the SI unit of energy?|Formula for kinetic energy:|Ohm's Law:|SI unit of frequency:|SI unit of capacitance:|SI unit of magnetic field strength:|Formula for density:|SI unit of temperature:|Two types of lenses are NOT:|Force exerted by a spring:|Electric power in a circuit:|Work equation:
+Newton|Watt|Farad|Ampere
+mgh|mFg|hI/m|mg/h
+Tesla|Ampere|Newton|Watt
+Ampere|Coulomb|Watt|Volt
+Watt|Coulomb|Kelvin|Volt
+F = mh|F = ma|g/m = Fa|Fv = ma
+h = mgp|pm = ha|p = mv|p = ma
+c = 3 x 10^8 m/s|c = 3 x 10^8 m/h|c = 3 x 10^4 km/s|c = 3 x 10^4 m/s
+Volt|Joule|Ampere|Watt
+E = (1/2)*m*(g^2)|E = (1/4)*m*(v^2)|E = (1/2)*m*(v^3)|E = (1/2)*m*(v^2)
+V = IR|I = RV|V = JR|VJ = I
+Joule|Volt|Hertz|Coulomb
+Volt|Farad|Tesla|Newton
+Tesla|Rad|Watt|Ampere
+d = m/V|d = V/m|d = Vg/m|V = mgh
+Ampere|Kelvin|Rad|Watt
+cylindrical and convex|convex and annex|concave and cylindrical|convex and concave
+F = mgh|F = pv|F = -kx|F = xm
+P = VI|P =WJ|W = PI|W = P/V
+W = Ed|W = mgV|W = Fd|W = Fm
+A|A|D|A|B|B|C|A|B|D|A|C|B|A|A|B|B|C|A|C
+
+SI unit of force?|Gravitational potential energy:|SI unit of power?|SI unit of electric current?|SI unit of electric charge?|Newton's second law?|Formula for momentum?|Speed of light in a vacuum:|What is the SI unit of energy?|Formula for kinetic energy:|Ohm's Law:|SI unit of frequency:|SI unit of capacitance:|SI unit of magnetic field strength:|Formula for density:|SI unit of temperature:|Two types of lenses are NOT:|Force exerted by a spring:|Electric power in a circuit:|Work equation:
+Newton|Watt|Farad|Ampere
+mgh|mFg|hI/m|mg/h
+Tesla|Ampere|Newton|Watt
+Ampere|Coulomb|Watt|Volt
+Watt|Coulomb|Kelvin|Volt
+F = mh|F = ma|g/m = Fa|Fv = ma
+h = mgp|pm = ha|p = mv|p = ma
+c = 3 x 10^8 m/s|c = 3 x 10^8 m/h|c = 3 x 10^4 km/s|c = 3 x 10^4 m/s
+Volt|Joule|Ampere|Watt
+E = (1/2)*m*(g^2)|E = (1/4)*m*(v^2)|E = (1/2)*m*(v^3)|E = (1/2)*m*(v^2)
+V = IR|I = RV|V = JR|VJ = I
+Joule|Volt|Hertz|Coulomb
+Volt|Farad|Tesla|Newton
+Tesla|Rad|Watt|Ampere
+d = m/V|d = V/m|d = Vg/m|V = mgh
+Ampere|Kelvin|Rad|Watt
+cylindrical and convex|convex and annex|concave and cylindrical|convex and concave
+F = mgh|F = pv|F = -kx|F = xm
+P = VI|P =WJ|W = PI|W = P/V
+W = Ed|W = mgV|W = Fd|W = Fm
+A|A|D|A|B|B|C|A|B|D|A|C|B|A|A|B|B|C|A|C
+
+SI unit of force?|Gravitational potential energy:|SI unit of power?|SI unit of electric current?|SI unit of electric charge?|Newton's second law?|Formula for momentum?|Speed of light in a vacuum:|What is the SI unit of energy?|Formula for kinetic energy:|Ohm's Law:|SI unit of frequency:|SI unit of capacitance:|SI unit of magnetic field strength:|Formula for density:|SI unit of temperature:|Two types of lenses are NOT:|Force exerted by a spring:|Electric power in a circuit:|Work equation:
+Newton|Watt|Farad|Ampere
+mgh|mFg|hI/m|mg/h
+Tesla|Ampere|Newton|Watt
+Ampere|Coulomb|Watt|Volt
+Watt|Coulomb|Kelvin|Volt
+F = mh|F = ma|g/m = Fa|Fv = ma
+h = mgp|pm = ha|p = mv|p = ma
+c = 3 x 10^8 m/s|c = 3 x 10^8 m/h|c = 3 x 10^4 km/s|c = 3 x 10^4 m/s
+Volt|Joule|Ampere|Watt
+E = (1/2)*m*(g^2)|E = (1/4)*m*(v^2)|E = (1/2)*m*(v^3)|E = (1/2)*m*(v^2)
+V = IR|I = RV|V = JR|VJ = I
+Joule|Volt|Hertz|Coulomb
+Volt|Farad|Tesla|Newton
+Tesla|Rad|Watt|Ampere
+d = m/V|d = V/m|d = Vg/m|V = mgh
+Ampere|Kelvin|Rad|Watt
+cylindrical and convex|convex and annex|concave and cylindrical|convex and concave
+F = mgh|F = pv|F = -kx|F = xm
+P = VI|P =WJ|W = PI|W = P/V
+W = Ed|W = mgV|W = Fd|W = Fm
+A|A|D|A|B|B|C|A|B|D|A|C|B|A|A|B|B|C|A|C
+
+SI unit of force?|Gravitational potential energy:|SI unit of power?|SI unit of electric current?|SI unit of electric charge?|Newton's second law?|Formula for momentum?|Speed of light in a vacuum:|What is the SI unit of energy?|Formula for kinetic energy:|Ohm's Law:|SI unit of frequency:|SI unit of capacitance:|SI unit of magnetic field strength:|Formula for density:|SI unit of temperature:|Two types of lenses are NOT:|Force exerted by a spring:|Electric power in a circuit:|Work equation:
+Newton|Watt|Farad|Ampere
+mgh|mFg|hI/m|mg/h
+Tesla|Ampere|Newton|Watt
+Ampere|Coulomb|Watt|Volt
+Watt|Coulomb|Kelvin|Volt
+F = mh|F = ma|g/m = Fa|Fv = ma
+h = mgp|pm = ha|p = mv|p = ma
+c = 3 x 10^8 m/s|c = 3 x 10^8 m/h|c = 3 x 10^4 km/s|c = 3 x 10^4 m/s
+Volt|Joule|Ampere|Watt
+E = (1/2)*m*(g^2)|E = (1/4)*m*(v^2)|E = (1/2)*m*(v^3)|E = (1/2)*m*(v^2)
+V = IR|I = RV|V = JR|VJ = I
+Joule|Volt|Hertz|Coulomb
+Volt|Farad|Tesla|Newton
+Tesla|Rad|Watt|Ampere
+d = m/V|d = V/m|d = Vg/m|V = mgh
+Ampere|Kelvin|Rad|Watt
+cylindrical and convex|convex and annex|concave and cylindrical|convex and concave
+F = mgh|F = pv|F = -kx|F = xm
+P = VI|P =WJ|W = PI|W = P/V
+W = Ed|W = mgV|W = Fd|W = Fm
+A|A|D|A|B|B|C|A|B|D|A|C|B|A|A|B|B|C|A|C
+
+SI unit of force?|Gravitational potential energy:|SI unit of power?|SI unit of electric current?|SI unit of electric charge?|Newton's second law?|Formula for momentum?|Speed of light in a vacuum:|What is the SI unit of energy?|Formula for kinetic energy:|Ohm's Law:|SI unit of frequency:|SI unit of capacitance:|SI unit of magnetic field strength:|Formula for density:|SI unit of temperature:|Two types of lenses are NOT:|Force exerted by a spring:|Electric power in a circuit:|Work equation:
+Newton|Watt|Farad|Ampere
+mgh|mFg|hI/m|mg/h
+Tesla|Ampere|Newton|Watt
+Ampere|Coulomb|Watt|Volt
+Watt|Coulomb|Kelvin|Volt
+F = mh|F = ma|g/m = Fa|Fv = ma
+h = mgp|pm = ha|p = mv|p = ma
+c = 3 x 10^8 m/s|c = 3 x 10^8 m/h|c = 3 x 10^4 km/s|c = 3 x 10^4 m/s
+Volt|Joule|Ampere|Watt
+E = (1/2)*m*(g^2)|E = (1/4)*m*(v^2)|E = (1/2)*m*(v^3)|E = (1/2)*m*(v^2)
+V = IR|I = RV|V = JR|VJ = I
+Joule|Volt|Hertz|Coulomb
+Volt|Farad|Tesla|Newton
+Tesla|Rad|Watt|Ampere
+d = m/V|d = V/m|d = Vg/m|V = mgh
+Ampere|Kelvin|Rad|Watt
+cylindrical and convex|convex and annex|concave and cylindrical|convex and concave
+F = mgh|F = pv|F = -kx|F = xm
+P = VI|P =WJ|W = PI|W = P/V
+W = Ed|W = mgV|W = Fd|W = Fm
+A|A|D|A|B|B|C|A|B|D|A|C|B|A|A|B|B|C|A|C
+
+SI unit of force?|Gravitational potential energy:|SI unit of power?|SI unit of electric current?|SI unit of electric charge?|Newton's second law?|Formula for momentum?|Speed of light in a vacuum:|What is the SI unit of energy?|Formula for kinetic energy:|Ohm's Law:|SI unit of frequency:|SI unit of capacitance:|SI unit of magnetic field strength:|Formula for density:|SI unit of temperature:|Two types of lenses are NOT:|Force exerted by a spring:|Electric power in a circuit:|Work equation:
+Newton|Watt|Farad|Ampere
+mgh|mFg|hI/m|mg/h
+Tesla|Ampere|Newton|Watt
+Ampere|Coulomb|Watt|Volt
+Watt|Coulomb|Kelvin|Volt
+F = mh|F = ma|g/m = Fa|Fv = ma
+h = mgp|pm = ha|p = mv|p = ma
+c = 3 x 10^8 m/s|c = 3 x 10^8 m/h|c = 3 x 10^4 km/s|c = 3 x 10^4 m/s
+Volt|Joule|Ampere|Watt
+E = (1/2)*m*(g^2)|E = (1/4)*m*(v^2)|E = (1/2)*m*(v^3)|E = (1/2)*m*(v^2)
+V = IR|I = RV|V = JR|VJ = I
+Joule|Volt|Hertz|Coulomb
+Volt|Farad|Tesla|Newton
+Tesla|Rad|Watt|Ampere
+d = m/V|d = V/m|d = Vg/m|V = mgh
+Ampere|Kelvin|Rad|Watt
+cylindrical and convex|convex and annex|concave and cylindrical|convex and concave
+F = mgh|F = pv|F = -kx|F = xm
+P = VI|P =WJ|W = PI|W = P/V
+W = Ed|W = mgV|W = Fd|W = Fm
+A|A|D|A|B|B|C|A|B|D|A|C|B|A|A|B|B|C|A|C
+
+SI unit of force?|Gravitational potential energy:|SI unit of power?|SI unit of electric current?|SI unit of electric charge?|Newton's second law?|Formula for momentum?|Speed of light in a vacuum:|What is the SI unit of energy?|Formula for kinetic energy:|Ohm's Law:|SI unit of frequency:|SI unit of capacitance:|SI unit of magnetic field strength:|Formula for density:|SI unit of temperature:|Two types of lenses are NOT:|Force exerted by a spring:|Electric power in a circuit:|Work equation:
+Newton|Watt|Farad|Ampere
+mgh|mFg|hI/m|mg/h
+Tesla|Ampere|Newton|Watt
+Ampere|Coulomb|Watt|Volt
+Watt|Coulomb|Kelvin|Volt
+F = mh|F = ma|g/m = Fa|Fv = ma
+h = mgp|pm = ha|p = mv|p = ma
+c = 3 x 10^8 m/s|c = 3 x 10^8 m/h|c = 3 x 10^4 km/s|c = 3 x 10^4 m/s
+Volt|Joule|Ampere|Watt
+E = (1/2)*m*(g^2)|E = (1/4)*m*(v^2)|E = (1/2)*m*(v^3)|E = (1/2)*m*(v^2)
+V = IR|I = RV|V = JR|VJ = I
+Joule|Volt|Hertz|Coulomb
+Volt|Farad|Tesla|Newton
+Tesla|Rad|Watt|Ampere
+d = m/V|d = V/m|d = Vg/m|V = mgh
+Ampere|Kelvin|Rad|Watt
+cylindrical and convex|convex and annex|concave and cylindrical|convex and concave
+F = mgh|F = pv|F = -kx|F = xm
+P = VI|P =WJ|W = PI|W = P/V
+W = Ed|W = mgV|W = Fd|W = Fm
+A|A|D|A|B|B|C|A|B|D|A|C|B|A|A|B|B|C|A|C

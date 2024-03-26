@@ -101,7 +101,7 @@ public class Quiz implements ActionListener, MouseListener{
 	
 	
 	
-	public Quiz( ArrayList<String> q, ArrayList<String> a, ArrayList<Character> ch ) {
+	public Quiz( int timeLimit, ArrayList<String> q, ArrayList<String> a, ArrayList<Character> ch ) {
 		System.out.println( "konstruktor quiz" );
 		//get quiz data from file!
 		//questions has to be in a random order!

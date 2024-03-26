@@ -66,27 +66,41 @@ public class Data {
 		return size;
 	}
 	
-	void find_questions() {
+	void generate_quiz( int howMany, String Title ) {
+		try {
+			BufferedReader buff = new BufferedReader( new FileReader( file ) );
+			String line = null;
+			
+			for( int i = 0; i < 4; i++ ) line = buff.readLine();
+			
+			questions = new ArrayList<>();
+			answers = new ArrayList<>();
+			correct = new ArrayList<>();
+			
+			String[] tit = line.split("\\|");
+			for( String element : tit ) titles.add( element );
+					
+			buff.close();
+		}
+		catch( Exception exp ){
+			System.err.println( exp );
+			System.exit( -1 ); //closes the app because there is a trouble using it
+		}
+	}
+	
+	void generate_fishe( String Title ) {
 		
 	}
 	
-	void find_answers() {
-		
-	}
-	
-	void find_correct() {
-		
-	}
-	
-	ArrayList<String> get_questions(){
+	ArrayList<String> get_questions() {
 		return questions;
 	}
 	
-	ArrayList<String> get_answers(){
+	ArrayList<String> get_answers() {
 		return answers;
 	}
 	
-	ArrayList<Character> get_correct(){
+	ArrayList<Character> get_correct() {
 		return correct;
 	}
 	
