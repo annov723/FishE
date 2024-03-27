@@ -1,15 +1,21 @@
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -21,11 +27,18 @@ public class Fishe implements ActionListener, MouseListener {
 	private JButton backB = new JButton();
 	private JTextField answerF = new JTextField();
 	private JTextField questionF = new JTextField();
+	JLabel arrowRightL;
+	JLabel arrowLeftL;
+	private JLabel  backgroundL = new JLabel( new ImageIcon( "background.png" ) );
 	
 	private ArrayList<String> questions;
 	private ArrayList<String> answers;
 	private int index = 0;
 	private int numberOfQuestions;
+	
+
+	private final int arrowMaxWidth = 110;
+    private final int arrowMaxHeight = 110;
 	
 	Fishe( ArrayList<String> q, ArrayList<String> a ) {
 		questions = new ArrayList<>( q );
@@ -52,7 +65,7 @@ public class Fishe implements ActionListener, MouseListener {
 		backB.setText( "back" );
 		backB.setVisible( true );
 		
-		answerF.setBounds( 20, 250, 400, 50 );
+		answerF.setBounds( 20, 230, 400, 50 );
 		answerF.setBackground( new Color ( 104, 105, 191 ) );
 		answerF.setFocusable( false );
 		answerF.setForeground( new Color ( 255, 255, 255 ) );
@@ -70,27 +83,66 @@ public class Fishe implements ActionListener, MouseListener {
 		questionF.setEditable( false );
 		questionF.setHorizontalAlignment( JTextField.CENTER );
 		
+		BufferedImage originalImage1 = loadImageFromFile( "arrow_r.png" );
+        BufferedImage scaledImage1 = scaleImage( originalImage1, arrowMaxWidth, arrowMaxHeight );
+        ImageIcon icon1 = new ImageIcon( scaledImage1 );
+        arrowRightL = new JLabel( icon1 );
+        BufferedImage originalImage2 = loadImageFromFile( "arrow_l.png" );
+        BufferedImage scaledImage2 = scaleImage( originalImage2, arrowMaxWidth, arrowMaxHeight );
+        ImageIcon icon2 = new ImageIcon( scaledImage2 );
+        arrowLeftL = new JLabel( icon2 );
+        arrowLeftL.setBounds( 20, 300, 110, 110 );
+        arrowRightL.setBounds( 310, 300, 110, 110 );
+        arrowLeftL.addMouseListener( this );
+        arrowRightL.addMouseListener( this );
+        
+        backgroundL.setBounds( -10, 0, 450, 800 );
+		backgroundL.setVisible( true );
+        
+		
 		
 		
 		frame.add( backB );
 		frame.add( questionF );
 		frame.add( answerF );
+		frame.add( arrowRightL );
+		frame.add( arrowLeftL );
+		frame.add( backgroundL );
 		frame.setVisible( true );
 		
 		nextQuestion();
 	}
 	
+	private static BufferedImage loadImageFromFile(String filePath) {
+        try {
+            return ImageIO.read(new File(filePath));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    private static BufferedImage scaleImage(BufferedImage originalImage, int maxWidth, int maxHeight) {
+        if (originalImage == null) {
+            return null;
+        }
+
+        int width = originalImage.getWidth();
+        int height = originalImage.getHeight();
+        double scaleFactor = Math.min((double) maxWidth / width, (double) maxHeight / height);
+
+        int scaledWidth = (int) (width * scaleFactor);
+        int scaledHeight = (int) (height * scaleFactor);
+        BufferedImage scaledImage = new BufferedImage(scaledWidth, scaledHeight, BufferedImage.TYPE_INT_ARGB);
+
+        Graphics2D g2d = scaledImage.createGraphics();
+        g2d.drawImage(originalImage, 0, 0, scaledWidth, scaledHeight, null);
+        g2d.dispose();
+
+        return scaledImage;
+    }
+	
 	void nextQuestion() {
-		if( index >= numberOfQuestions ) {
-			
-		}
-		else if( index <= 0 ) {
-			
-		}
-		else {
-			
-		}
-		
 		answerF.setText( answers.get( index ) );
 		questionF.setText( questions.get( index ) );
 	}
@@ -108,15 +160,22 @@ public class Fishe implements ActionListener, MouseListener {
             }
 		}
 		
-		//left and right arrows
-		
 	}
 	
 	
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
+		if( e.getSource()==arrowRightL ) {
+			index++;
+			if( index >= numberOfQuestions ) index = index - numberOfQuestions;
+			nextQuestion();
+		}
+		else if( e.getSource()==arrowLeftL ) {
+			index--;
+			if( index < 0 ) index = numberOfQuestions + index;
+			nextQuestion();
+		}
 		
 	}
 

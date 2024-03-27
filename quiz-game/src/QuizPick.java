@@ -223,12 +223,7 @@ public class QuizPick implements ActionListener, MouseListener{
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		for( int i = 0; i < timeB.length; i++ ) {
-			if( e.getSource() == timeB[i] && flagT == i + 1 ) {
-				timeB[i].setBorder( BorderFactory.createLineBorder( Color.white, 7 ) );
-				timeB[i].setForeground( Color.white );
-				flagT = 0;
-			}
-			else if( e.getSource() == timeB[i] && flagT != 1 + i ) {
+			if( e.getSource() == timeB[i] && flagT != 1 + i ) {
 				for( JButton butt : timeB ) {
 					butt.setBorder( BorderFactory.createLineBorder( Color.white, 7 ) );
 					butt.setForeground( Color.white );
@@ -237,14 +232,14 @@ public class QuizPick implements ActionListener, MouseListener{
 				timeB[i].setForeground( grayC );
 				flagT = i + 1;
 			}
+			else if( e.getSource() == timeB[i] && flagT == i + 1 ) {
+				timeB[i].setBorder( BorderFactory.createLineBorder( Color.white, 7 ) );
+				timeB[i].setForeground( Color.white );
+				flagT = 0;
+			}
 		}
 		for( int i = 0; i < countB.length; i++ ) {
-			if( e.getSource() == countB[i] && flagC == i + 1 ) {
-				countB[i].setBorder( BorderFactory.createLineBorder( Color.white, 7 ) );
-				countB[i].setForeground( Color.white );
-				flagC = 0;
-			}
-			else if( e.getSource() == countB[i] && flagC != 1 + i ) {
+			if( e.getSource() == countB[i] && flagC != 1 + i ) {
 				for( JButton butt : countB ) {
 					butt.setBorder( BorderFactory.createLineBorder( Color.white, 7 ) );
 					butt.setForeground( Color.white );
@@ -252,6 +247,11 @@ public class QuizPick implements ActionListener, MouseListener{
 				countB[i].setBorder( BorderFactory.createLineBorder( grayC, 7 ) );
 				countB[i].setForeground( grayC );
 				flagC = i + 1;
+			}
+			else if( e.getSource() == countB[i] && flagC == i + 1 ) {
+				countB[i].setBorder( BorderFactory.createLineBorder( Color.white, 7 ) );
+				countB[i].setForeground( Color.white );
+				flagC = 0;
 			}
 		}		
 	}

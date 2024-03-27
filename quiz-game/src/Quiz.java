@@ -67,13 +67,11 @@ public class Quiz implements ActionListener, MouseListener{
 	
 	
 	public Quiz( int timeLimit, ArrayList<String> q, ArrayList<ArrayList<String>> a, ArrayList<Character> ch ) {
-		//get quiz data from file!
-		//questions has to be in a random order!
 		timeCounter = timeForQuestion = timeLimit;
-		numberOfQuestions = q.size();
-		questions = new ArrayList<>( q );
-		answers = new ArrayList<>( a );
-		correct = new ArrayList<>( ch );
+		//numberOfQuestions = q.size();
+		//questions = new ArrayList<>( q );
+		//answers = new ArrayList<>( a );
+		//correct = new ArrayList<>( ch );
 		
 		frame.setSize( 450, 800 );
 		frame.getContentPane().setBackground( new Color( 104, 105, 191 ) );
@@ -164,6 +162,7 @@ public class Quiz implements ActionListener, MouseListener{
 		backB.addMouseListener( this );
 		backB.setText( "back" );
 		backB.setVisible( true );
+		System.out.println( "here" );
 		
 		//hearts
 		Image logoBefore = heart1.getImage();
@@ -200,7 +199,7 @@ public class Quiz implements ActionListener, MouseListener{
 		frame.add( backB );
 		frame.setVisible( true );
 		
-		nextQuestion();
+		//nextQuestion();
 	}
 	
 	@Override
