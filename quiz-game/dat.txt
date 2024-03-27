@@ -26,27 +26,27 @@ P = VI|P =WJ|W = PI|W = P/V
 W = Ed|W = mgV|W = Fd|W = Fm
 A|A|D|A|B|B|C|A|B|D|A|C|B|A|A|B|B|C|A|C
 
-SI unit of force?|Gravitational potential energy:|SI unit of power?|SI unit of electric current?|SI unit of electric charge?|Newton's second law?|Formula for momentum?|Speed of light in a vacuum:|What is the SI unit of energy?|Formula for kinetic energy:|Ohm's Law:|SI unit of frequency:|SI unit of capacitance:|SI unit of magnetic field strength:|Formula for density:|SI unit of temperature:|Two types of lenses are NOT:|Force exerted by a spring:|Electric power in a circuit:|Work equation:
-Newton|Watt|Farad|Ampere
-mgh|mFg|hI/m|mg/h
-Tesla|Ampere|Newton|Watt
-Ampere|Coulomb|Watt|Volt
-Watt|Coulomb|Kelvin|Volt
-F = mh|F = ma|g/m = Fa|Fv = ma
-h = mgp|pm = ha|p = mv|p = ma
-c = 3 x 10^8 m/s|c = 3 x 10^8 m/h|c = 3 x 10^4 km/s|c = 3 x 10^4 m/s
-Volt|Joule|Ampere|Watt
-E = (1/2)*m*(g^2)|E = (1/4)*m*(v^2)|E = (1/2)*m*(v^3)|E = (1/2)*m*(v^2)
-V = IR|I = RV|V = JR|VJ = I
-Joule|Volt|Hertz|Coulomb
-Volt|Farad|Tesla|Newton
-Tesla|Rad|Watt|Ampere
-d = m/V|d = V/m|d = Vg/m|V = mgh
-Ampere|Kelvin|Rad|Watt
-cylindrical and convex|convex and annex|concave and cylindrical|convex and concave
-F = mgh|F = pv|F = -kx|F = xm
-P = VI|P =WJ|W = PI|W = P/V
-W = Ed|W = mgV|W = Fd|W = Fm
+What is the shape of DNA?|The energy currency of the cell:|The nitrogenous bases in DNA:|The function of mitochondria:|The basic unit of heredity:|The role of chlorophyll:|Main photosynthesis pigment:|Water loss from leaves:|Stem's outer layer:|Leaf water loss reducer:|Sugar transport tissue?|Interaction beneficial to both:|Species preying on another?|Ecosystem's first energy level?|Non-living environment factors:|Virus outer covering?|Virus nucleic acid type:|What causes chickenpox?|The powerhouse of the cell:|Responsible for photosynthesis:
+double helix|hexagonal|single helix|stright strand
+ATP|ADP|PEP|PGA
+A T B G|U T C G|A T G U|A T G C
+energy production|photosynthesis|genes production|protein synthesis
+genome|gene|nucleotide|protein
+absorb oxygen|absorb light energy|absorb heat|absorb humidity
+carotenoids|flavonoids|chlorophyll|phycobilins
+transpiration|guttation|melting|combustion
+ectoderm|epidermis|phloem|xylem
+cambium|xylem|ectoderm|cuticle
+phloem|sclerenchyma|cambium|xylem
+competition|commensalism|mutualism|tremensalism
+mutualism|predation|competition|parasiting
+producers|predators|parasites|viruses
+abiotic|rebiotic|imbiotic|biotic
+ectoderm|capsid|skin|pellicle
+DNA|DNA & RNA|RNA|none
+bacteria|parasite|virus|virus or bacteria
+mitochondrion|cytoplasm|chloroplast|cell nucleus
+cytoplasm|cell nucleus|chloropast|mitochondrion
 A|A|D|A|B|B|C|A|B|D|A|C|B|A|A|B|B|C|A|C
 
 SI unit of force?|Gravitational potential energy:|SI unit of power?|SI unit of electric current?|SI unit of electric charge?|Newton's second law?|Formula for momentum?|Speed of light in a vacuum:|What is the SI unit of energy?|Formula for kinetic energy:|Ohm's Law:|SI unit of frequency:|SI unit of capacitance:|SI unit of magnetic field strength:|Formula for density:|SI unit of temperature:|Two types of lenses are NOT:|Force exerted by a spring:|Electric power in a circuit:|Work equation:
