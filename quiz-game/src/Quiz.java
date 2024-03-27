@@ -66,7 +66,7 @@ public class Quiz implements ActionListener, MouseListener{
 	
 	
 	
-	public void runQuiz( int timeLimit, ArrayList<String> q, ArrayList<ArrayList<String>> a, ArrayList<Character> ch ) {
+	Quiz( int timeLimit, ArrayList<String> q, ArrayList<ArrayList<String>> a, ArrayList<Character> ch ) {
 		timeCounter = timeForQuestion = timeLimit;
 		numberOfQuestions = q.size();
 		questions = new ArrayList<>( q );

@@ -27,7 +27,6 @@ public class Menu implements ActionListener, MouseListener{
 	
 	public static QuizPick pick = new QuizPick( frame );
 	public static FishePick fishes = new FishePick( frame );
-	public static Quiz quiz = new Quiz();
 	
 	
 	

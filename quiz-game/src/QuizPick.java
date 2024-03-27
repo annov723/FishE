@@ -354,9 +354,11 @@ public class QuizPick implements ActionListener, MouseListener{
 	public void actionPerformed(ActionEvent e) {
 		if( e.getSource() == backB ) {
             quizPickL.setVisible( false );
-            flagT = 0;
-    		flagC = 0;
-            scroll();
+            if( !scrollP.isVisible() ) {
+            	flagT = 0;
+        		flagC = 0;
+                scroll();
+            }
         }
 		
 		if( e.getSource() == playB && flagC != 0 && flagT != 0 ) {
@@ -371,7 +373,7 @@ public class QuizPick implements ActionListener, MouseListener{
 			}
 			playB.setBackground( Color.white );
 			scroll();
-			Menu.frame.dispose();
+			
 			
 			//here I need to collect all the necessary data from dat.txt
 			if( flagC == 1 ) flagC = 5;
@@ -386,7 +388,9 @@ public class QuizPick implements ActionListener, MouseListener{
 			if( flagT == 1 ) flagT = 5;
 			else if( flagT == 2 ) flagT = 10;
 			else flagT = 15;
-			Menu.quiz.runQuiz( flagT, questions, answers, correct );
+			
+			Menu.frame.dispose();
+			Quiz quiz = new Quiz( flagT, questions, answers, correct );
         }
 		
 		for( JButton button : titlesB ) {
