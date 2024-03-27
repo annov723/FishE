@@ -14,13 +14,13 @@ public class Data {
 	int chosenTitle = -1;
 	
 	//UPGRADED: this should stay as for the upgrade that the data is loaded once if the user play with the same quiz once again
-	ArrayList<String> questions = new ArrayList<>();;
-	ArrayList<ArrayList<String>> answers = new ArrayList<>();;
-	ArrayList<Character> correct = new ArrayList<>();;
+	ArrayList<String> questions = new ArrayList<>();
+	ArrayList<ArrayList<String>> answers = new ArrayList<>();
+	ArrayList<Character> correct = new ArrayList<>();
 	
-	ArrayList<String> pickedQuestions = new ArrayList<>();;
-	ArrayList<ArrayList<String>> pickedAnswers = new ArrayList<>();;
-	ArrayList<Character> pickedCorrect = new ArrayList<>();;
+	ArrayList<String> pickedQuestions = new ArrayList<>();
+	ArrayList<ArrayList<String>> pickedAnswers = new ArrayList<>();
+	ArrayList<Character> pickedCorrect = new ArrayList<>();
 	
 	
 	
@@ -80,8 +80,6 @@ public class Data {
 	void generateQuiz( final int howMany, final String title ) {
 		if( chosenTitle != titles.indexOf( title ) ) getQuizFromFile( title );
 		generateRandom( howMany );
-			
-		
 	}
 	
 	void generateRandom( final int howMany ) {
@@ -98,9 +96,6 @@ public class Data {
 				i--;
 			}
 		}
-		System.out.println( pickedQuestions );
-		System.out.println( pickedAnswers );
-		System.out.println( pickedCorrect );
 	}
 	
 	void getQuizFromFile( final String title ) {
@@ -161,12 +156,7 @@ public class Data {
 	ArrayList<String> getCorrectAnswersOnly() {
 		ArrayList<String> correctAnswers = new ArrayList<>();
 		
-		for( int i = 0; i < numberOfQuestions; i++ ) {
-			correctAnswers.add( pickedAnswers.get( i ).get( ( int ) pickedCorrect.get( i ) - 'A' ) );
-		}
-		
-		System.out.println( correctAnswers );
-		
+		for( int i = 0; i < numberOfQuestions; i++ ) correctAnswers.add( pickedAnswers.get( i ).get( ( int ) pickedCorrect.get( i ) - 'A' ) );
 		return correctAnswers;
 	}
 	

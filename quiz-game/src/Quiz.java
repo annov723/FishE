@@ -14,7 +14,7 @@ import javax.swing.*;
 
 public class Quiz implements ActionListener, MouseListener{
 	 
-	static final String[] questions = {
+	/*static final String[] questions = {
 										"Which company created Java?",
 										"Which year was Java created?",
 										"What was Java originally called?",
@@ -52,13 +52,18 @@ public class Quiz implements ActionListener, MouseListener{
 									'B',
 									'C',
 									'C'
-					 			  };
+					 			  };*/
+	
+	ArrayList<String> questions;
+	ArrayList<ArrayList<String>> answers;
+	ArrayList<Character> correct;
 		
-	private static final int SECONDS = 10; //how much time the user have to answer
-	private static final int SIZE = questions.length; //in Java there is no #define
+	private int NUMBER_OF_ANSWERS = 4; //in Java there is no #define
 	private static final int TIME = 2000; //how much time the solusion is displayed
 	
-	private int counter = SECONDS;
+	private int timeForQuestion;
+	private int numberOfQuestions;
+	private int timeCounter;
 	private int index = 0;
 	private int correctGuesses = 0;
 	private BigDecimal result; //so the percentage dan be rounded
@@ -66,8 +71,8 @@ public class Quiz implements ActionListener, MouseListener{
 	private JFrame frame = new JFrame();
 	private JTextField questionNumberF = new JTextField();
 	private JTextField questionF = new JTextField();
-	private JButton buttonsB[] = new JButton[SIZE];
-	private JButton answerB[] = new JButton[SIZE];
+	private JButton buttonsB[] = new JButton[NUMBER_OF_ANSWERS];
+	private JButton answerB[] = new JButton[NUMBER_OF_ANSWERS];
 	private JLabel secondsL = new JLabel();
 	private JTextField numberF = new JTextField();
 	private JTextField percentageF = new JTextField();
@@ -83,16 +88,16 @@ public class Quiz implements ActionListener, MouseListener{
 	private JLabel heart2L;
 	private JLabel heart3L;
 	private JPanel hearts = new JPanel();
-	int heartCount = 3;
+	private int heartCount = 3;
 	
 	Timer timer =  new Timer( 1000, new ActionListener() { //every one second
 		@Override
 		public void actionPerformed( ActionEvent e ) {
-			counter--;
-			if( counter >= 10 ) timeString = "00:" + String.valueOf( counter );
-			else timeString = "00:0" + String.valueOf( counter );
+			timeCounter--;
+			if( timeCounter >= 10 ) timeString = "00:" + String.valueOf( timeCounter );
+			else timeString = "00:0" + String.valueOf( timeCounter );
 			secondsL.setText( timeString );
-			if( counter <= 0 ) {
+			if( timeCounter <= 0 ) {
 				heartCount--;
 				displayAnswer();
 			}
@@ -105,6 +110,16 @@ public class Quiz implements ActionListener, MouseListener{
 		System.out.println( "konstruktor quiz" );
 		//get quiz data from file!
 		//questions has to be in a random order!
+		timeCounter = timeForQuestion = timeLimit;
+		numberOfQuestions = q.size();
+		questions = new ArrayList<>( q );
+		answers = new ArrayList<>( a );
+		correct = new ArrayList<>( ch );
+		
+		System.out.println( questions );
+		System.out.println( answers );
+		System.out.println( correct );
+		
 		
 		frame.setSize( 450, 800 );
 		frame.getContentPane().setBackground( new Color( 104, 105, 191 ) );
@@ -133,7 +148,7 @@ public class Quiz implements ActionListener, MouseListener{
 		questionF.setEditable( false );
 		questionF.setHorizontalAlignment( JTextField.CENTER );
 		
-		for( int i = 0; i < SIZE; i++ ) {
+		for( int i = 0; i < NUMBER_OF_ANSWERS; i++ ) {
 			buttonsB[i] = new JButton();
 			buttonsB[i].setBounds( 50, 230 + ( i * 80 ), 50, 50 );
 			buttonsB[i].setFont( new Font( "Trebuchet MS", Font.BOLD, 25 ) );
@@ -147,7 +162,7 @@ public class Quiz implements ActionListener, MouseListener{
 			buttonsB[i].setText( String.valueOf( c ) );
 			buttonsB[i].setVisible( true );
 		}
-		for( int i = 0; i < SIZE; i++ ) {
+		for( int i = 0; i < NUMBER_OF_ANSWERS; i++ ) {
 			answerB[i] = new JButton();
 			answerB[i].setBounds( 120, 230 + ( i * 80 ), 280, 50 );
 			answerB[i].setForeground( Color.white );
@@ -224,7 +239,7 @@ public class Quiz implements ActionListener, MouseListener{
 		frame.add( secondsL );
 		frame.add( hearts );
 		
-		for( int i = 0; i < SIZE; i++ ) {
+		for( int i = 0; i < NUMBER_OF_ANSWERS; i++ ) {
 			frame.add( buttonsB[i] );
 			frame.add( answerB[i] );
 		}
@@ -253,14 +268,14 @@ public class Quiz implements ActionListener, MouseListener{
      
 		}
 		else {
-			for( int i = 0; i < SIZE; i++ ) {
+			for( int i = 0; i < NUMBER_OF_ANSWERS; i++ ) {
 				buttonsB[i].setEnabled( false );
 				answerB[i].setEnabled( false );
 			}
 			
-			for( int i = 0; i < SIZE; i++ ) {
+			for( int i = 0; i < NUMBER_OF_ANSWERS; i++ ) {
 				if( e.getSource()==buttonsB[i] ) {
-					if( buttonsB[i].getText().charAt( 0 ) == answers[index] ) {
+					if( buttonsB[i].getText().charAt( 0 ) == correct.get( index ) ) {
 						correctGuesses++;
 					}
 					else {
@@ -271,9 +286,9 @@ public class Quiz implements ActionListener, MouseListener{
 				}
 			}
 			
-			for( int i = 0; i < SIZE; i++ ) {
+			for( int i = 0; i < NUMBER_OF_ANSWERS; i++ ) {
 				if( e.getSource()==answerB[i] ) {
-					if( buttonsB[i].getText().charAt( 0 ) == answers[index] ) {
+					if( buttonsB[i].getText().charAt( 0 ) == correct.get( index ) ) {
 						correctGuesses++;
 					}
 					else {
@@ -294,16 +309,16 @@ public class Quiz implements ActionListener, MouseListener{
 	
 	
 	private void nextQuestion() {
-		if( index >= SIZE || heartCount == 0 ) {
+		if( index >= numberOfQuestions || heartCount == 0 ) {
 			results();
 			return;
 		}
 		
 		questionNumberF.setText( "question " + ( index + 1 ) );
-		questionF.setText( questions[index] );
-		for( int i = 0; i < SIZE; i++ ) answerB[i].setText( options[index][i] );
-		if( SECONDS >= 10 ) timeString = "00:" + String.valueOf( SECONDS );
-		else timeString = "00:0" + String.valueOf( SECONDS );
+		questionF.setText( questions.get( index ) );
+		for( int i = 0; i < NUMBER_OF_ANSWERS; i++ ) answerB[i].setText( answers.get( index ).get( i ) );
+		if( timeForQuestion >= 10 ) timeString = "00:" + String.valueOf( timeForQuestion );
+		else timeString = "00:0" + String.valueOf( timeForQuestion );
 		secondsL.setText( timeString );
 		secondsL.setVisible( true );
 		timer.start();
@@ -316,12 +331,12 @@ public class Quiz implements ActionListener, MouseListener{
 		UIManager.put( "Button.disabledText", Color.white ); //to control the color of disabled JButtons
 		UIManager.put( "Button.disabledText", UIManager.getDefaults().getColor("Button.disabledText") );
 		
-		for( int i = 0; i < SIZE; i++ ) {
+		for( int i = 0; i < NUMBER_OF_ANSWERS; i++ ) {
 			buttonsB[i].setEnabled( false );
 			answerB[i].setEnabled( false );
 			answerB[i].setForeground( Color.white );
 			buttonsB[i].setForeground( Color.white );
-			if( answers[index] != buttonsB[i].getText().charAt( 0 ) ) {
+			if( correct.get( index ) != buttonsB[i].getText().charAt( 0 ) ) {
 				buttonsB[i].setBorder( BorderFactory.createLineBorder( new Color( 255, 92, 92 ), 5) ); //border color can be changed, no matter if the button is enabled or not
 				
 			}
@@ -335,12 +350,12 @@ public class Quiz implements ActionListener, MouseListener{
 			
 			@Override
 			public void actionPerformed( ActionEvent e ) {
-				for( int i = 0; i < SIZE; i++ ) {
+				for( int i = 0; i < NUMBER_OF_ANSWERS; i++ ) {
 					buttonsB[i].setEnabled( true );
 					answerB[i].setEnabled( true );
 					buttonsB[i].setBorder( BorderFactory.createLineBorder( Color.white, 5) );
 				}
-				counter = SECONDS;
+				timeCounter = timeForQuestion;
 				secondsL.setText( timeString );
 				index++;
 				nextQuestion();
@@ -356,17 +371,17 @@ public class Quiz implements ActionListener, MouseListener{
 		secondsL.setVisible( false );
 		hearts.setVisible( false );
 		
-		for( int i = 0; i < SIZE; i++ ) {
+		for( int i = 0; i < NUMBER_OF_ANSWERS; i++ ) {
 			buttonsB[i].setEnabled( false );
 			buttonsB[i].setVisible( false );
 			answerB[i].setVisible( false );
 		}
-		result = BigDecimal.valueOf( ( correctGuesses / ( double ) SIZE ) * 100 ).setScale(1, RoundingMode.HALF_UP);		
+		result = BigDecimal.valueOf( ( correctGuesses / ( double ) numberOfQuestions ) * 100 ).setScale(1, RoundingMode.HALF_UP);		
 	
 		questionNumberF.setFont( new Font( "Trebuchet MS", Font.BOLD, 60 ) );
 		questionNumberF.setBounds( 20, 160, 400, 70 );
 		questionF.setVisible( false );
-		numberF.setText( correctGuesses + "/" + SIZE );
+		numberF.setText( correctGuesses + "/" + numberOfQuestions );
 		percentageF.setText( result.toString() + "%" );
 		percentageF.setVisible( true );
 		if( heartCount == 0 ) {
@@ -411,13 +426,13 @@ public class Quiz implements ActionListener, MouseListener{
 			backB.setForeground( new Color(  171, 171, 171 ) );
 		}
 		
-		for( int i = 0; i < SIZE; i++ ) {
+		for( int i = 0; i < NUMBER_OF_ANSWERS; i++ ) {
 			if( e.getSource() == answerB[i] && timer.isRunning() ) {
 				answerB[i].setForeground( new Color(  171, 171, 171 ) );
 			}
 		}
 		
-		for( int i = 0; i < SIZE; i++ ) {
+		for( int i = 0; i < NUMBER_OF_ANSWERS; i++ ) {
 			if( e.getSource() == buttonsB[i] && timer.isRunning() ) {
 				buttonsB[i].setBorder( BorderFactory.createLineBorder( new Color(  171, 171, 171 ), 5 ) );
 				buttonsB[i].setForeground( new Color(  171, 171, 171 ) );
@@ -433,13 +448,13 @@ public class Quiz implements ActionListener, MouseListener{
 			backB.setForeground( Color.white );
 		}
 		
-		for( int i = 0; i < SIZE; i++ ) {
+		for( int i = 0; i < NUMBER_OF_ANSWERS; i++ ) {
 			if( e.getSource() == answerB[i] && timer.isRunning() ) {
 				answerB[i].setForeground( Color.white );
 			}
 		}
 		
-		for( int i = 0; i < SIZE; i++ ) {
+		for( int i = 0; i < NUMBER_OF_ANSWERS; i++ ) {
 			if( e.getSource() == buttonsB[i] && timer.isRunning() ) {
 				buttonsB[i].setBorder( BorderFactory.createLineBorder( Color.white, 5 ) );
 				buttonsB[i].setForeground( Color.white );

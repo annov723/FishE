@@ -20,7 +20,7 @@ import javax.swing.JTextField;
 
 public class QuizPick implements ActionListener, MouseListener{
 
-	private JLabel quiz_pickL = new JLabel();
+	private JLabel quizPickL = new JLabel();
 	private JLabel  backgroundL = new JLabel( new ImageIcon( "background.png" ) );
 	private JButton backB = new JButton();
 	
@@ -109,25 +109,25 @@ public class QuizPick implements ActionListener, MouseListener{
         });
 
 	    
-		quiz_pickL.setBounds( 0, 0, 450, 800 );
-		quiz_pickL.add( scrollP );
-		quiz_pickL.add( backB );
-		quiz_pickL.add( backgroundL ); 
-		quiz_pickL.setVisible( false );
+		quizPickL.setBounds( 0, 0, 450, 800 );
+		quizPickL.add( scrollP );
+		quizPickL.add( backB );
+		quizPickL.add( backgroundL ); 
+		quizPickL.setVisible( false );
 		
-		frame.add( quiz_pickL );
+		frame.add( quizPickL );
 	}
 	
 	
 	
 	void visible() {
-		quiz_pickL.setVisible( true );
+		quizPickL.setVisible( true );
 	}
 	
 	//the next window to create should be something like - two rows:
 	//	first with number of questions and the second one with time limits (maybe horizontal scrollbar?) 
 	//	a start button and unless the two options are set the user cannot click the start button
-	void time_n_count() {
+	void timeAndCount() {
 		flagT = 0;
 		flagC = 0;
 		scrollP.setVisible( false );
@@ -194,14 +194,14 @@ public class QuizPick implements ActionListener, MouseListener{
 		playB.addMouseListener( this );
 		playB.setVisible( true );
 		
-		quiz_pickL.add( timeF );
-		quiz_pickL.add( countF );
+		quizPickL.add( timeF );
+		quizPickL.add( countF );
 		for( int i = 0; i < 3; i++ ) {
-			quiz_pickL.add( countB[i] );
-			quiz_pickL.add( timeB[i] );
+			quizPickL.add( countB[i] );
+			quizPickL.add( timeB[i] );
 		}
-		quiz_pickL.add( playB );
-		quiz_pickL.add( backgroundL );
+		quizPickL.add( playB );
+		quizPickL.add( backgroundL );
 		
 		flagT = 0;
 		flagC = 0;
@@ -354,14 +354,14 @@ public class QuizPick implements ActionListener, MouseListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if( e.getSource() == backB ) {
-            quiz_pickL.setVisible( false );
+            quizPickL.setVisible( false );
             flagT = 0;
     		flagC = 0;
             scroll();
         }
 		
 		if( e.getSource() == playB && flagC != 0 && flagT != 0 ) {
-			quiz_pickL.setVisible( false );
+			quizPickL.setVisible( false );
 			for( int i = 0; i < timeB.length; i++ ) {
 				timeB[i].setBorder( BorderFactory.createLineBorder( Color.white, 7 ) );
 				timeB[i].setForeground( Color.white );
@@ -384,13 +384,16 @@ public class QuizPick implements ActionListener, MouseListener{
 			ArrayList<ArrayList<String>> answers = data.getAnswers();
 			ArrayList<Character> correct = data.getCorrect();
 		
+			if( flagT == 1 ) flagT = 5;
+			else if( flagT == 2 ) flagT = 10;
+			else flagT = 15;
 			Quiz quiz = new Quiz( flagT, questions, answers, correct );
         }
 		
 		for( JButton button : titlesB ) {
 			if( e.getSource() == button ) {
 				choice = button.getText();
-				time_n_count();
+				timeAndCount();
 			}
 		}
 		
