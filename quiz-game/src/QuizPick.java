@@ -18,7 +18,7 @@ import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
-public class Quiz_pick implements ActionListener, MouseListener{
+public class QuizPick implements ActionListener, MouseListener{
 
 	private JLabel quiz_pickL = new JLabel();
 	private JLabel  backgroundL = new JLabel( new ImageIcon( "background.png" ) );
@@ -45,7 +45,7 @@ public class Quiz_pick implements ActionListener, MouseListener{
 	
 	
 	
-	Quiz_pick( JFrame frame ) {
+	QuizPick( JFrame frame ) {
 		System.out.println( "konstruktor quiz_pick" );
 		//we need all the quizes titles
 		data.start();

@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 
-public class Fishe_pick implements ActionListener, MouseListener{
+public class FishePick implements ActionListener, MouseListener{
 
 	private JLabel fishe_pickL = new JLabel();
 	private JLabel  backgroundL = new JLabel( new ImageIcon( "background.png" ) );
@@ -33,7 +33,7 @@ public class Fishe_pick implements ActionListener, MouseListener{
 	
 	
 	
-	Fishe_pick( JFrame frame ) {
+	FishePick( JFrame frame ) {
 		System.out.println( "konstruktor fishe_pick" );
 		data.start();
 		size = data.getSize();
