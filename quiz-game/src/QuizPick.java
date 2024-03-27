@@ -386,7 +386,7 @@ public class QuizPick implements ActionListener, MouseListener{
 			if( flagT == 1 ) flagT = 5;
 			else if( flagT == 2 ) flagT = 10;
 			else flagT = 15;
-			Quiz quiz = new Quiz( flagT, questions, answers, correct );
+			Menu.quiz.runQuiz( flagT, questions, answers, correct );
         }
 		
 		for( JButton button : titlesB ) {

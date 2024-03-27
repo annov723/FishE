@@ -18,8 +18,8 @@ public class Quiz implements ActionListener, MouseListener{
 	private ArrayList<ArrayList<String>> answers;
 	private ArrayList<Character> correct;
 		
-	private static final int NUMBER_OF_ANSWERS = 4; //in Java there is no #define
-	private static final int TIME = 2000; //how much time the solusion is displayed
+	private final int numberOfAnswers = 4; //in Java there is no #define
+	private final int time = 2000; //how much time the solusion is displayed
 	
 	private int timeForQuestion;
 	private int numberOfQuestions;
@@ -28,29 +28,29 @@ public class Quiz implements ActionListener, MouseListener{
 	private int correctGuesses = 0;
 	private BigDecimal result; //so the percentage doesn't be rounded
 	
-	private JFrame frame = new JFrame();
-	private JTextField questionNumberF = new JTextField();
-	private JTextField questionF = new JTextField();
-	private JButton buttonsB[] = new JButton[NUMBER_OF_ANSWERS];
-	private JButton answerB[] = new JButton[NUMBER_OF_ANSWERS];
-	private JLabel secondsL = new JLabel();
-	private JTextField numberF = new JTextField();
-	private JTextField percentageF = new JTextField();
+	private JFrame frame;
+	private JTextField questionNumberF;
+	private JTextField questionF;
+	private JButton buttonsB[];
+	private JButton answerB[];
+	private JLabel secondsL;
+	private JTextField numberF;
+	private JTextField percentageF;
 	private String timeString = "00:";
 	
 	private ImageIcon icon = new ImageIcon( "mini.png" ); //an icon for menu display
 	
-	private JButton backB = new JButton();
+	private JButton backB;
 	private ImageIcon heart1 = new ImageIcon( "heart2.png" );
 	private ImageIcon heart2 = new ImageIcon( "heart2.png" );
 	private ImageIcon heart3 = new ImageIcon( "heart2.png" );
 	private JLabel heart1L;
 	private JLabel heart2L;
 	private JLabel heart3L;
-	private JPanel hearts = new JPanel();
+	private JPanel hearts;
 	private int heartCount = 3;
 	
-	private Timer timer =  new Timer( 1000, new ActionListener() { //every one second
+	Timer timer =  new Timer( 1000, new ActionListener() { //every one second
 		@Override
 		public void actionPerformed( ActionEvent e ) {
 			timeCounter--;
@@ -66,13 +66,14 @@ public class Quiz implements ActionListener, MouseListener{
 	
 	
 	
-	public Quiz( int timeLimit, ArrayList<String> q, ArrayList<ArrayList<String>> a, ArrayList<Character> ch ) {
+	public void runQuiz( int timeLimit, ArrayList<String> q, ArrayList<ArrayList<String>> a, ArrayList<Character> ch ) {
 		timeCounter = timeForQuestion = timeLimit;
 		numberOfQuestions = q.size();
 		questions = new ArrayList<>( q );
 		answers = new ArrayList<>( a );
 		correct = new ArrayList<>( ch );
 		
+		frame = new JFrame();
 		frame.setSize( 450, 800 );
 		frame.getContentPane().setBackground( new Color( 104, 105, 191 ) );
 		frame.setLayout( null );
@@ -82,6 +83,7 @@ public class Quiz implements ActionListener, MouseListener{
 		frame.setIconImage( icon.getImage() );
 		frame.setTitle( "quiz" );
 		
+		questionNumberF = new JTextField();
 		questionNumberF.setBounds( 20, 80, 400, 50 );
 		questionNumberF.setBackground( new Color ( 104, 105, 191 ) );
 		questionNumberF.setFocusable( false );
@@ -91,6 +93,7 @@ public class Quiz implements ActionListener, MouseListener{
 		questionNumberF.setHorizontalAlignment( JTextField.CENTER );
 		questionNumberF.setEditable( false );
 		
+		questionF = new JTextField();
 		questionF.setBounds( 20, 130, 400, 50 );
 		questionF.setBackground( new Color ( 104, 105, 191 ) );
 		questionF.setFocusable( false );
@@ -100,7 +103,8 @@ public class Quiz implements ActionListener, MouseListener{
 		questionF.setEditable( false );
 		questionF.setHorizontalAlignment( JTextField.CENTER );
 		
-		for( int i = 0; i < NUMBER_OF_ANSWERS; i++ ) {
+		buttonsB = new JButton[numberOfAnswers];
+		for( int i = 0; i < numberOfAnswers; i++ ) {
 			buttonsB[i] = new JButton();
 			buttonsB[i].setBounds( 50, 230 + ( i * 80 ), 50, 50 );
 			buttonsB[i].setFont( new Font( "Trebuchet MS", Font.BOLD, 25 ) );
@@ -114,7 +118,9 @@ public class Quiz implements ActionListener, MouseListener{
 			buttonsB[i].setText( String.valueOf( c ) );
 			buttonsB[i].setVisible( true );
 		}
-		for( int i = 0; i < NUMBER_OF_ANSWERS; i++ ) {
+		
+		answerB = new JButton[numberOfAnswers];
+		for( int i = 0; i < numberOfAnswers; i++ ) {
 			answerB[i] = new JButton();
 			answerB[i].setBounds( 120, 230 + ( i * 80 ), 280, 50 );
 			answerB[i].setForeground( Color.white );
@@ -128,6 +134,7 @@ public class Quiz implements ActionListener, MouseListener{
 			
 		}
 		
+		secondsL = new JLabel();
 		secondsL.setBounds( 330, 10, 100, 50 );
 		secondsL.setBackground( new Color( 104, 105, 191 ) );
 		secondsL.setForeground( Color.white );
@@ -135,6 +142,7 @@ public class Quiz implements ActionListener, MouseListener{
 		secondsL.setHorizontalAlignment( JLabel.CENTER );
 		secondsL.setVisible( false );
 		
+		numberF = new JTextField();
 		numberF.setBounds( 20, 230, 400, 80 );
 		numberF.setBackground( new Color( 104, 105, 191 ) );
 		numberF.setForeground( Color.white );
@@ -143,6 +151,7 @@ public class Quiz implements ActionListener, MouseListener{
 		numberF.setBorder( javax.swing.BorderFactory.createEmptyBorder() );
 		numberF.setHorizontalAlignment( JTextField.CENTER );
 		
+		percentageF = new JTextField();
 		percentageF.setBounds( 20, 300, 400, 50 );
 		percentageF.setBackground( new Color( 104, 105, 191 ) );
 		percentageF.setForeground( Color.white );
@@ -152,6 +161,7 @@ public class Quiz implements ActionListener, MouseListener{
 		percentageF.setHorizontalAlignment( JTextField.CENTER );
 		percentageF.setVisible( false );
 		
+		backB = new JButton();
 		backB.setBounds( 250, 665, 150, 65 );
 		backB.setForeground( Color.white );
 		backB.setFont( new Font( "Trebuchet MS", Font.PLAIN, 25 ) );
@@ -177,6 +187,7 @@ public class Quiz implements ActionListener, MouseListener{
 		heart3 = new ImageIcon( logoAfter );
 		heart3L = new JLabel( heart3 );
 		
+		hearts = new JPanel();
 		hearts.setLayout( new GridLayout( 1, 3 ) );
 		hearts.setBounds( 20, 20, 120, 40 );
 		hearts.setOpaque( false );
@@ -191,7 +202,7 @@ public class Quiz implements ActionListener, MouseListener{
 		frame.add( secondsL );
 		frame.add( hearts );
 		
-		for( int i = 0; i < NUMBER_OF_ANSWERS; i++ ) {
+		for( int i = 0; i < numberOfAnswers; i++ ) {
 			frame.add( buttonsB[i] );
 			frame.add( answerB[i] );
 		}
@@ -221,12 +232,12 @@ public class Quiz implements ActionListener, MouseListener{
      
 		}
 		else {
-			for( int i = 0; i < NUMBER_OF_ANSWERS; i++ ) {
+			for( int i = 0; i < numberOfAnswers; i++ ) {
 				buttonsB[i].setEnabled( false );
 				answerB[i].setEnabled( false );
 			}
 			
-			for( int i = 0; i < NUMBER_OF_ANSWERS; i++ ) {
+			for( int i = 0; i < numberOfAnswers; i++ ) {
 				if( e.getSource()==buttonsB[i] ) {
 					if( buttonsB[i].getText().charAt( 0 ) == correct.get( index ) ) {
 						correctGuesses++;
@@ -239,7 +250,7 @@ public class Quiz implements ActionListener, MouseListener{
 				}
 			}
 			
-			for( int i = 0; i < NUMBER_OF_ANSWERS; i++ ) {
+			for( int i = 0; i < numberOfAnswers; i++ ) {
 				if( e.getSource()==answerB[i] ) {
 					if( buttonsB[i].getText().charAt( 0 ) == correct.get( index ) ) {
 						correctGuesses++;
@@ -267,7 +278,7 @@ public class Quiz implements ActionListener, MouseListener{
 		
 		questionNumberF.setText( "question " + ( index + 1 ) );
 		questionF.setText( questions.get( index ) );
-		for( int i = 0; i < NUMBER_OF_ANSWERS; i++ ) answerB[i].setText( answers.get( index ).get( i ) );
+		for( int i = 0; i < numberOfAnswers; i++ ) answerB[i].setText( answers.get( index ).get( i ) );
 		if( timeForQuestion >= 10 ) timeString = "00:" + String.valueOf( timeForQuestion );
 		else timeString = "00:0" + String.valueOf( timeForQuestion );
 		secondsL.setText( timeString );
@@ -282,7 +293,7 @@ public class Quiz implements ActionListener, MouseListener{
 		UIManager.put( "Button.disabledText", Color.white ); //to control the color of disabled JButtons
 		UIManager.put( "Button.disabledText", UIManager.getDefaults().getColor( "Button.disabledText" ) );
 		
-		for( int i = 0; i < NUMBER_OF_ANSWERS; i++ ) {
+		for( int i = 0; i < numberOfAnswers; i++ ) {
 			buttonsB[i].setEnabled( false );
 			answerB[i].setEnabled( false );
 			answerB[i].setForeground( Color.white );
@@ -301,11 +312,11 @@ public class Quiz implements ActionListener, MouseListener{
 		else if( heartCount == 0 && heart1L.isVisible() ) heart1L.setVisible( false );
 		
 		//delay - after the delay, the action is performed
-		Timer pause =  new Timer( TIME, new ActionListener() {
+		Timer pause =  new Timer( time, new ActionListener() {
 			
 			@Override
 			public void actionPerformed( ActionEvent e ) {
-				for( int i = 0; i < NUMBER_OF_ANSWERS; i++ ) {
+				for( int i = 0; i < numberOfAnswers; i++ ) {
 					buttonsB[i].setEnabled( true );
 					answerB[i].setEnabled( true );
 					buttonsB[i].setBorder( BorderFactory.createLineBorder( Color.white, 5) );
@@ -326,7 +337,7 @@ public class Quiz implements ActionListener, MouseListener{
 		secondsL.setVisible( false );
 		hearts.setVisible( false );
 		
-		for( int i = 0; i < NUMBER_OF_ANSWERS; i++ ) {
+		for( int i = 0; i < numberOfAnswers; i++ ) {
 			buttonsB[i].setEnabled( false );
 			buttonsB[i].setVisible( false );
 			answerB[i].setVisible( false );
@@ -383,13 +394,13 @@ public class Quiz implements ActionListener, MouseListener{
 			backB.setForeground( new Color(  171, 171, 171 ) );
 		}
 		
-		for( int i = 0; i < NUMBER_OF_ANSWERS; i++ ) {
+		for( int i = 0; i < numberOfAnswers; i++ ) {
 			if( e.getSource() == answerB[i] && timer.isRunning() ) {
 				answerB[i].setForeground( new Color(  171, 171, 171 ) );
 			}
 		}
 		
-		for( int i = 0; i < NUMBER_OF_ANSWERS; i++ ) {
+		for( int i = 0; i < numberOfAnswers; i++ ) {
 			if( e.getSource() == buttonsB[i] && timer.isRunning() ) {
 				buttonsB[i].setBorder( BorderFactory.createLineBorder( new Color(  171, 171, 171 ), 5 ) );
 				buttonsB[i].setForeground( new Color(  171, 171, 171 ) );
@@ -405,13 +416,13 @@ public class Quiz implements ActionListener, MouseListener{
 			backB.setForeground( Color.white );
 		}
 		
-		for( int i = 0; i < NUMBER_OF_ANSWERS; i++ ) {
+		for( int i = 0; i < numberOfAnswers; i++ ) {
 			if( e.getSource() == answerB[i] && timer.isRunning() ) {
 				answerB[i].setForeground( Color.white );
 			}
 		}
 		
-		for( int i = 0; i < NUMBER_OF_ANSWERS; i++ ) {
+		for( int i = 0; i < numberOfAnswers; i++ ) {
 			if( e.getSource() == buttonsB[i] && timer.isRunning() ) {
 				buttonsB[i].setBorder( BorderFactory.createLineBorder( Color.white, 5 ) );
 				buttonsB[i].setForeground( Color.white );

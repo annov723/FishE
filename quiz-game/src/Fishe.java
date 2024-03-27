@@ -21,7 +21,7 @@ import javax.swing.JTextField;
 
 public class Fishe implements ActionListener, MouseListener {
 	
-	private JFrame frame = new JFrame();
+	private JFrame frame;
 	private ImageIcon icon = new ImageIcon( "mini.png" ); //an icon for menu display
 	
 	private JButton backB = new JButton();
@@ -45,6 +45,7 @@ public class Fishe implements ActionListener, MouseListener {
 		answers = new ArrayList<>( a );
 		numberOfQuestions = questions.size();
 		
+		frame = new JFrame();
 		frame.setSize( 450, 800 );
 		frame.getContentPane().setBackground( new Color( 104, 105, 191 ) );
 		frame.setLayout( null );
