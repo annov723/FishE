@@ -49,8 +49,8 @@ public class Quiz_pick implements ActionListener, MouseListener{
 		System.out.println( "konstruktor quiz_pick" );
 		//we need all the quizes titles
 		data.start();
-		size = data.get_size();
-		titles = data.get_titles();
+		size = data.getSize();
+		titles = data.getTitles();
 		
 		backB.setBounds( 250, 665, 150, 65 );
 		backB.setForeground( Color.white );
@@ -375,13 +375,13 @@ public class Quiz_pick implements ActionListener, MouseListener{
 			Menu.frame.dispose();
 			
 			//here I need to collect all the necessary data from dat.txt
-			data.generate_quiz( flagC, choice );
+			data.generateQuiz( flagC, choice );
 			
-			ArrayList<String> questions = data.get_questions();
-			ArrayList<ArrayList<String>> answers = data.get_answers();
-			ArrayList<Character> correct = data.get_correct();
+			ArrayList<String> questions = data.getQuestions();
+			ArrayList<ArrayList<String>> answers = data.getAnswers();
+			ArrayList<Character> correct = data.getCorrect();
 			
-			data.data_clear();
+			data.dataClear();
 			
 			Quiz quiz = new Quiz( flagT, questions, answers, correct );
         }

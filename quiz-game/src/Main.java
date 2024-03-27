@@ -15,14 +15,6 @@ public class Main {
  */
 
 /**
- * ### DATA DESCRIPTION ###
- * load quizes data from file
- * there is a some kind of sturcture which holds a stucture elements, each with 5 elements: int number of questions, string title of the quiz, string[] questions, string[][] answers, string[] good answer
- * when the file is open, the info is sent to the Menu class
- * one structure element in one line, all new strings seperated with ";"
- */
-
-/**
  * ### MENU DESCRIPTION ###
  * game logo and title (animated?)
  * DONE: 3 buttons - quiz, FishE, quit
@@ -64,6 +56,8 @@ public class Main {
  * class with functions responsible from file handling
  * for Menu: function is returning all quizes' titles
  * for Quiz: function is returning data for the choosen quiz
+ * returned data must be random
+ * optimalization idea: when the same topic is picked once again data should not get the data from the file once again
  */
 
 /* Some ideas:

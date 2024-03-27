@@ -1,5 +1,6 @@
 __FishE__
 10
+20
 physics|biology|equestrian|sport|geography|film|animals|architecture|history|art
 
 SI unit of force?|Gravitational potential energy:|SI unit of power?|SI unit of electric current?|SI unit of electric charge?|Newton's second law?|Formula for momentum?|Speed of light in a vacuum:|What is the SI unit of energy?|Formula for kinetic energy:|Ohm's Law:|SI unit of frequency:|SI unit of capacitance:|SI unit of magnetic field strength:|Formula for density:|SI unit of temperature:|Two types of lenses are NOT:|Force exerted by a spring:|Electric power in a circuit:|Work equation:

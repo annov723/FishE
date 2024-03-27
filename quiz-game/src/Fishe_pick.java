@@ -36,8 +36,8 @@ public class Fishe_pick implements ActionListener, MouseListener{
 	Fishe_pick( JFrame frame ) {
 		System.out.println( "konstruktor fishe_pick" );
 		data.start();
-		size = data.get_size();
-		titles = data.get_titles();
+		size = data.getSize();
+		titles = data.getTitles();
 		
 		backB.setBounds( 250, 665, 150, 65 );
 		backB.setForeground( Color.white );
@@ -171,11 +171,11 @@ public class Fishe_pick implements ActionListener, MouseListener{
 				Menu.frame.dispose();
 				
 				//here I need to collect all the necessary data from dat.txt
-				data.generate_fishe( choice );
-				ArrayList<String> questions = data.get_questions();
-				ArrayList<String> correct = data.get_correct_answers();
+				data.generateFishe( choice );
+				ArrayList<String> questions = data.getQuestions();
+				ArrayList<String> correct = data.getCorrectAnswersOnly();
 				
-				data.data_clear();
+				data.dataClear();
 				
 				Fishe fishe = new Fishe( questions, correct );
 			}
