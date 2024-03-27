@@ -19,7 +19,7 @@ import javax.swing.JScrollPane;
 
 public class FishePick implements ActionListener, MouseListener{
 
-	private JLabel fishe_pickL = new JLabel();
+	private JLabel fishePickL = new JLabel();
 	private JLabel  backgroundL = new JLabel( new ImageIcon( "background.png" ) );
 	private JButton backB = new JButton();
 	
@@ -34,7 +34,6 @@ public class FishePick implements ActionListener, MouseListener{
 	
 	
 	FishePick( JFrame frame ) {
-		System.out.println( "konstruktor fishe_pick" );
 		data.start();
 		size = data.getSize();
 		titles = data.getTitles();
@@ -96,17 +95,17 @@ public class FishePick implements ActionListener, MouseListener{
         });
 
 	    
-		fishe_pickL.setBounds( 0, 0, 450, 800 );
-		fishe_pickL.add( scrollP );
-		fishe_pickL.add( backB );
-		fishe_pickL.add( backgroundL ); 
-		fishe_pickL.setVisible( false );
+		fishePickL.setBounds( 0, 0, 450, 800 );
+		fishePickL.add( scrollP );
+		fishePickL.add( backB );
+		fishePickL.add( backgroundL ); 
+		fishePickL.setVisible( false );
 		
-		frame.add( fishe_pickL );
+		frame.add( fishePickL );
 	}
 	
 	void visible() {
-		fishe_pickL.setVisible( true );
+		fishePickL.setVisible( true );
 	}
 	
 	
@@ -159,14 +158,14 @@ public class FishePick implements ActionListener, MouseListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if( e.getSource() == backB ) {
-            fishe_pickL.setVisible( false );
+            fishePickL.setVisible( false );
         }
 		
 		for( JButton button : titlesB ) {
 			if( e.getSource() == button ) {
 				String choice = button.getText();
 				
-				fishe_pickL.setVisible( false );
+				fishePickL.setVisible( false );
 				button.setForeground( Color.white );
 				Menu.frame.dispose();
 				

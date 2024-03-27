@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 public class Fishe implements ActionListener, MouseListener {
 	
@@ -18,9 +19,19 @@ public class Fishe implements ActionListener, MouseListener {
 	private ImageIcon icon = new ImageIcon( "mini.png" ); //an icon for menu display
 	
 	private JButton backB = new JButton();
+	private JTextField answerF = new JTextField();
+	private JTextField questionF = new JTextField();
+	
+	private ArrayList<String> questions;
+	private ArrayList<String> answers;
+	private int index = 0;
+	private int numberOfQuestions;
 	
 	Fishe( ArrayList<String> q, ArrayList<String> a ) {
-		System.out.println( "konstruktor fishe" );
+		questions = new ArrayList<>( q );
+		answers = new ArrayList<>( a );
+		numberOfQuestions = questions.size();
+		
 		frame.setSize( 450, 800 );
 		frame.getContentPane().setBackground( new Color( 104, 105, 191 ) );
 		frame.setLayout( null );
@@ -41,10 +52,47 @@ public class Fishe implements ActionListener, MouseListener {
 		backB.setText( "back" );
 		backB.setVisible( true );
 		
+		answerF.setBounds( 20, 250, 400, 50 );
+		answerF.setBackground( new Color ( 104, 105, 191 ) );
+		answerF.setFocusable( false );
+		answerF.setForeground( new Color ( 255, 255, 255 ) );
+		answerF.setBorder( javax.swing.BorderFactory.createEmptyBorder() ); //to remove the border
+		answerF.setFont( new Font( "Trebuchet MS", Font.BOLD, 35 ) );
+		answerF.setHorizontalAlignment( JTextField.CENTER );
+		answerF.setEditable( false );
+		
+		questionF.setBounds( 20, 170, 400, 50 );
+		questionF.setBackground( new Color ( 104, 105, 191 ) );
+		questionF.setFocusable( false );
+		questionF.setForeground( new Color ( 255, 255, 255 ) );
+		questionF.setFont( new Font( "Trebuchet MS", Font.PLAIN, 25 ) );
+		questionF.setBorder( javax.swing.BorderFactory.createEmptyBorder() );
+		questionF.setEditable( false );
+		questionF.setHorizontalAlignment( JTextField.CENTER );
+		
 		
 		
 		frame.add( backB );
-		frame.setVisible( true );		
+		frame.add( questionF );
+		frame.add( answerF );
+		frame.setVisible( true );
+		
+		nextQuestion();
+	}
+	
+	void nextQuestion() {
+		if( index >= numberOfQuestions ) {
+			
+		}
+		else if( index <= 0 ) {
+			
+		}
+		else {
+			
+		}
+		
+		answerF.setText( answers.get( index ) );
+		questionF.setText( questions.get( index ) );
 	}
 	
 	@Override
@@ -58,7 +106,9 @@ public class Fishe implements ActionListener, MouseListener {
             if ( result == JOptionPane.NO_OPTION ) {
             	
             }
-		}	
+		}
+		
+		//left and right arrows
 		
 	}
 	

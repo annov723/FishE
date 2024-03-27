@@ -46,7 +46,6 @@ public class QuizPick implements ActionListener, MouseListener{
 	
 	
 	QuizPick( JFrame frame ) {
-		System.out.println( "konstruktor quiz_pick" );
 		//we need all the quizes titles
 		data.start();
 		size = data.getSize();

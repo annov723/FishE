@@ -13,52 +13,12 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 public class Quiz implements ActionListener, MouseListener{
-	 
-	/*static final String[] questions = {
-										"Which company created Java?",
-										"Which year was Java created?",
-										"What was Java originally called?",
-										"Who is credited with creating Java?"
-			
-						 			  };
-	static final String[][] options = {
-										{
-											"Sun Microsystems",
-											"KFC",
-											"Microsoft",
-											"Alphabet"
-										},
-										{
-											"1989",
-											"1996",
-											"1972",
-											"1492"
-										},
-										{
-											"Apple",
-											"Latte",
-											"Oak",
-											"Koffing"
-										},
-										{
-											"Steve Jobs",
-											"Bill Gates",
-											"James Gosling",
-											"Harry Potter"
-										}
-						 };
-	static final char[] answers = {
-									'A',
-									'B',
-									'C',
-									'C'
-					 			  };*/
 	
-	ArrayList<String> questions;
-	ArrayList<ArrayList<String>> answers;
-	ArrayList<Character> correct;
+	private ArrayList<String> questions;
+	private ArrayList<ArrayList<String>> answers;
+	private ArrayList<Character> correct;
 		
-	private int NUMBER_OF_ANSWERS = 4; //in Java there is no #define
+	private static final int NUMBER_OF_ANSWERS = 4; //in Java there is no #define
 	private static final int TIME = 2000; //how much time the solusion is displayed
 	
 	private int timeForQuestion;
@@ -107,7 +67,6 @@ public class Quiz implements ActionListener, MouseListener{
 	
 	
 	public Quiz( int timeLimit, ArrayList<String> q, ArrayList<ArrayList<String>> a, ArrayList<Character> ch ) {
-		System.out.println( "konstruktor quiz" );
 		//get quiz data from file!
 		//questions has to be in a random order!
 		timeCounter = timeForQuestion = timeLimit;
@@ -115,11 +74,6 @@ public class Quiz implements ActionListener, MouseListener{
 		questions = new ArrayList<>( q );
 		answers = new ArrayList<>( a );
 		correct = new ArrayList<>( ch );
-		
-		System.out.println( questions );
-		System.out.println( answers );
-		System.out.println( correct );
-		
 		
 		frame.setSize( 450, 800 );
 		frame.getContentPane().setBackground( new Color( 104, 105, 191 ) );
@@ -302,8 +256,6 @@ public class Quiz implements ActionListener, MouseListener{
 			displayAnswer();
 		}
 		
-		
-		
 	}
 	
 	
@@ -462,9 +414,6 @@ public class Quiz implements ActionListener, MouseListener{
 				buttonsB[i].setForeground( Color.white );
 			}
 		}
-		
 	}
-
-	
 	
 }

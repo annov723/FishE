@@ -7,25 +7,24 @@ import java.util.Random;
 public class Data {
 	
 	private final static String path = "dat.txt";
-	File file;
-	int numberOfTopics;
-	int numberOfQuestions;
-	ArrayList<String> titles;
-	int chosenTitle = -1;
+	private File file;
+	private int numberOfTopics;
+	private int numberOfQuestions;
+	private ArrayList<String> titles;
+	private int chosenTitle = -1;
 	
 	//UPGRADED: this should stay as for the upgrade that the data is loaded once if the user play with the same quiz once again
-	ArrayList<String> questions = new ArrayList<>();
-	ArrayList<ArrayList<String>> answers = new ArrayList<>();
-	ArrayList<Character> correct = new ArrayList<>();
+	private ArrayList<String> questions = new ArrayList<>();
+	private ArrayList<ArrayList<String>> answers = new ArrayList<>();
+	private ArrayList<Character> correct = new ArrayList<>();
 	
-	ArrayList<String> pickedQuestions = new ArrayList<>();
-	ArrayList<ArrayList<String>> pickedAnswers = new ArrayList<>();
-	ArrayList<Character> pickedCorrect = new ArrayList<>();
+	private ArrayList<String> pickedQuestions = new ArrayList<>();
+	private ArrayList<ArrayList<String>> pickedAnswers = new ArrayList<>();
+	private ArrayList<Character> pickedCorrect = new ArrayList<>();
 	
 	
 	
 	Data() {
-		System.out.println( "konstruktor data" );
 		exist();
 	}
 	
