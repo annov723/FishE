@@ -128,6 +128,8 @@ public class QuizPick implements ActionListener, MouseListener{
 	//	first with number of questions and the second one with time limits (maybe horizontal scrollbar?) 
 	//	a start button and unless the two options are set the user cannot click the start button
 	void time_n_count() {
+		flagT = 0;
+		flagC = 0;
 		scrollP.setVisible( false );
 		
 		timeF.setBounds( 40, 90, 360, 50 );
@@ -369,20 +371,19 @@ public class QuizPick implements ActionListener, MouseListener{
 				countB[i].setForeground( Color.white );
 			}
 			playB.setBackground( Color.white );
-			flagT = 0;
-    		flagC = 0;
 			scroll();
 			Menu.frame.dispose();
 			
 			//here I need to collect all the necessary data from dat.txt
+			if( flagC == 1 ) flagC = 5;
+			else if( flagC == 2 ) flagC = 10;
+			else flagC = 20;
 			data.generateQuiz( flagC, choice );
 			
 			ArrayList<String> questions = data.getQuestions();
 			ArrayList<ArrayList<String>> answers = data.getAnswers();
 			ArrayList<Character> correct = data.getCorrect();
-			
-			data.dataClear();
-			
+		
 			Quiz quiz = new Quiz( flagT, questions, answers, correct );
         }
 		

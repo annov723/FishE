@@ -11,15 +11,16 @@ public class Data {
 	int numberOfTopics;
 	int numberOfQuestions;
 	ArrayList<String> titles;
+	int chosenTitle = -1;
 	
-	//this should stay as for the upgrade that the data is loaded once if the user play with the same quiz once again
-	ArrayList<String> questions;
-	ArrayList<ArrayList<String>> answers;
-	ArrayList<Character> correct;
+	//UPGRADED: this should stay as for the upgrade that the data is loaded once if the user play with the same quiz once again
+	ArrayList<String> questions = new ArrayList<>();;
+	ArrayList<ArrayList<String>> answers = new ArrayList<>();;
+	ArrayList<Character> correct = new ArrayList<>();;
 	
-	ArrayList<String> pickedQuestions;
-	ArrayList<ArrayList<String>> pickedAnswers;
-	ArrayList<Character> pickedCorrect;
+	ArrayList<String> pickedQuestions = new ArrayList<>();;
+	ArrayList<ArrayList<String>> pickedAnswers = new ArrayList<>();;
+	ArrayList<Character> pickedCorrect = new ArrayList<>();;
 	
 	
 	
@@ -76,18 +77,44 @@ public class Data {
 		return numberOfTopics;
 	}
 	
-	void generateQuiz( int howMany, String title ) {
+	void generateQuiz( final int howMany, final String title ) {
+		if( chosenTitle != titles.indexOf( title ) ) getQuizFromFile( title );
+		generateRandom( howMany );
+			
+		
+	}
+	
+	void generateRandom( final int howMany ) {
+		Random rand = new Random();
+		int randomIndex;
+		for( int i = 0; i < howMany; i++ ) {
+			randomIndex = rand.nextInt( numberOfQuestions );
+			if( !pickedQuestions.contains( questions.get( randomIndex ) ) ) {
+				pickedQuestions.add( questions.get( randomIndex ) );
+				pickedAnswers.add( answers.get( randomIndex ) );
+				pickedCorrect.add( correct.get( randomIndex ) );
+			}
+			else {
+				i--;
+			}
+		}
+		System.out.println( pickedQuestions );
+		System.out.println( pickedAnswers );
+		System.out.println( pickedCorrect );
+	}
+	
+	void getQuizFromFile( final String title ) {
 		try {
+			pickedClear();
+			dataClear();
+			
 			BufferedReader buff = new BufferedReader( new FileReader( file ) );
 			String line = null;
 			
 			for( int i = 0; i < 5; i++ ) line = buff.readLine();
 			
-			questions = new ArrayList<>();
-			answers = new ArrayList<>();
-			correct = new ArrayList<>();
-			
-			for( int i = 0; i < titles.indexOf( title ) * ( numberOfQuestions + 3 ); i++ ) line = buff.readLine();
+			chosenTitle = titles.indexOf( title );
+			for( int i = 0; i < chosenTitle * ( numberOfQuestions + 3 ); i++ ) line = buff.readLine();
 			
 			line = buff.readLine(); //line with questions
 			String[] text = line.split("\\|");
@@ -106,20 +133,6 @@ public class Data {
 			text = line.split("\\|");
 			for( String element : text ) correct.add( element.charAt(0) );
 			
-			System.out.println( questions );
-			System.out.println( answers );
-			System.out.println( correct );
-					
-			
-			//now get random questions
-			Random rand = new Random();
-			int randomIndex;
-			for( int i = 0; i < howMany; i++ ) {
-				randomIndex = rand.nextInt(questions.size());
-			}
-		    
-			
-			
 			buff.close();
 		}
 		catch( Exception exp ){
@@ -128,38 +141,44 @@ public class Data {
 		}
 	}
 	
-	void generateFishe( String title ) {
-		
+	void generateFishe( final String title ) {
+		if( chosenTitle != titles.indexOf( title ) ) getQuizFromFile( title );
+		generateRandom( numberOfQuestions );
 	}
 	
 	ArrayList<String> getQuestions() {
-		return questions;
+		return pickedQuestions;
 	}
 	
 	ArrayList<ArrayList<String>> getAnswers() {
-		return answers;
+		return pickedAnswers;
 	}
 	
 	ArrayList<Character> getCorrect() {
-		return correct;
+		return pickedCorrect;
 	}
 	
 	ArrayList<String> getCorrectAnswersOnly() {
 		ArrayList<String> correctAnswers = new ArrayList<>();
 		
-		//find just correct answers from data
+		for( int i = 0; i < numberOfQuestions; i++ ) {
+			correctAnswers.add( pickedAnswers.get( i ).get( ( int ) pickedCorrect.get( i ) - 'A' ) );
+		}
+		
+		System.out.println( correctAnswers );
 		
 		return correctAnswers;
 	}
 	
-	void dataClear() {
-		//it will not be needed due to reusing upgrade
-		if( questions != null ) questions.clear();
-		if( answers != null ) answers.clear();
-		if( correct != null ) correct.clear();
-		
+	void pickedClear() {
 		if( pickedQuestions != null ) pickedQuestions.clear();
 		if( pickedAnswers != null ) pickedAnswers.clear();
 		if( pickedCorrect != null ) pickedCorrect.clear();
+	}
+	
+	void dataClear() {
+		if( questions != null ) questions.clear();
+		if( answers != null ) answers.clear();
+		if( correct != null ) correct.clear();
 	}
 }

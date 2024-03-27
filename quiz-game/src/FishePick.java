@@ -175,8 +175,6 @@ public class FishePick implements ActionListener, MouseListener{
 				ArrayList<String> questions = data.getQuestions();
 				ArrayList<String> correct = data.getCorrectAnswersOnly();
 				
-				data.dataClear();
-				
 				Fishe fishe = new Fishe( questions, correct );
 			}
 		}
