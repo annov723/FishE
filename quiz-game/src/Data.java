@@ -10,7 +10,7 @@ public class Data {
 	int size;
 	ArrayList<String> titles;
 	ArrayList<String> questions;
-	ArrayList<String> answers;
+	ArrayList<ArrayList<String>> answers;
 	ArrayList<Character> correct;
 
 	
@@ -66,7 +66,7 @@ public class Data {
 		return size;
 	}
 	
-	void generate_quiz( int howMany, String Title ) {
+	void generate_quiz( int howMany, String title ) {
 		try {
 			BufferedReader buff = new BufferedReader( new FileReader( file ) );
 			String line = null;
@@ -77,9 +77,24 @@ public class Data {
 			answers = new ArrayList<>();
 			correct = new ArrayList<>();
 			
-			String[] tit = line.split("\\|");
-			for( String element : tit ) titles.add( element );
+			for( int i = 0; i < titles.indexOf( title ) * 23; i++ ) line = buff.readLine();
+			
+			line = buff.readLine(); //line with questions
+			String[] text = line.split("\\|");
+			for( String element : text ) questions.add( element );
+			
+			
+			
+			
+			line = buff.readLine(); //line with questions
+			text = line.split("\\|");
+			for( String element : text ) correct.add( element.charAt(0) );
+			
+			System.out.println( questions );
+			System.out.println( correct );
 					
+			
+			
 			buff.close();
 		}
 		catch( Exception exp ){
@@ -96,7 +111,7 @@ public class Data {
 		return questions;
 	}
 	
-	ArrayList<String> get_answers() {
+	ArrayList<ArrayList<String>> get_answers() {
 		return answers;
 	}
 	
@@ -104,6 +119,17 @@ public class Data {
 		return correct;
 	}
 	
+	ArrayList<String> get_correct_answers() {
+		ArrayList<String> correctAnswers = new ArrayList<>();
+		
+		//find just correct answers from data
+		
+		return correctAnswers;
+	}
 	
-	
+	void data_clear() {
+		questions.clear();
+		answers.clear();
+		correct.clear();
+	}
 }

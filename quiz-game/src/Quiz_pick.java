@@ -378,8 +378,10 @@ public class Quiz_pick implements ActionListener, MouseListener{
 			data.generate_quiz( flagC, choice );
 			
 			ArrayList<String> questions = data.get_questions();
-			ArrayList<String> answers = data.get_answers();
+			ArrayList<ArrayList<String>> answers = data.get_answers();
 			ArrayList<Character> correct = data.get_correct();
+			
+			data.data_clear();
 			
 			Quiz quiz = new Quiz( flagT, questions, answers, correct );
         }

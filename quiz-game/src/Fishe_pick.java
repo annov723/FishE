@@ -173,7 +173,9 @@ public class Fishe_pick implements ActionListener, MouseListener{
 				//here I need to collect all the necessary data from dat.txt
 				data.generate_fishe( choice );
 				ArrayList<String> questions = data.get_questions();
-				ArrayList<String> correct = data.get_answers();
+				ArrayList<String> correct = data.get_correct_answers();
+				
+				data.data_clear();
 				
 				Fishe fishe = new Fishe( questions, correct );
 			}
