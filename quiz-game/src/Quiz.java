@@ -387,6 +387,8 @@ public class Quiz implements ActionListener, MouseListener{
 		if( heartCount == 0 ) {
 			questionNumberF.setFont( new Font( "Trebuchet MS", Font.BOLD, 35 ) );
 			questionNumberF.setText( "Oops! No hearts left." );
+			numberF.setVisible( false );
+			percentageF.setVisible( false );
 		}
 		else if( result.doubleValue() > 75 ) questionNumberF.setText( "Congrats!" );
 		else if( result.doubleValue() > 50 ) questionNumberF.setText( "Well done!" );
