@@ -18,6 +18,7 @@ The how-to-go-through-the-questions idea is based on the Code Bro YouTube tutori
 ## Description:
 #### Menu class
 - generates the game menu with 3 interactive buttons: "quiz", "FishE" and "exit"
+- menu frame is static so it is generated only once through the all gameplay
 
 #### Data class
 - handles all operations related to accessing quiz data from a dat.txt file
@@ -29,7 +30,9 @@ The how-to-go-through-the-questions idea is based on the Code Bro YouTube tutori
 - when the mouse enters the area of any title, it changes the color to encourage the user to click it
 
 #### QuizPick class
--
+- includes a scrollbar with all quiz titles provided by the data object
+- enables to pick the amount of time per question (5 sec, 10 sec or 15 sec) and the number of questions (5, 10, 20), the buttons used for this purpose can be unclicked and the decision which option to choose can be changed several times
+- when all options are selected, the quiz data is provided by the Data object and then sent to the Quiz object constructor
 
 #### Fishe class
 - enables iteration through all the questions and the correct answers for the specific topic
