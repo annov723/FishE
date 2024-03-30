@@ -11,7 +11,7 @@ FishE is an easy-to-use quizzes and flashcards app built with Java Swing:
 The how-to-go-through-the-questions idea is based on the Code Bro YouTube tutorial, which inspired me to make the whole app ;)
 
 ## Main objectives: <img align="right" img src="https://github.com/annov723/FishE/blob/master/quiz-game/mini.png" width=220>
-- designing a user-friendly interface by adding selfmade graphicsa and editing all interactive elements
+- designing a user-friendly interface by adding selfmade graphics and editing all interactive elements
 - implementing a scrollbar
 - utilizing a .txt file (dat.txt) to dynamically modify the number of quizzes, their titles and associated questions -> this way we can easily upload more and more quizzes to the app :)
 
@@ -31,7 +31,9 @@ The how-to-go-through-the-questions idea is based on the Code Bro YouTube tutori
 -
 
 #### Fishe class
--
+- enables iteration through all the questions and the correct answers for the specific topic
+- each time the same topic is displayed, the questions are randomized
+- includes a "back" button for returning to the main menu
 
 #### Quiz class
 - iterates through all questions provided by the data object
