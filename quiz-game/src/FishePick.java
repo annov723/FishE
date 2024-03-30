@@ -167,7 +167,7 @@ public class FishePick implements ActionListener, MouseListener{
 				
 				fishePickL.setVisible( false );
 				button.setForeground( Color.white );
-				Menu.frame.dispose();
+				Menu.frame.setVisible( false );
 				
 				//here I need to collect all the necessary data from dat.txt
 				data.generateFishe( choice );

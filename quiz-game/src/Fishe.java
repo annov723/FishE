@@ -36,7 +36,6 @@ public class Fishe implements ActionListener, MouseListener {
 	private int index = 0;
 	private int numberOfQuestions;
 	
-
 	private final int arrowMaxWidth = 110;
     private final int arrowMaxHeight = 110;
 	
@@ -150,11 +149,11 @@ public class Fishe implements ActionListener, MouseListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if( e.getSource()==backB ) {
+		if( e.getSource() == backB ) {
 			int result = JOptionPane.showConfirmDialog( frame, "Are you sure you want to go back to menu?", "", JOptionPane.YES_NO_OPTION );
             if ( result == JOptionPane.YES_OPTION ) {
             	frame.dispose();
-            	Menu menu = new Menu();
+            	Menu.frame.setVisible( true );
             }
             if ( result == JOptionPane.NO_OPTION ) {
             	

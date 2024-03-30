@@ -117,23 +117,7 @@ public class QuizPick implements ActionListener, MouseListener{
 		quizPickL.add( backgroundL ); 
 		quizPickL.setVisible( false );
 		
-		frame.add( quizPickL );
-	}
-	
-	
-	
-	void visible() {
-		quizPickL.setVisible( true );
-	}
-	
-	//the next window to create should be something like - two rows:
-	//	first with number of questions and the second one with time limits (maybe horizontal scrollbar?) 
-	//	a start button and unless the two options are set the user cannot click the start button
-	void timeAndCount() {
-		flagT = 0;
-		flagC = 0;
-		scrollP.setVisible( false );
-		
+		//druga tura
 		timeF.setBounds( 40, 90, 360, 50 );
 		timeF.setBackground( new Color ( 104, 105, 191 ) );
 		timeF.setFocusable( false );
@@ -142,7 +126,7 @@ public class QuizPick implements ActionListener, MouseListener{
 		timeF.setBorder( javax.swing.BorderFactory.createEmptyBorder() );
 		timeF.setEditable( false );
 		timeF.setHorizontalAlignment( JTextField.CENTER );
-		timeF.setVisible( true );
+		timeF.setVisible( false );
 		
 		countF.setBounds( 40, 285, 360, 50 );
 		countF.setBackground( new Color ( 104, 105, 191 ) );
@@ -152,7 +136,7 @@ public class QuizPick implements ActionListener, MouseListener{
 		countF.setBorder( javax.swing.BorderFactory.createEmptyBorder() );
 		countF.setEditable( false );
 		countF.setHorizontalAlignment( JTextField.CENTER );
-		countF.setVisible( true );
+		countF.setVisible( false );
 		
 		for( int i = 0; i < 3; i++ ) {
 			timeB[i] = new JButton();
@@ -164,7 +148,7 @@ public class QuizPick implements ActionListener, MouseListener{
 			timeB[i].setBorder( BorderFactory.createLineBorder( Color.white, 7 ) );
 			timeB[i].addActionListener( this );
 			timeB[i].addMouseListener( this );
-			timeB[i].setVisible( true );
+			timeB[i].setVisible( false );
 		}
 		timeB[0].setText( "5" );
 		timeB[1].setText( "10" );
@@ -180,7 +164,7 @@ public class QuizPick implements ActionListener, MouseListener{
 			countB[i].setBorder( BorderFactory.createLineBorder( Color.white, 7 ) );
 			countB[i].addActionListener( this );
 			countB[i].addMouseListener( this );
-			countB[i].setVisible( true );
+			countB[i].setVisible( false );
 		}
 		countB[0].setText( "5" );
 		countB[1].setText( "10" );
@@ -194,7 +178,7 @@ public class QuizPick implements ActionListener, MouseListener{
 		playB.setFocusable( false );
 		playB.addActionListener( this );
 		playB.addMouseListener( this );
-		playB.setVisible( true );
+		playB.setVisible( false );
 		
 		quizPickL.add( timeF );
 		quizPickL.add( countF );
@@ -205,8 +189,31 @@ public class QuizPick implements ActionListener, MouseListener{
 		quizPickL.add( playB );
 		quizPickL.add( backgroundL );
 		
+		frame.add( quizPickL );
+	}
+	
+	
+	
+	void visible() {
+		quizPickL.setVisible( true );
+	}
+	
+	//the next window to create should be something like - two rows:
+	//first with number of questions and the second one with time limits (maybe horizontal scrollbar?) 
+	//a start button and unless the two options are set the user cannot click the start button
+	void timeAndCount() {
 		flagT = 0;
 		flagC = 0;
+		scrollP.setVisible( false );
+		
+		timeF.setVisible( true );
+		countF.setVisible( true );
+		playB.setVisible( true );
+		for( int i = 0; i < 3; i++ ) {
+			countB[i].setVisible( true );
+			timeB[i].setVisible( true );
+		}
+		
 	}
 	
 	void scroll() {
@@ -392,7 +399,7 @@ public class QuizPick implements ActionListener, MouseListener{
 			else if( flagC == 2 ) flagC = 10;
 			else flagC = 20;
 			
-			Menu.frame.dispose();			
+			Menu.frame.setVisible( false );	
 			
 			//here I need to collect all the necessary data from dat.txt
 			data.generateQuiz( flagC, choice );

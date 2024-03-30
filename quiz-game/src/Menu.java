@@ -25,9 +25,8 @@ public class Menu implements ActionListener, MouseListener{
 	private JButton quizB = new JButton();
 	private JButton fisheB = new JButton();
 	
-	public static QuizPick pick = new QuizPick( frame );
 	public static FishePick fishes = new FishePick( frame );
-	
+	public static QuizPick pick = new QuizPick( frame );
 	
 	
 	Menu() {

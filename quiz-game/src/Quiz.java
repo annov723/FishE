@@ -29,25 +29,25 @@ public class Quiz implements ActionListener, MouseListener{
 	private BigDecimal result; //so the percentage doesn't be rounded
 	
 	private JFrame frame;
-	private JTextField questionNumberF;
-	private JTextField questionF;
-	private JButton buttonsB[];
-	private JButton answerB[];
-	private JLabel secondsL;
-	private JTextField numberF;
-	private JTextField percentageF;
+	private JTextField questionNumberF = new JTextField();
+	private JTextField questionF = new JTextField();
+	private JButton[] buttonsB = new JButton[numberOfAnswers];
+	private JButton[] answerB = new JButton[numberOfAnswers];
+	private JLabel secondsL = new JLabel();
+	private JTextField numberF = new JTextField();
+	private JTextField percentageF = new JTextField();
 	private String timeString = "00:";
 	
 	private ImageIcon icon = new ImageIcon( "mini.png" ); //an icon for menu display
 	
-	private JButton backB;
+	private JButton backB = new JButton();
 	private ImageIcon heart1 = new ImageIcon( "heart2.png" );
 	private ImageIcon heart2 = new ImageIcon( "heart2.png" );
 	private ImageIcon heart3 = new ImageIcon( "heart2.png" );
 	private JLabel heart1L;
 	private JLabel heart2L;
 	private JLabel heart3L;
-	private JPanel hearts;
+	private JPanel hearts = new JPanel();
 	private int heartCount = 3;
 	
 	Timer timer =  new Timer( 1000, new ActionListener() { //every one second
@@ -65,7 +65,6 @@ public class Quiz implements ActionListener, MouseListener{
 	});
 	
 	
-	
 	Quiz( int timeLimit, ArrayList<String> q, ArrayList<ArrayList<String>> a, ArrayList<Character> ch ) {
 		timeCounter = timeForQuestion = timeLimit;
 		numberOfQuestions = q.size();
@@ -73,7 +72,7 @@ public class Quiz implements ActionListener, MouseListener{
 		answers = new ArrayList<>( a );
 		correct = new ArrayList<>( ch );
 		
-		frame = new JFrame();
+		frame = new JFrame( "FishE" );
 		frame.setSize( 450, 800 );
 		frame.getContentPane().setBackground( new Color( 104, 105, 191 ) );
 		frame.setLayout( null );
@@ -81,9 +80,7 @@ public class Quiz implements ActionListener, MouseListener{
 		frame.setLocationRelativeTo( null ); //appears in the center
 		frame.setDefaultCloseOperation( JFrame.DO_NOTHING_ON_CLOSE );
 		frame.setIconImage( icon.getImage() );
-		frame.setTitle( "quiz" );
 		
-		questionNumberF = new JTextField();
 		questionNumberF.setBounds( 20, 80, 400, 50 );
 		questionNumberF.setBackground( new Color ( 104, 105, 191 ) );
 		questionNumberF.setFocusable( false );
@@ -93,7 +90,6 @@ public class Quiz implements ActionListener, MouseListener{
 		questionNumberF.setHorizontalAlignment( JTextField.CENTER );
 		questionNumberF.setEditable( false );
 		
-		questionF = new JTextField();
 		questionF.setBounds( 20, 130, 400, 50 );
 		questionF.setBackground( new Color ( 104, 105, 191 ) );
 		questionF.setFocusable( false );
@@ -103,7 +99,6 @@ public class Quiz implements ActionListener, MouseListener{
 		questionF.setEditable( false );
 		questionF.setHorizontalAlignment( JTextField.CENTER );
 		
-		buttonsB = new JButton[numberOfAnswers];
 		for( int i = 0; i < numberOfAnswers; i++ ) {
 			buttonsB[i] = new JButton();
 			buttonsB[i].setBounds( 50, 230 + ( i * 80 ), 50, 50 );
@@ -119,7 +114,6 @@ public class Quiz implements ActionListener, MouseListener{
 			buttonsB[i].setVisible( true );
 		}
 		
-		answerB = new JButton[numberOfAnswers];
 		for( int i = 0; i < numberOfAnswers; i++ ) {
 			answerB[i] = new JButton();
 			answerB[i].setBounds( 120, 230 + ( i * 80 ), 280, 50 );
@@ -134,7 +128,6 @@ public class Quiz implements ActionListener, MouseListener{
 			
 		}
 		
-		secondsL = new JLabel();
 		secondsL.setBounds( 330, 10, 100, 50 );
 		secondsL.setBackground( new Color( 104, 105, 191 ) );
 		secondsL.setForeground( Color.white );
@@ -142,7 +135,6 @@ public class Quiz implements ActionListener, MouseListener{
 		secondsL.setHorizontalAlignment( JLabel.CENTER );
 		secondsL.setVisible( false );
 		
-		numberF = new JTextField();
 		numberF.setBounds( 20, 230, 400, 80 );
 		numberF.setBackground( new Color( 104, 105, 191 ) );
 		numberF.setForeground( Color.white );
@@ -151,7 +143,6 @@ public class Quiz implements ActionListener, MouseListener{
 		numberF.setBorder( javax.swing.BorderFactory.createEmptyBorder() );
 		numberF.setHorizontalAlignment( JTextField.CENTER );
 		
-		percentageF = new JTextField();
 		percentageF.setBounds( 20, 300, 400, 50 );
 		percentageF.setBackground( new Color( 104, 105, 191 ) );
 		percentageF.setForeground( Color.white );
@@ -161,7 +152,6 @@ public class Quiz implements ActionListener, MouseListener{
 		percentageF.setHorizontalAlignment( JTextField.CENTER );
 		percentageF.setVisible( false );
 		
-		backB = new JButton();
 		backB.setBounds( 250, 665, 150, 65 );
 		backB.setForeground( Color.white );
 		backB.setFont( new Font( "Trebuchet MS", Font.PLAIN, 25 ) );
@@ -187,7 +177,6 @@ public class Quiz implements ActionListener, MouseListener{
 		heart3 = new ImageIcon( logoAfter );
 		heart3L = new JLabel( heart3 );
 		
-		hearts = new JPanel();
 		hearts.setLayout( new GridLayout( 1, 3 ) );
 		hearts.setBounds( 20, 20, 120, 40 );
 		hearts.setOpaque( false );
@@ -195,7 +184,8 @@ public class Quiz implements ActionListener, MouseListener{
 		hearts.add( heart2L );
 		hearts.add( heart3L );
 		
-		
+		numberF.setVisible( false );
+		percentageF.setVisible( false );
 		
 		frame.add( questionNumberF );
 		frame.add( questionF );
@@ -207,6 +197,8 @@ public class Quiz implements ActionListener, MouseListener{
 			frame.add( answerB[i] );
 		}
 		frame.add( backB );
+		frame.add( numberF );
+		frame.add( percentageF );
 		frame.setVisible( true );
 		
 		nextQuestion();
@@ -216,20 +208,19 @@ public class Quiz implements ActionListener, MouseListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		if( e.getSource()==backB && !percentageF.isVisible() ) {
+		if( e.getSource() == backB && !percentageF.isVisible() ) {
 			int result = JOptionPane.showConfirmDialog( frame, "Are you sure you want to go back to menu?\nYour progress will be lost.", "", JOptionPane.YES_NO_OPTION );
             if ( result == JOptionPane.YES_OPTION ) {
             	frame.dispose();
-            	Menu menu = new Menu();
+            	Menu.frame.setVisible( true );
             }
             if ( result == JOptionPane.NO_OPTION ) {
             	
             }
 		}
-		else if( e.getSource()==backB && percentageF.isVisible() ) {
-            frame.dispose();
-            Menu menu = new Menu();
-     
+		else if( e.getSource() == backB && percentageF.isVisible() ) {
+			frame.dispose();
+            Menu.frame.setVisible( true );
 		}
 		else {
 			for( int i = 0; i < numberOfAnswers; i++ ) {
@@ -270,7 +261,7 @@ public class Quiz implements ActionListener, MouseListener{
 	
 	
 	
-	private void nextQuestion() {
+	void nextQuestion() {
 		if( index >= numberOfQuestions || heartCount == 0 ) {
 			results();
 			return;
@@ -361,9 +352,6 @@ public class Quiz implements ActionListener, MouseListener{
 		else questionNumberF.setText( "Keep going!" );
 		
 		backB.setBounds( 142, 450, 150, 65 );
-	
-		frame.add( numberF );
-		frame.add( percentageF );
 	}
 
 	
