@@ -17,11 +17,11 @@ The how-to-go-through-the-questions idea is based on the Code Bro YouTube tutori
 
 ## Description:
 #### Menu class
-- generates the game menu with 3 interactive buttons: quiz, FishE and exit
+- generates the game menu with 3 interactive buttons: "quiz", "FishE" and "exit"
 
 #### Data class
 - handles all operations related to accessing quiz data from a dat.txt file
-- ensuring proper file formatting for smooth program eecution
+- ensures proper file formatting for smooth program eecution
 - all gathered data is stored in ArrayLists and passed to the Quiz and FishE objects in a randomized order
 
 #### FishePick class
@@ -34,7 +34,11 @@ The how-to-go-through-the-questions idea is based on the Code Bro YouTube tutori
 -
 
 #### Quiz class
--
+- iterates through all questions provided by the data object
+- the user starts with 3 "hearts" and losing all of them  results in the quiz ending immidiately with poor results
+- the user can set the number of questions and the timer in the PickQuiz object
+- during the game it is possible to go back to the main menu by clicking the "back" button at the bottom of the screen
+
 
 
 ## Solutions I am proud of:
