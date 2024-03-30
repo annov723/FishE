@@ -338,6 +338,7 @@ public class Quiz implements ActionListener, MouseListener{
 		questionNumberF.setBounds( 20, 160, 400, 70 );
 		questionF.setVisible( false );
 		numberF.setText( correctGuesses + "/" + numberOfQuestions );
+		numberF.setVisible( true );
 		percentageF.setText( result.toString() + "%" );
 		percentageF.setVisible( true );
 		if( heartCount == 0 ) {
