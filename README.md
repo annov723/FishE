@@ -25,7 +25,8 @@ The how-to-go-through-the-questions idea is based on the Code Bro YouTube tutori
 - all gathered data is stored in ArrayLists and passed to the Quiz and FishE objects in a randomized order
 
 #### FishePick class
--
+- includes a scrollbar with all quiz titles provided by the data object
+- when the mouse enters the area of any title, it changes the color to encourage the user to click it
 
 #### QuizPick class
 -
