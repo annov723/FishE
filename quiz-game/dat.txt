@@ -49,27 +49,27 @@ mitochondrion|cytoplasm|chloroplast|cell nucleus
 cytoplasm|cell nucleus|chloropast|mitochondrion
 A|A|D|A|B|B|C|A|B|D|A|C|B|A|A|B|B|C|A|C
 
-SI unit of force?|Gravitational potential energy:|SI unit of power?|SI unit of electric current?|SI unit of electric charge?|Newton's second law?|Formula for momentum?|Speed of light in a vacuum:|What is the SI unit of energy?|Formula for kinetic energy:|Ohm's Law:|SI unit of frequency:|SI unit of capacitance:|SI unit of magnetic field strength:|Formula for density:|SI unit of temperature:|Two types of lenses are NOT:|Force exerted by a spring:|Electric power in a circuit:|Work equation:
-Newton|Watt|Farad|Ampere
-mgh|mFg|hI/m|mg/h
-Tesla|Ampere|Newton|Watt
-Ampere|Coulomb|Watt|Volt
-Watt|Coulomb|Kelvin|Volt
-F = mh|F = ma|g/m = Fa|Fv = ma
-h = mgp|pm = ha|p = mv|p = ma
-c = 3 x 10^8 m/s|c = 3 x 10^8 m/h|c = 3 x 10^4 km/s|c = 3 x 10^4 m/s
-Volt|Joule|Ampere|Watt
-E = (1/2)*m*(g^2)|E = (1/4)*m*(v^2)|E = (1/2)*m*(v^3)|E = (1/2)*m*(v^2)
-V = IR|I = RV|V = JR|VJ = I
-Joule|Volt|Hertz|Coulomb
-Volt|Farad|Tesla|Newton
-Tesla|Rad|Watt|Ampere
-d = m/V|d = V/m|d = Vg/m|V = mgh
-Ampere|Kelvin|Rad|Watt
-cylindrical and convex|convex and annex|concave and cylindrical|convex and concave
-F = mgh|F = pv|F = -kx|F = xm
-P = VI|P =WJ|W = PI|W = P/V
-W = Ed|W = mgV|W = Fd|W = Fm
+A male horse:|A female horse:|A horse's hoof covering:|A horse's sleeping area:|Protects from insects:|walk, ___, gallop|In horse's mouth:|Around a horse's belly:|To guide the horse:|To support raider's foot:|Pants for a rider:|A not castrated male:|Series of movements:|All 3 disciplines together:|trot, ___, gallop|Getting on a horse:|Above the horse's hoof:|From the knee to the ankle:|Senior horse has:|Filly is a female horse:
+stallion|foal|gelding|mare
+mare|stallion|gelding|foal
+stirrup|gaiter|frog|horseshoe
+stable|paddock|corral|pasture
+blanket|fly sheet|bridle|lunge
+canter|trot|run|piaffe
+bridle|girth|bit|martingale
+girth|halter|bridle|breastplate
+saddle|reins|stirrups|girth
+reins|horseboots|bridle|stirrups
+breeches|pantalones|cannons|martingales
+mare|filly|colt|stallion
+eventing|dressage|hunter|show jumping
+eventing|hunter|dressage|cross-country
+canter|walk|run|gait
+gait|mount|trot|jump
+croup|coronet|hock|cannon
+coffin bone|coronet|cannon|hoof
+15 yo or older|20 yo or older|10 yo or older|30 yo or older
+under 2 yo|under 10 yo|under 4 yo|under 1 yo
 A|A|D|A|B|B|C|A|B|D|A|C|B|A|A|B|B|C|A|C
 
 SI unit of force?|Gravitational potential energy:|SI unit of power?|SI unit of electric current?|SI unit of electric charge?|Newton's second law?|Formula for momentum?|Speed of light in a vacuum:|What is the SI unit of energy?|Formula for kinetic energy:|Ohm's Law:|SI unit of frequency:|SI unit of capacitance:|SI unit of magnetic field strength:|Formula for density:|SI unit of temperature:|Two types of lenses are NOT:|Force exerted by a spring:|Electric power in a circuit:|Work equation:
