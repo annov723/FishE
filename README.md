@@ -16,22 +16,24 @@ The how-to-go-through-the-questions idea is based on the Code Bro YouTube tutori
 - utilizing a .txt file (dat.txt) to dynamically modify the number of quizzes, their titles and associated questions -> this way we can easily upload more and more quizzes to the app :)
 
 ## Description:
-#### Menu Class
+#### Menu class
+- generates the game menu with 3 interactive buttons: quiz, FishE and exit
+
+#### Data class
+- handles all operations related to accessing quiz data from a dat.txt file
+- ensuring proper file formatting for smooth program eecution
+- all gathered data is stored in ArrayLists and passed to the Quiz and FishE objects in a randomized order
+
+#### FishePick class
 -
 
-#### Data Class
+#### QuizPick class
 -
 
-#### FishePick Class
+#### Fishe class
 -
 
-#### QuizPick Class
--
-
-#### Fishe Class
--
-
-#### Quiz Class
+#### Quiz class
 -
 
 
