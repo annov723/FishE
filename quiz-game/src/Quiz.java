@@ -313,7 +313,6 @@ public class Quiz implements ActionListener, MouseListener{
 		
 		//delay - after the delay, the action is performed
 		Timer pause =  new Timer( time, new ActionListener() {
-			
 			@Override
 			public void actionPerformed( ActionEvent e ) {
 				for( int i = 0; i < numberOfAnswers; i++ ) {

@@ -78,10 +78,12 @@ public class Data {
 	
 	void generateQuiz( final int howMany, final String title ) {
 		if( chosenTitle != titles.indexOf( title ) ) getQuizFromFile( title );
-		generateRandom( howMany );
+		int numberTmp = howMany;
+		generateRandom( numberTmp );
 	}
 	
 	void generateRandom( final int howMany ) {
+		pickedClear();
 		Random rand = new Random();
 		int randomIndex;
 		for( int i = 0; i < howMany; i++ ) {
@@ -99,7 +101,6 @@ public class Data {
 	
 	void getQuizFromFile( final String title ) {
 		try {
-			pickedClear();
 			dataClear();
 			
 			BufferedReader buff = new BufferedReader( new FileReader( file ) );

@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
@@ -13,6 +15,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
@@ -361,6 +364,13 @@ public class QuizPick implements ActionListener, MouseListener{
             }
         }
 		
+		for( JButton button : titlesB ) {
+			if( e.getSource() == button ) {
+				choice = button.getText();
+				timeAndCount();
+			}
+		}
+		
 		if( e.getSource() == playB && flagC != 0 && flagT != 0 ) {
 			quizPickL.setVisible( false );
 			for( int i = 0; i < timeB.length; i++ ) {
@@ -374,34 +384,25 @@ public class QuizPick implements ActionListener, MouseListener{
 			playB.setBackground( Color.white );
 			scroll();
 			
+			if( flagT == 1 ) flagT = 5;
+			else if( flagT == 2 ) flagT = 10;
+			else flagT = 15;
 			
-			//here I need to collect all the necessary data from dat.txt
 			if( flagC == 1 ) flagC = 5;
 			else if( flagC == 2 ) flagC = 10;
 			else flagC = 20;
+			
+			Menu.frame.dispose();			
+			
+			//here I need to collect all the necessary data from dat.txt
 			data.generateQuiz( flagC, choice );
 			
 			ArrayList<String> questions = data.getQuestions();
 			ArrayList<ArrayList<String>> answers = data.getAnswers();
 			ArrayList<Character> correct = data.getCorrect();
 		
-			if( flagT == 1 ) flagT = 5;
-			else if( flagT == 2 ) flagT = 10;
-			else flagT = 15;
-			
-			Menu.frame.dispose();
 			Quiz quiz = new Quiz( flagT, questions, answers, correct );
-        }
-		
-		for( JButton button : titlesB ) {
-			if( e.getSource() == button ) {
-				choice = button.getText();
-				timeAndCount();
-			}
-		}
-		
-	}
-
-	
+        }		
+	}	
 	
 }

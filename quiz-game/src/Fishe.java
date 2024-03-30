@@ -27,8 +27,8 @@ public class Fishe implements ActionListener, MouseListener {
 	private JButton backB = new JButton();
 	private JTextField answerF = new JTextField();
 	private JTextField questionF = new JTextField();
-	JLabel arrowRightL;
-	JLabel arrowLeftL;
+	private JLabel arrowRightL;
+	private JLabel arrowLeftL;
 	private JLabel  backgroundL = new JLabel( new ImageIcon( "background.png" ) );
 	
 	private ArrayList<String> questions;
