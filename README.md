@@ -54,4 +54,4 @@ The how-to-go-through-the-questions idea is based on the Code Bro YouTube tutori
 - if the user selects the same topic for the second time in a row, the program does not reload data from the file. Instead, the data from the previous game is used as it is still stored in the Data object in ArrayLists
 
 ## Things to work on:
-- when clicking the FishE logo an Ester egg feature is activated -> a screen with jumping fishes appears and users can tap the fishes to make them "pop". To return to the menu screen, users must "pop" all the fishes
+- when clicking the FishE logo an easter egg feature is activated -> a screen with jumping fishes appears and users can tap the fishes to make them "pop". To return to the menu screen, users must "pop" all the fishes
